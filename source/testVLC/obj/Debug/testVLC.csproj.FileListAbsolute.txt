@@ -1,0 +1,14 @@
+C:\Users\long.truong\source\repos\testVLC\testVLC\bin\Debug\testVLC.exe.config
+C:\Users\long.truong\source\repos\testVLC\testVLC\bin\Debug\testVLC.exe
+C:\Users\long.truong\source\repos\testVLC\testVLC\bin\Debug\testVLC.pdb
+C:\Users\long.truong\source\repos\testVLC\testVLC\bin\Debug\Vlc.DotNet.Core.dll
+C:\Users\long.truong\source\repos\testVLC\testVLC\bin\Debug\Vlc.DotNet.Core.Interops.dll
+C:\Users\long.truong\source\repos\testVLC\testVLC\bin\Debug\Vlc.DotNet.Forms.dll
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.csproj.AssemblyReference.cache
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.Form1.resources
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.Properties.Resources.resources
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.csproj.GenerateResource.cache
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.csproj.CoreCompileInputs.cache
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.csproj.Up2Date
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.exe
+C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.pdb
