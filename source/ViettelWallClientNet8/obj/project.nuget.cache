@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "2rqzqaiCJfY=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\long.truong\\source\\repos\\ViettelWallClientNet8\\ViettelWallClientNet8\\ViettelWallClientNet8.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\long.truong\\.nuget\\packages\\vlc.dotnet.core\\3.1.0\\vlc.dotnet.core.3.1.0.nupkg.sha512",
+    "C:\\Users\\long.truong\\.nuget\\packages\\vlc.dotnet.core.interops\\3.1.0\\vlc.dotnet.core.interops.3.1.0.nupkg.sha512",
+    "C:\\Users\\long.truong\\.nuget\\packages\\vlc.dotnet.forms\\3.1.0\\vlc.dotnet.forms.3.1.0.nupkg.sha512"
+  ],
+  "logs": []
+}
