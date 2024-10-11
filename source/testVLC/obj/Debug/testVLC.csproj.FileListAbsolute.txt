@@ -12,3 +12,17 @@ C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.csproj.CoreC
 C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.csproj.Up2Date
 C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.exe
 C:\Users\long.truong\source\repos\testVLC\testVLC\obj\Debug\testVLC.pdb
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\bin\Debug\testVLC.exe.config
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\bin\Debug\testVLC.exe
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\bin\Debug\testVLC.pdb
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\bin\Debug\Vlc.DotNet.Core.dll
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\bin\Debug\Vlc.DotNet.Core.Interops.dll
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\bin\Debug\Vlc.DotNet.Forms.dll
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.csproj.AssemblyReference.cache
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.Form1.resources
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.Properties.Resources.resources
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.csproj.GenerateResource.cache
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.csproj.CoreCompileInputs.cache
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.csproj.Up2Date
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.exe
+C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\testVLC\obj\Debug\testVLC.pdb
