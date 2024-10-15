@@ -73,9 +73,29 @@ namespace ViettelWallClientNet8.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap black_live_icon {
+            get {
+                object obj = ResourceManager.GetObject("black_live_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap black_replay_icon {
             get {
                 object obj = ResourceManager.GetObject("black_replay_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap red_alert_icon {
+            get {
+                object obj = ResourceManager.GetObject("red_alert_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -93,9 +113,69 @@ namespace ViettelWallClientNet8.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap red_live_icon1 {
+        internal static System.Drawing.Bitmap red_replay_icon {
             get {
-                object obj = ResourceManager.GetObject("red_live_icon1", resourceCulture);
+                object obj = ResourceManager.GetObject("red_replay_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_alert_icon {
+            get {
+                object obj = ResourceManager.GetObject("white_alert_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_full_screen_icon {
+            get {
+                object obj = ResourceManager.GetObject("white_full_screen_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_live_icon {
+            get {
+                object obj = ResourceManager.GetObject("white_live_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_minimize_screen_icon {
+            get {
+                object obj = ResourceManager.GetObject("white_minimize_screen_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_replay_icon {
+            get {
+                object obj = ResourceManager.GetObject("white_replay_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap white_tracking_on_icon {
+            get {
+                object obj = ResourceManager.GetObject("white_tracking_on_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

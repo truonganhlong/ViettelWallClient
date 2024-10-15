@@ -118,16 +118,40 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="red_live_icon1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Asset\red_live_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white_alert_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\white_alert_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="black_replay_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Asset\black_replay_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="red_live_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Asset\red_live_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Asset\Icon\black_replay_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="black_alert_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Asset\black_alert_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+    <value>..\Asset\Icon\black_alert_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white_minimize_screen_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\white_minimize_screen_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="black_live_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\black_live_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_live_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\red_live_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white_replay_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\white_replay_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white_live_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\white_live_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_alert_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\red_alert_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white_full_screen_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\white_full_screen_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="red_replay_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\red_replay_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="white_tracking_on_icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Asset\Icon\white_tracking_on_icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
