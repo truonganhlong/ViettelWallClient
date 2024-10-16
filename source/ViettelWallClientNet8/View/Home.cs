@@ -41,6 +41,9 @@ namespace ViettelWallClientNet8.View
         private float original_full_screen_label_location_x;
         private float original_full_screen_label_location_y;
         private float original_full_screnn_label_font_size;
+        private bool is_click_camera_tab = true;
+        private bool is_click_layout_tab = false;
+        private bool is_click_tracking_tab = false;
         public Home()
         {
             InitializeComponent();
@@ -99,13 +102,13 @@ namespace ViettelWallClientNet8.View
             tracking_on_label.Height = (int)(original_tracking_on_label_height * heightResizeRatio);
             tracking_on_label.Font = new Font(tracking_on_label.Font.FontFamily, original_tracking_on_label_font_size * minResizeRatio);
             tracking_on_label.Location = new Point((int)(original_tracking_on_label_location_x * widthResizeRatio), (int)(original_tracking_on_label_location_y * heightResizeRatio));
-            if(original_icon_size_type2 != 0 && tracking_on_label.Image != null)
+            if (original_icon_size_type2 != 0 && tracking_on_label.Image != null)
             {
                 Size newSize = new Size((int)(tracking_on_label.Image.Width * minResizeRatio), (int)(tracking_on_label.Image.Height * minResizeRatio));
                 Image resizedImage = new Bitmap(tracking_on_label.Image, newSize);
                 tracking_on_label.Image = resizedImage;
             }
-            
+
             full_screen_label.Width = (int)(original_full_screen_label_width * widthResizeRatio);
             full_screen_label.Height = (int)(original_full_screen_label_height * heightResizeRatio);
             full_screen_label.Font = new Font(full_screen_label.Font.FontFamily, original_full_screnn_label_font_size * minResizeRatio);
@@ -202,16 +205,57 @@ namespace ViettelWallClientNet8.View
             {
                 this.WindowState = FormWindowState.Normal;
                 full_screen_label.Image = Properties.Resources.white_full_screen_icon;
-            } else if(this.WindowState == FormWindowState.Normal)
+            }
+            else if (this.WindowState == FormWindowState.Normal)
             {
                 this.WindowState = FormWindowState.Maximized;
                 full_screen_label.Image = Properties.Resources.white_minimize_screen_icon;
             }
         }
+        private void cameraTabBorderPaint(object sender, PaintEventArgs e)
+        {
+            if(is_click_camera_tab && !is_click_layout_tab && !is_click_tracking_tab)
+            {
+                
+            }
+        }
+        private void layoutTabBorderPaint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void trackingTabBorderPaint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void cameraTabClick(object sender, EventArgs e)
+        {
+            is_click_camera_tab = true;
+            is_click_layout_tab = false;
+            is_click_tracking_tab = false;
+            //set camera content
+        }
+
+        private void layoutTabClick(object sender, EventArgs e)
+        {
+            is_click_camera_tab = false;
+            is_click_layout_tab = true;
+            is_click_tracking_tab = false;
+            //set layout content
+        }
+
+        private void trackingTabClick(object sender, EventArgs e)
+        {
+            is_click_camera_tab = false;
+            is_click_layout_tab = false;
+            is_click_tracking_tab = true;
+            //set tracking content
+        }
 
         private void tracking_on_label_Click(object sender, EventArgs e)
         {
-
+            //later
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------//
@@ -228,7 +272,7 @@ namespace ViettelWallClientNet8.View
 
         private float returnMinSizeRatio()
         {
-            if(this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
             {
                 return 1;
             }
