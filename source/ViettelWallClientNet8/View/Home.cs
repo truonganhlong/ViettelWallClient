@@ -214,42 +214,96 @@ namespace ViettelWallClientNet8.View
         }
         private void cameraTabBorderPaint(object sender, PaintEventArgs e)
         {
-            if(is_click_camera_tab && !is_click_layout_tab && !is_click_tracking_tab)
+            if (is_click_camera_tab && !is_click_layout_tab && !is_click_tracking_tab)
             {
-                
+                e.Graphics.Clear(camera_tab_panel.BackColor);
+                using (Pen pen = new Pen(border_color, border_thickness))
+                {
+                    e.Graphics.DrawLine(pen, 0, 0, camera_tab_panel.Width - 1, camera_tab_panel.Height);
+                    e.Graphics.DrawLine(pen, camera_tab_panel.Width - 1, 0, camera_tab_panel.Width - 1, camera_tab_panel.Height);
+                }
+            }
+            else if (!is_click_camera_tab)
+            {
+                e.Graphics.Clear(camera_tab_panel.BackColor);
+                using (Pen pen = new Pen(border_color, border_thickness))
+                {
+                    e.Graphics.DrawRectangle(pen, 0, 0, camera_tab_panel.Width - 1, camera_tab_panel.Height - 1);
+                }
             }
         }
         private void layoutTabBorderPaint(object sender, PaintEventArgs e)
         {
-
+            if (is_click_layout_tab && !is_click_camera_tab && !is_click_tracking_tab)
+            {
+                e.Graphics.Clear(layout_tab_panel.BackColor);
+                using (Pen pen = new Pen(border_color, border_thickness))
+                {
+                    e.Graphics.DrawLine(pen, 0, 0, layout_tab_panel.Width - 1, layout_tab_panel.Height);
+                    e.Graphics.DrawLine(pen, layout_tab_panel.Width - 1, 0, layout_tab_panel.Width - 1, layout_tab_panel.Height);
+                }
+            }
+            else if (!is_click_layout_tab)
+            {
+                e.Graphics.Clear(layout_tab_panel.BackColor);
+                using (Pen pen = new Pen(border_color, border_thickness))
+                {
+                    e.Graphics.DrawRectangle(pen, 0, 0, layout_tab_panel.Width - 1, layout_tab_panel.Height - 1);
+                }
+            }
         }
 
         private void trackingTabBorderPaint(object sender, PaintEventArgs e)
         {
-
+            if (is_click_tracking_tab && !is_click_layout_tab && !is_click_camera_tab)
+            {
+                e.Graphics.Clear(tracking_tab_panel.BackColor);
+                using (Pen pen = new Pen(border_color, border_thickness))
+                {
+                    e.Graphics.DrawLine(pen, 0, 0, tracking_tab_panel.Width - 1, tracking_tab_panel.Height);
+                    e.Graphics.DrawLine(pen, tracking_tab_panel.Width - 1, 0, tracking_tab_panel.Width - 1, tracking_tab_panel.Height);
+                }
+            }
+            else if (!is_click_tracking_tab)
+            {
+                e.Graphics.Clear(tracking_tab_panel.BackColor);
+                using (Pen pen = new Pen(border_color, border_thickness))
+                {
+                    e.Graphics.DrawRectangle(pen, 0, 0, tracking_tab_panel.Width - 1, tracking_tab_panel.Height - 1);
+                }
+            }
         }
 
-        private void cameraTabClick(object sender, EventArgs e)
+        private void liveCameraLabelClick(object sender, EventArgs e)
         {
             is_click_camera_tab = true;
             is_click_layout_tab = false;
             is_click_tracking_tab = false;
+            camera_tab_label.BackColor = Color.FromArgb(64, 64, 64);
+            layout_tab_label.BackColor = Color.FromArgb(190, 186, 191);
+            tracking_tab_label.BackColor = Color.FromArgb(190, 186, 191);
             //set camera content
         }
 
-        private void layoutTabClick(object sender, EventArgs e)
+        private void liveLayoutLabelClick(object sender, EventArgs e)
         {
             is_click_camera_tab = false;
             is_click_layout_tab = true;
             is_click_tracking_tab = false;
+            layout_tab_label.BackColor = Color.FromArgb(64, 64, 64);
+            camera_tab_label.BackColor = Color.FromArgb(190, 186, 191);
+            tracking_tab_label.BackColor = Color.FromArgb(190, 186, 191);
             //set layout content
         }
 
-        private void trackingTabClick(object sender, EventArgs e)
+        private void liveTrackingLabelClick(object sender, EventArgs e)
         {
             is_click_camera_tab = false;
             is_click_layout_tab = false;
             is_click_tracking_tab = true;
+            tracking_tab_label.BackColor = Color.FromArgb(64, 64, 64);
+            layout_tab_label.BackColor = Color.FromArgb(190, 186, 191);
+            camera_tab_label.BackColor = Color.FromArgb(190, 186, 191);
             //set tracking content
         }
 

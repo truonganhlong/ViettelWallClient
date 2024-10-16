@@ -233,7 +233,7 @@
             ((System.ComponentModel.ISupportInitialize)vlcControl99).BeginInit();
             ((System.ComponentModel.ISupportInitialize)vlcControl100).BeginInit();
             SuspendLayout();
-            var vlcLibDirectory = new System.IO.DirectoryInfo(@"C:\Users\long.truong\VLC");
+            var vlcDirectory = new DirectoryInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VLC"));
             // 
             // vlcControl1
             // 
@@ -244,7 +244,7 @@
             vlcControl1.Spu = -1;
             vlcControl1.TabIndex = 0;
             vlcControl1.Text = "vlcControl1";
-            vlcControl1.VlcLibDirectory = vlcLibDirectory;
+            vlcControl1.VlcLibDirectory = vlcDirectory;
             vlcControl1.VlcMediaplayerOptions = null;
             // 
             // vlcControl2
@@ -256,7 +256,7 @@
             vlcControl2.Spu = -1;
             vlcControl2.TabIndex = 1;
             vlcControl2.Text = "vlcControl2";
-            vlcControl2.VlcLibDirectory = vlcLibDirectory;
+            vlcControl2.VlcLibDirectory = vlcDirectory;
             vlcControl2.VlcMediaplayerOptions = null;
             // 
             // vlcControl3
@@ -268,7 +268,7 @@
             vlcControl3.Spu = -1;
             vlcControl3.TabIndex = 2;
             vlcControl3.Text = "vlcControl3";
-            vlcControl3.VlcLibDirectory = vlcLibDirectory;
+            vlcControl3.VlcLibDirectory = vlcDirectory;
             vlcControl3.VlcMediaplayerOptions = null;
             // 
             // vlcControl4
@@ -280,7 +280,7 @@
             vlcControl4.Spu = -1;
             vlcControl4.TabIndex = 3;
             vlcControl4.Text = "vlcControl4";
-            vlcControl4.VlcLibDirectory = vlcLibDirectory;
+            vlcControl4.VlcLibDirectory = vlcDirectory;
             vlcControl4.VlcMediaplayerOptions = null;
             // 
             // vlcControl5
@@ -292,7 +292,7 @@
             vlcControl5.Spu = -1;
             vlcControl5.TabIndex = 4;
             vlcControl5.Text = "vlcControl5";
-            vlcControl5.VlcLibDirectory = vlcLibDirectory;
+            vlcControl5.VlcLibDirectory = vlcDirectory;
             vlcControl5.VlcMediaplayerOptions = null;
             // 
             // vlcControl6
@@ -304,7 +304,7 @@
             vlcControl6.Spu = -1;
             vlcControl6.TabIndex = 5;
             vlcControl6.Text = "vlcControl6";
-            vlcControl6.VlcLibDirectory = vlcLibDirectory;
+            vlcControl6.VlcLibDirectory = vlcDirectory;
             vlcControl6.VlcMediaplayerOptions = null;
             // 
             // vlcControl7
@@ -316,7 +316,7 @@
             vlcControl7.Spu = -1;
             vlcControl7.TabIndex = 6;
             vlcControl7.Text = "vlcControl7";
-            vlcControl7.VlcLibDirectory = vlcLibDirectory;
+            vlcControl7.VlcLibDirectory = vlcDirectory;
             vlcControl7.VlcMediaplayerOptions = null;
             // 
             // vlcControl8
@@ -328,7 +328,7 @@
             vlcControl8.Spu = -1;
             vlcControl8.TabIndex = 7;
             vlcControl8.Text = "vlcControl8";
-            vlcControl8.VlcLibDirectory = vlcLibDirectory;
+            vlcControl8.VlcLibDirectory = vlcDirectory;
             vlcControl8.VlcMediaplayerOptions = null;
             // 
             // vlcControl9
@@ -340,7 +340,7 @@
             vlcControl9.Spu = -1;
             vlcControl9.TabIndex = 8;
             vlcControl9.Text = "vlcControl9";
-            vlcControl9.VlcLibDirectory = vlcLibDirectory;
+            vlcControl9.VlcLibDirectory = vlcDirectory;
             vlcControl9.VlcMediaplayerOptions = null;
             // 
             // vlcControl10
@@ -352,7 +352,7 @@
             vlcControl10.Spu = -1;
             vlcControl10.TabIndex = 9;
             vlcControl10.Text = "vlcControl10";
-            vlcControl10.VlcLibDirectory = vlcLibDirectory;
+            vlcControl10.VlcLibDirectory = vlcDirectory;
             vlcControl10.VlcMediaplayerOptions = null;
             // 
             // button1
@@ -401,7 +401,7 @@
             vlcControl11.Spu = -1;
             vlcControl11.TabIndex = 23;
             vlcControl11.Text = "vlcControl11";
-            vlcControl11.VlcLibDirectory = vlcLibDirectory;
+            vlcControl11.VlcLibDirectory = vlcDirectory;
             vlcControl11.VlcMediaplayerOptions = null;
             // 
             // vlcControl12
@@ -413,7 +413,7 @@
             vlcControl12.Spu = -1;
             vlcControl12.TabIndex = 22;
             vlcControl12.Text = "vlcControl12";
-            vlcControl12.VlcLibDirectory = vlcLibDirectory;
+            vlcControl12.VlcLibDirectory = vlcDirectory;
             vlcControl12.VlcMediaplayerOptions = null;
             // 
             // vlcControl13
@@ -425,7 +425,7 @@
             vlcControl13.Spu = -1;
             vlcControl13.TabIndex = 21;
             vlcControl13.Text = "vlcControl13";
-            vlcControl13.VlcLibDirectory = vlcLibDirectory;
+            vlcControl13.VlcLibDirectory = vlcDirectory;
             vlcControl13.VlcMediaplayerOptions = null;
             // 
             // vlcControl14
@@ -437,7 +437,7 @@
             vlcControl14.Spu = -1;
             vlcControl14.TabIndex = 20;
             vlcControl14.Text = "vlcControl14";
-            vlcControl14.VlcLibDirectory = vlcLibDirectory;
+            vlcControl14.VlcLibDirectory = vlcDirectory;
             vlcControl14.VlcMediaplayerOptions = null;
             // 
             // vlcControl15
@@ -449,7 +449,7 @@
             vlcControl15.Spu = -1;
             vlcControl15.TabIndex = 19;
             vlcControl15.Text = "vlcControl15";
-            vlcControl15.VlcLibDirectory = vlcLibDirectory;
+            vlcControl15.VlcLibDirectory = vlcDirectory;
             vlcControl15.VlcMediaplayerOptions = null;
             // 
             // vlcControl16
@@ -461,7 +461,7 @@
             vlcControl16.Spu = -1;
             vlcControl16.TabIndex = 18;
             vlcControl16.Text = "vlcControl16";
-            vlcControl16.VlcLibDirectory = vlcLibDirectory;
+            vlcControl16.VlcLibDirectory = vlcDirectory;
             vlcControl16.VlcMediaplayerOptions = null;
             // 
             // vlcControl17
@@ -473,7 +473,7 @@
             vlcControl17.Spu = -1;
             vlcControl17.TabIndex = 17;
             vlcControl17.Text = "vlcControl17";
-            vlcControl17.VlcLibDirectory = vlcLibDirectory;
+            vlcControl17.VlcLibDirectory = vlcDirectory;
             vlcControl17.VlcMediaplayerOptions = null;
             // 
             // vlcControl18
@@ -485,7 +485,7 @@
             vlcControl18.Spu = -1;
             vlcControl18.TabIndex = 16;
             vlcControl18.Text = "vlcControl18";
-            vlcControl18.VlcLibDirectory = vlcLibDirectory;
+            vlcControl18.VlcLibDirectory = vlcDirectory;
             vlcControl18.VlcMediaplayerOptions = null;
             // 
             // vlcControl19
@@ -497,7 +497,7 @@
             vlcControl19.Spu = -1;
             vlcControl19.TabIndex = 15;
             vlcControl19.Text = "vlcControl19";
-            vlcControl19.VlcLibDirectory = vlcLibDirectory;
+            vlcControl19.VlcLibDirectory = vlcDirectory;
             vlcControl19.VlcMediaplayerOptions = null;
             // 
             // vlcControl20
@@ -509,7 +509,7 @@
             vlcControl20.Spu = -1;
             vlcControl20.TabIndex = 14;
             vlcControl20.Text = "vlcControl20";
-            vlcControl20.VlcLibDirectory = vlcLibDirectory;
+            vlcControl20.VlcLibDirectory = vlcDirectory;
             vlcControl20.VlcMediaplayerOptions = null;
             // 
             // vlcControl21
@@ -521,7 +521,7 @@
             vlcControl21.Spu = -1;
             vlcControl21.TabIndex = 33;
             vlcControl21.Text = "vlcControl21";
-            vlcControl21.VlcLibDirectory = vlcLibDirectory;
+            vlcControl21.VlcLibDirectory = vlcDirectory;
             vlcControl21.VlcMediaplayerOptions = null;
             // 
             // vlcControl22
@@ -533,7 +533,7 @@
             vlcControl22.Spu = -1;
             vlcControl22.TabIndex = 32;
             vlcControl22.Text = "vlcControl22";
-            vlcControl22.VlcLibDirectory = vlcLibDirectory;
+            vlcControl22.VlcLibDirectory = vlcDirectory;
             vlcControl22.VlcMediaplayerOptions = null;
             // 
             // vlcControl23
@@ -545,7 +545,7 @@
             vlcControl23.Spu = -1;
             vlcControl23.TabIndex = 31;
             vlcControl23.Text = "vlcControl23";
-            vlcControl23.VlcLibDirectory = vlcLibDirectory;
+            vlcControl23.VlcLibDirectory = vlcDirectory;
             vlcControl23.VlcMediaplayerOptions = null;
             // 
             // vlcControl24
@@ -557,7 +557,7 @@
             vlcControl24.Spu = -1;
             vlcControl24.TabIndex = 30;
             vlcControl24.Text = "vlcControl24";
-            vlcControl24.VlcLibDirectory = vlcLibDirectory;
+            vlcControl24.VlcLibDirectory = vlcDirectory;
             vlcControl24.VlcMediaplayerOptions = null;
             // 
             // vlcControl25
@@ -569,7 +569,7 @@
             vlcControl25.Spu = -1;
             vlcControl25.TabIndex = 29;
             vlcControl25.Text = "vlcControl25";
-            vlcControl25.VlcLibDirectory = vlcLibDirectory;
+            vlcControl25.VlcLibDirectory = vlcDirectory;
             vlcControl25.VlcMediaplayerOptions = null;
             // 
             // vlcControl26
@@ -581,7 +581,7 @@
             vlcControl26.Spu = -1;
             vlcControl26.TabIndex = 28;
             vlcControl26.Text = "vlcControl26";
-            vlcControl26.VlcLibDirectory = vlcLibDirectory;
+            vlcControl26.VlcLibDirectory = vlcDirectory;
             vlcControl26.VlcMediaplayerOptions = null;
             // 
             // vlcControl27
@@ -593,7 +593,7 @@
             vlcControl27.Spu = -1;
             vlcControl27.TabIndex = 27;
             vlcControl27.Text = "vlcControl27";
-            vlcControl27.VlcLibDirectory = vlcLibDirectory;
+            vlcControl27.VlcLibDirectory = vlcDirectory;
             vlcControl27.VlcMediaplayerOptions = null;
             // 
             // vlcControl28
@@ -605,7 +605,7 @@
             vlcControl28.Spu = -1;
             vlcControl28.TabIndex = 26;
             vlcControl28.Text = "vlcControl28";
-            vlcControl28.VlcLibDirectory = vlcLibDirectory;
+            vlcControl28.VlcLibDirectory = vlcDirectory;
             vlcControl28.VlcMediaplayerOptions = null;
             // 
             // vlcControl29
@@ -617,7 +617,7 @@
             vlcControl29.Spu = -1;
             vlcControl29.TabIndex = 25;
             vlcControl29.Text = "vlcControl29";
-            vlcControl29.VlcLibDirectory = vlcLibDirectory;
+            vlcControl29.VlcLibDirectory = vlcDirectory;
             vlcControl29.VlcMediaplayerOptions = null;
             // 
             // vlcControl30
@@ -629,7 +629,7 @@
             vlcControl30.Spu = -1;
             vlcControl30.TabIndex = 24;
             vlcControl30.Text = "vlcControl30";
-            vlcControl30.VlcLibDirectory = vlcLibDirectory;
+            vlcControl30.VlcLibDirectory = vlcDirectory;
             vlcControl30.VlcMediaplayerOptions = null;
             // 
             // vlcControl31
@@ -641,7 +641,7 @@
             vlcControl31.Spu = -1;
             vlcControl31.TabIndex = 43;
             vlcControl31.Text = "vlcControl31";
-            vlcControl31.VlcLibDirectory = vlcLibDirectory;
+            vlcControl31.VlcLibDirectory = vlcDirectory;
             vlcControl31.VlcMediaplayerOptions = null;
             // 
             // vlcControl32
@@ -653,7 +653,7 @@
             vlcControl32.Spu = -1;
             vlcControl32.TabIndex = 42;
             vlcControl32.Text = "vlcControl32";
-            vlcControl32.VlcLibDirectory = vlcLibDirectory;
+            vlcControl32.VlcLibDirectory = vlcDirectory;
             vlcControl32.VlcMediaplayerOptions = null;
             // 
             // vlcControl33
@@ -665,7 +665,7 @@
             vlcControl33.Spu = -1;
             vlcControl33.TabIndex = 41;
             vlcControl33.Text = "vlcControl33";
-            vlcControl33.VlcLibDirectory = vlcLibDirectory;
+            vlcControl33.VlcLibDirectory = vlcDirectory;
             vlcControl33.VlcMediaplayerOptions = null;
             // 
             // vlcControl34
@@ -677,7 +677,7 @@
             vlcControl34.Spu = -1;
             vlcControl34.TabIndex = 40;
             vlcControl34.Text = "vlcControl34";
-            vlcControl34.VlcLibDirectory = vlcLibDirectory;
+            vlcControl34.VlcLibDirectory = vlcDirectory;
             vlcControl34.VlcMediaplayerOptions = null;
             // 
             // vlcControl35
@@ -689,7 +689,7 @@
             vlcControl35.Spu = -1;
             vlcControl35.TabIndex = 39;
             vlcControl35.Text = "vlcControl35";
-            vlcControl35.VlcLibDirectory = vlcLibDirectory;
+            vlcControl35.VlcLibDirectory = vlcDirectory;
             vlcControl35.VlcMediaplayerOptions = null;
             // 
             // vlcControl36
@@ -701,7 +701,7 @@
             vlcControl36.Spu = -1;
             vlcControl36.TabIndex = 38;
             vlcControl36.Text = "vlcControl36";
-            vlcControl36.VlcLibDirectory = vlcLibDirectory;
+            vlcControl36.VlcLibDirectory = vlcDirectory;
             vlcControl36.VlcMediaplayerOptions = null;
             // 
             // vlcControl37
@@ -713,7 +713,7 @@
             vlcControl37.Spu = -1;
             vlcControl37.TabIndex = 37;
             vlcControl37.Text = "vlcControl37";
-            vlcControl37.VlcLibDirectory = vlcLibDirectory;
+            vlcControl37.VlcLibDirectory = vlcDirectory;
             vlcControl37.VlcMediaplayerOptions = null;
             // 
             // vlcControl38
@@ -725,7 +725,7 @@
             vlcControl38.Spu = -1;
             vlcControl38.TabIndex = 36;
             vlcControl38.Text = "vlcControl38";
-            vlcControl38.VlcLibDirectory = vlcLibDirectory;
+            vlcControl38.VlcLibDirectory = vlcDirectory;
             vlcControl38.VlcMediaplayerOptions = null;
             // 
             // vlcControl39
@@ -737,7 +737,7 @@
             vlcControl39.Spu = -1;
             vlcControl39.TabIndex = 35;
             vlcControl39.Text = "vlcControl39";
-            vlcControl39.VlcLibDirectory = vlcLibDirectory;
+            vlcControl39.VlcLibDirectory = vlcDirectory;
             vlcControl39.VlcMediaplayerOptions = null;
             // 
             // vlcControl40
@@ -749,7 +749,7 @@
             vlcControl40.Spu = -1;
             vlcControl40.TabIndex = 34;
             vlcControl40.Text = "vlcControl40";
-            vlcControl40.VlcLibDirectory = vlcLibDirectory;
+            vlcControl40.VlcLibDirectory = vlcDirectory;
             vlcControl40.VlcMediaplayerOptions = null;
             // 
             // vlcControl41
@@ -761,7 +761,7 @@
             vlcControl41.Spu = -1;
             vlcControl41.TabIndex = 53;
             vlcControl41.Text = "vlcControl41";
-            vlcControl41.VlcLibDirectory = vlcLibDirectory;
+            vlcControl41.VlcLibDirectory = vlcDirectory;
             vlcControl41.VlcMediaplayerOptions = null;
             // 
             // vlcControl42
@@ -773,7 +773,7 @@
             vlcControl42.Spu = -1;
             vlcControl42.TabIndex = 52;
             vlcControl42.Text = "vlcControl42";
-            vlcControl42.VlcLibDirectory = vlcLibDirectory;
+            vlcControl42.VlcLibDirectory = vlcDirectory;
             vlcControl42.VlcMediaplayerOptions = null;
             // 
             // vlcControl43
@@ -785,7 +785,7 @@
             vlcControl43.Spu = -1;
             vlcControl43.TabIndex = 51;
             vlcControl43.Text = "vlcControl43";
-            vlcControl43.VlcLibDirectory = vlcLibDirectory;
+            vlcControl43.VlcLibDirectory = vlcDirectory;
             vlcControl43.VlcMediaplayerOptions = null;
             // 
             // vlcControl44
@@ -797,7 +797,7 @@
             vlcControl44.Spu = -1;
             vlcControl44.TabIndex = 50;
             vlcControl44.Text = "vlcControl44";
-            vlcControl44.VlcLibDirectory = vlcLibDirectory;
+            vlcControl44.VlcLibDirectory = vlcDirectory;
             vlcControl44.VlcMediaplayerOptions = null;
             // 
             // vlcControl45
@@ -809,7 +809,7 @@
             vlcControl45.Spu = -1;
             vlcControl45.TabIndex = 49;
             vlcControl45.Text = "vlcControl45";
-            vlcControl45.VlcLibDirectory = vlcLibDirectory;
+            vlcControl45.VlcLibDirectory = vlcDirectory;
             vlcControl45.VlcMediaplayerOptions = null;
             // 
             // vlcControl46
@@ -821,7 +821,7 @@
             vlcControl46.Spu = -1;
             vlcControl46.TabIndex = 48;
             vlcControl46.Text = "vlcControl46";
-            vlcControl46.VlcLibDirectory = vlcLibDirectory;
+            vlcControl46.VlcLibDirectory = vlcDirectory;
             vlcControl46.VlcMediaplayerOptions = null;
             // 
             // vlcControl47
@@ -833,7 +833,7 @@
             vlcControl47.Spu = -1;
             vlcControl47.TabIndex = 47;
             vlcControl47.Text = "vlcControl47";
-            vlcControl47.VlcLibDirectory = vlcLibDirectory;
+            vlcControl47.VlcLibDirectory = vlcDirectory;
             vlcControl47.VlcMediaplayerOptions = null;
             // 
             // vlcControl48
@@ -845,7 +845,7 @@
             vlcControl48.Spu = -1;
             vlcControl48.TabIndex = 46;
             vlcControl48.Text = "vlcControl48";
-            vlcControl48.VlcLibDirectory = vlcLibDirectory;
+            vlcControl48.VlcLibDirectory = vlcDirectory;
             vlcControl48.VlcMediaplayerOptions = null;
             // 
             // vlcControl49
@@ -857,7 +857,7 @@
             vlcControl49.Spu = -1;
             vlcControl49.TabIndex = 45;
             vlcControl49.Text = "vlcControl49";
-            vlcControl49.VlcLibDirectory = vlcLibDirectory;
+            vlcControl49.VlcLibDirectory = vlcDirectory;
             vlcControl49.VlcMediaplayerOptions = null;
             // 
             // vlcControl50
@@ -869,7 +869,7 @@
             vlcControl50.Spu = -1;
             vlcControl50.TabIndex = 44;
             vlcControl50.Text = "vlcControl50";
-            vlcControl50.VlcLibDirectory = vlcLibDirectory;
+            vlcControl50.VlcLibDirectory = vlcDirectory;
             vlcControl50.VlcMediaplayerOptions = null;
             // 
             // vlcControl51
@@ -881,7 +881,7 @@
             vlcControl51.Spu = -1;
             vlcControl51.TabIndex = 63;
             vlcControl51.Text = "vlcControl51";
-            vlcControl51.VlcLibDirectory = vlcLibDirectory;
+            vlcControl51.VlcLibDirectory = vlcDirectory;
             vlcControl51.VlcMediaplayerOptions = null;
             // 
             // vlcControl52
@@ -893,7 +893,7 @@
             vlcControl52.Spu = -1;
             vlcControl52.TabIndex = 62;
             vlcControl52.Text = "vlcControl52";
-            vlcControl52.VlcLibDirectory = vlcLibDirectory;
+            vlcControl52.VlcLibDirectory = vlcDirectory;
             vlcControl52.VlcMediaplayerOptions = null;
             // 
             // vlcControl53
@@ -905,7 +905,7 @@
             vlcControl53.Spu = -1;
             vlcControl53.TabIndex = 61;
             vlcControl53.Text = "vlcControl53";
-            vlcControl53.VlcLibDirectory = vlcLibDirectory;
+            vlcControl53.VlcLibDirectory = vlcDirectory;
             vlcControl53.VlcMediaplayerOptions = null;
             // 
             // vlcControl54
@@ -917,7 +917,7 @@
             vlcControl54.Spu = -1;
             vlcControl54.TabIndex = 60;
             vlcControl54.Text = "vlcControl54";
-            vlcControl54.VlcLibDirectory = vlcLibDirectory;
+            vlcControl54.VlcLibDirectory = vlcDirectory;
             vlcControl54.VlcMediaplayerOptions = null;
             // 
             // vlcControl55
@@ -929,7 +929,7 @@
             vlcControl55.Spu = -1;
             vlcControl55.TabIndex = 59;
             vlcControl55.Text = "vlcControl55";
-            vlcControl55.VlcLibDirectory = vlcLibDirectory;
+            vlcControl55.VlcLibDirectory = vlcDirectory;
             vlcControl55.VlcMediaplayerOptions = null;
             // 
             // vlcControl56
@@ -941,7 +941,7 @@
             vlcControl56.Spu = -1;
             vlcControl56.TabIndex = 58;
             vlcControl56.Text = "vlcControl56";
-            vlcControl56.VlcLibDirectory = vlcLibDirectory;
+            vlcControl56.VlcLibDirectory = vlcDirectory;
             vlcControl56.VlcMediaplayerOptions = null;
             // 
             // vlcControl57
@@ -953,7 +953,7 @@
             vlcControl57.Spu = -1;
             vlcControl57.TabIndex = 57;
             vlcControl57.Text = "vlcControl57";
-            vlcControl57.VlcLibDirectory = vlcLibDirectory;
+            vlcControl57.VlcLibDirectory = vlcDirectory;
             vlcControl57.VlcMediaplayerOptions = null;
             // 
             // vlcControl58
@@ -965,7 +965,7 @@
             vlcControl58.Spu = -1;
             vlcControl58.TabIndex = 56;
             vlcControl58.Text = "vlcControl58";
-            vlcControl58.VlcLibDirectory = vlcLibDirectory;
+            vlcControl58.VlcLibDirectory = vlcDirectory;
             vlcControl58.VlcMediaplayerOptions = null;
             // 
             // vlcControl59
@@ -977,7 +977,7 @@
             vlcControl59.Spu = -1;
             vlcControl59.TabIndex = 55;
             vlcControl59.Text = "vlcControl59";
-            vlcControl59.VlcLibDirectory = vlcLibDirectory;
+            vlcControl59.VlcLibDirectory = vlcDirectory;
             vlcControl59.VlcMediaplayerOptions = null;
             // 
             // vlcControl60
@@ -989,7 +989,7 @@
             vlcControl60.Spu = -1;
             vlcControl60.TabIndex = 54;
             vlcControl60.Text = "vlcControl60";
-            vlcControl60.VlcLibDirectory = vlcLibDirectory;
+            vlcControl60.VlcLibDirectory = vlcDirectory;
             vlcControl60.VlcMediaplayerOptions = null;
             // 
             // vlcControl61
@@ -1001,7 +1001,7 @@
             vlcControl61.Spu = -1;
             vlcControl61.TabIndex = 73;
             vlcControl61.Text = "vlcControl61";
-            vlcControl61.VlcLibDirectory = vlcLibDirectory;
+            vlcControl61.VlcLibDirectory = vlcDirectory;
             vlcControl61.VlcMediaplayerOptions = null;
             // 
             // vlcControl62
@@ -1013,7 +1013,7 @@
             vlcControl62.Spu = -1;
             vlcControl62.TabIndex = 72;
             vlcControl62.Text = "vlcControl62";
-            vlcControl62.VlcLibDirectory = vlcLibDirectory;
+            vlcControl62.VlcLibDirectory = vlcDirectory;
             vlcControl62.VlcMediaplayerOptions = null;
             // 
             // vlcControl63
@@ -1025,7 +1025,7 @@
             vlcControl63.Spu = -1;
             vlcControl63.TabIndex = 71;
             vlcControl63.Text = "vlcControl63";
-            vlcControl63.VlcLibDirectory = vlcLibDirectory;
+            vlcControl63.VlcLibDirectory = vlcDirectory;
             vlcControl63.VlcMediaplayerOptions = null;
             // 
             // vlcControl64
@@ -1037,7 +1037,7 @@
             vlcControl64.Spu = -1;
             vlcControl64.TabIndex = 70;
             vlcControl64.Text = "vlcControl64";
-            vlcControl64.VlcLibDirectory = vlcLibDirectory;
+            vlcControl64.VlcLibDirectory = vlcDirectory;
             vlcControl64.VlcMediaplayerOptions = null;
             // 
             // vlcControl65
@@ -1049,7 +1049,7 @@
             vlcControl65.Spu = -1;
             vlcControl65.TabIndex = 69;
             vlcControl65.Text = "vlcControl65";
-            vlcControl65.VlcLibDirectory = vlcLibDirectory;
+            vlcControl65.VlcLibDirectory = vlcDirectory;
             vlcControl65.VlcMediaplayerOptions = null;
             // 
             // vlcControl66
@@ -1061,7 +1061,7 @@
             vlcControl66.Spu = -1;
             vlcControl66.TabIndex = 68;
             vlcControl66.Text = "vlcControl66";
-            vlcControl66.VlcLibDirectory = vlcLibDirectory;
+            vlcControl66.VlcLibDirectory = vlcDirectory;
             vlcControl66.VlcMediaplayerOptions = null;
             // 
             // vlcControl67
@@ -1073,7 +1073,7 @@
             vlcControl67.Spu = -1;
             vlcControl67.TabIndex = 67;
             vlcControl67.Text = "vlcControl67";
-            vlcControl67.VlcLibDirectory = vlcLibDirectory;
+            vlcControl67.VlcLibDirectory = vlcDirectory;
             vlcControl67.VlcMediaplayerOptions = null;
             // 
             // vlcControl68
@@ -1085,7 +1085,7 @@
             vlcControl68.Spu = -1;
             vlcControl68.TabIndex = 66;
             vlcControl68.Text = "vlcControl68";
-            vlcControl68.VlcLibDirectory = vlcLibDirectory;
+            vlcControl68.VlcLibDirectory = vlcDirectory;
             vlcControl68.VlcMediaplayerOptions = null;
             // 
             // vlcControl69
@@ -1097,7 +1097,7 @@
             vlcControl69.Spu = -1;
             vlcControl69.TabIndex = 65;
             vlcControl69.Text = "vlcControl69";
-            vlcControl69.VlcLibDirectory = vlcLibDirectory;
+            vlcControl69.VlcLibDirectory = vlcDirectory;
             vlcControl69.VlcMediaplayerOptions = null;
             // 
             // vlcControl70
@@ -1109,7 +1109,7 @@
             vlcControl70.Spu = -1;
             vlcControl70.TabIndex = 64;
             vlcControl70.Text = "vlcControl70";
-            vlcControl70.VlcLibDirectory = vlcLibDirectory;
+            vlcControl70.VlcLibDirectory = vlcDirectory;
             vlcControl70.VlcMediaplayerOptions = null;
             // 
             // vlcControl71
@@ -1121,7 +1121,7 @@
             vlcControl71.Spu = -1;
             vlcControl71.TabIndex = 83;
             vlcControl71.Text = "vlcControl71";
-            vlcControl71.VlcLibDirectory = vlcLibDirectory;
+            vlcControl71.VlcLibDirectory = vlcDirectory;
             vlcControl71.VlcMediaplayerOptions = null;
             // 
             // vlcControl72
@@ -1133,7 +1133,7 @@
             vlcControl72.Spu = -1;
             vlcControl72.TabIndex = 82;
             vlcControl72.Text = "vlcControl72";
-            vlcControl72.VlcLibDirectory = vlcLibDirectory;
+            vlcControl72.VlcLibDirectory = vlcDirectory;
             vlcControl72.VlcMediaplayerOptions = null;
             // 
             // vlcControl73
@@ -1145,7 +1145,7 @@
             vlcControl73.Spu = -1;
             vlcControl73.TabIndex = 81;
             vlcControl73.Text = "vlcControl73";
-            vlcControl73.VlcLibDirectory = vlcLibDirectory;
+            vlcControl73.VlcLibDirectory = vlcDirectory;
             vlcControl73.VlcMediaplayerOptions = null;
             // 
             // vlcControl74
@@ -1157,7 +1157,7 @@
             vlcControl74.Spu = -1;
             vlcControl74.TabIndex = 80;
             vlcControl74.Text = "vlcControl74";
-            vlcControl74.VlcLibDirectory = vlcLibDirectory;
+            vlcControl74.VlcLibDirectory = vlcDirectory;
             vlcControl74.VlcMediaplayerOptions = null;
             // 
             // vlcControl75
@@ -1169,7 +1169,7 @@
             vlcControl75.Spu = -1;
             vlcControl75.TabIndex = 79;
             vlcControl75.Text = "vlcControl75";
-            vlcControl75.VlcLibDirectory = vlcLibDirectory;
+            vlcControl75.VlcLibDirectory = vlcDirectory;
             vlcControl75.VlcMediaplayerOptions = null;
             // 
             // vlcControl76
@@ -1181,7 +1181,7 @@
             vlcControl76.Spu = -1;
             vlcControl76.TabIndex = 78;
             vlcControl76.Text = "vlcControl76";
-            vlcControl76.VlcLibDirectory = vlcLibDirectory;
+            vlcControl76.VlcLibDirectory = vlcDirectory;
             vlcControl76.VlcMediaplayerOptions = null;
             // 
             // vlcControl77
@@ -1193,7 +1193,7 @@
             vlcControl77.Spu = -1;
             vlcControl77.TabIndex = 77;
             vlcControl77.Text = "vlcControl77";
-            vlcControl77.VlcLibDirectory = vlcLibDirectory;
+            vlcControl77.VlcLibDirectory = vlcDirectory;
             vlcControl77.VlcMediaplayerOptions = null;
             // 
             // vlcControl78
@@ -1205,7 +1205,7 @@
             vlcControl78.Spu = -1;
             vlcControl78.TabIndex = 76;
             vlcControl78.Text = "vlcControl78";
-            vlcControl78.VlcLibDirectory = vlcLibDirectory;
+            vlcControl78.VlcLibDirectory = vlcDirectory;
             vlcControl78.VlcMediaplayerOptions = null;
             // 
             // vlcControl79
@@ -1217,7 +1217,7 @@
             vlcControl79.Spu = -1;
             vlcControl79.TabIndex = 75;
             vlcControl79.Text = "vlcControl79";
-            vlcControl79.VlcLibDirectory = vlcLibDirectory;
+            vlcControl79.VlcLibDirectory = vlcDirectory;
             vlcControl79.VlcMediaplayerOptions = null;
             // 
             // vlcControl80
@@ -1229,7 +1229,7 @@
             vlcControl80.Spu = -1;
             vlcControl80.TabIndex = 74;
             vlcControl80.Text = "vlcControl80";
-            vlcControl80.VlcLibDirectory = vlcLibDirectory;
+            vlcControl80.VlcLibDirectory = vlcDirectory;
             vlcControl80.VlcMediaplayerOptions = null;
             // 
             // vlcControl81
@@ -1241,7 +1241,7 @@
             vlcControl81.Spu = -1;
             vlcControl81.TabIndex = 93;
             vlcControl81.Text = "vlcControl81";
-            vlcControl81.VlcLibDirectory = vlcLibDirectory;
+            vlcControl81.VlcLibDirectory = vlcDirectory;
             vlcControl81.VlcMediaplayerOptions = null;
             // 
             // vlcControl82
@@ -1253,7 +1253,7 @@
             vlcControl82.Spu = -1;
             vlcControl82.TabIndex = 92;
             vlcControl82.Text = "vlcControl82";
-            vlcControl82.VlcLibDirectory = vlcLibDirectory;
+            vlcControl82.VlcLibDirectory = vlcDirectory;
             vlcControl82.VlcMediaplayerOptions = null;
             // 
             // vlcControl83
@@ -1265,7 +1265,7 @@
             vlcControl83.Spu = -1;
             vlcControl83.TabIndex = 91;
             vlcControl83.Text = "vlcControl83";
-            vlcControl83.VlcLibDirectory = vlcLibDirectory;
+            vlcControl83.VlcLibDirectory = vlcDirectory;
             vlcControl83.VlcMediaplayerOptions = null;
             // 
             // vlcControl84
@@ -1277,7 +1277,7 @@
             vlcControl84.Spu = -1;
             vlcControl84.TabIndex = 90;
             vlcControl84.Text = "vlcControl84";
-            vlcControl84.VlcLibDirectory = vlcLibDirectory;
+            vlcControl84.VlcLibDirectory = vlcDirectory;
             vlcControl84.VlcMediaplayerOptions = null;
             // 
             // vlcControl85
@@ -1289,7 +1289,7 @@
             vlcControl85.Spu = -1;
             vlcControl85.TabIndex = 89;
             vlcControl85.Text = "vlcControl85";
-            vlcControl85.VlcLibDirectory = vlcLibDirectory;
+            vlcControl85.VlcLibDirectory = vlcDirectory;
             vlcControl85.VlcMediaplayerOptions = null;
             // 
             // vlcControl86
@@ -1301,7 +1301,7 @@
             vlcControl86.Spu = -1;
             vlcControl86.TabIndex = 88;
             vlcControl86.Text = "vlcControl86";
-            vlcControl86.VlcLibDirectory = vlcLibDirectory;
+            vlcControl86.VlcLibDirectory = vlcDirectory;
             vlcControl86.VlcMediaplayerOptions = null;
             // 
             // vlcControl87
@@ -1313,7 +1313,7 @@
             vlcControl87.Spu = -1;
             vlcControl87.TabIndex = 87;
             vlcControl87.Text = "vlcControl87";
-            vlcControl87.VlcLibDirectory = vlcLibDirectory;
+            vlcControl87.VlcLibDirectory = vlcDirectory;
             vlcControl87.VlcMediaplayerOptions = null;
             // 
             // vlcControl88
@@ -1325,7 +1325,7 @@
             vlcControl88.Spu = -1;
             vlcControl88.TabIndex = 86;
             vlcControl88.Text = "vlcControl88";
-            vlcControl88.VlcLibDirectory = vlcLibDirectory;
+            vlcControl88.VlcLibDirectory = vlcDirectory;
             vlcControl88.VlcMediaplayerOptions = null;
             // 
             // vlcControl89
@@ -1337,7 +1337,7 @@
             vlcControl89.Spu = -1;
             vlcControl89.TabIndex = 85;
             vlcControl89.Text = "vlcControl89";
-            vlcControl89.VlcLibDirectory = vlcLibDirectory;
+            vlcControl89.VlcLibDirectory = vlcDirectory;
             vlcControl89.VlcMediaplayerOptions = null;
             // 
             // vlcControl90
@@ -1349,7 +1349,7 @@
             vlcControl90.Spu = -1;
             vlcControl90.TabIndex = 84;
             vlcControl90.Text = "vlcControl90";
-            vlcControl90.VlcLibDirectory = vlcLibDirectory;
+            vlcControl90.VlcLibDirectory = vlcDirectory;
             vlcControl90.VlcMediaplayerOptions = null;
             // 
             // vlcControl91
@@ -1361,7 +1361,7 @@
             vlcControl91.Spu = -1;
             vlcControl91.TabIndex = 103;
             vlcControl91.Text = "vlcControl91";
-            vlcControl91.VlcLibDirectory = vlcLibDirectory;
+            vlcControl91.VlcLibDirectory = vlcDirectory;
             vlcControl91.VlcMediaplayerOptions = null;
             // 
             // vlcControl92
@@ -1373,7 +1373,7 @@
             vlcControl92.Spu = -1;
             vlcControl92.TabIndex = 102;
             vlcControl92.Text = "vlcControl92";
-            vlcControl92.VlcLibDirectory = vlcLibDirectory;
+            vlcControl92.VlcLibDirectory = vlcDirectory;
             vlcControl92.VlcMediaplayerOptions = null;
             // 
             // vlcControl93
@@ -1385,7 +1385,7 @@
             vlcControl93.Spu = -1;
             vlcControl93.TabIndex = 101;
             vlcControl93.Text = "vlcControl93";
-            vlcControl93.VlcLibDirectory = vlcLibDirectory;
+            vlcControl93.VlcLibDirectory = vlcDirectory;
             vlcControl93.VlcMediaplayerOptions = null;
             // 
             // vlcControl94
@@ -1397,7 +1397,7 @@
             vlcControl94.Spu = -1;
             vlcControl94.TabIndex = 100;
             vlcControl94.Text = "vlcControl94";
-            vlcControl94.VlcLibDirectory = vlcLibDirectory;
+            vlcControl94.VlcLibDirectory = vlcDirectory;
             vlcControl94.VlcMediaplayerOptions = null;
             // 
             // vlcControl95
@@ -1409,7 +1409,7 @@
             vlcControl95.Spu = -1;
             vlcControl95.TabIndex = 99;
             vlcControl95.Text = "vlcControl95";
-            vlcControl95.VlcLibDirectory = vlcLibDirectory;
+            vlcControl95.VlcLibDirectory = vlcDirectory;
             vlcControl95.VlcMediaplayerOptions = null;
             // 
             // vlcControl96
@@ -1421,7 +1421,7 @@
             vlcControl96.Spu = -1;
             vlcControl96.TabIndex = 98;
             vlcControl96.Text = "vlcControl96";
-            vlcControl96.VlcLibDirectory = vlcLibDirectory;
+            vlcControl96.VlcLibDirectory = vlcDirectory;
             vlcControl96.VlcMediaplayerOptions = null;
             // 
             // vlcControl97
@@ -1433,7 +1433,7 @@
             vlcControl97.Spu = -1;
             vlcControl97.TabIndex = 97;
             vlcControl97.Text = "vlcControl97";
-            vlcControl97.VlcLibDirectory = vlcLibDirectory;
+            vlcControl97.VlcLibDirectory = vlcDirectory;
             vlcControl97.VlcMediaplayerOptions = null;
             // 
             // vlcControl98
@@ -1445,7 +1445,7 @@
             vlcControl98.Spu = -1;
             vlcControl98.TabIndex = 96;
             vlcControl98.Text = "vlcControl98";
-            vlcControl98.VlcLibDirectory = vlcLibDirectory;
+            vlcControl98.VlcLibDirectory = vlcDirectory;
             vlcControl98.VlcMediaplayerOptions = null;
             // 
             // vlcControl99
@@ -1457,7 +1457,7 @@
             vlcControl99.Spu = -1;
             vlcControl99.TabIndex = 95;
             vlcControl99.Text = "vlcControl99";
-            vlcControl99.VlcLibDirectory = vlcLibDirectory;
+            vlcControl99.VlcLibDirectory = vlcDirectory;
             vlcControl99.VlcMediaplayerOptions = null;
             // 
             // vlcControl100
@@ -1469,14 +1469,13 @@
             vlcControl100.Spu = -1;
             vlcControl100.TabIndex = 94;
             vlcControl100.Text = "vlcControl100";
-            vlcControl100.VlcLibDirectory = vlcLibDirectory;
+            vlcControl100.VlcLibDirectory = vlcDirectory;
             vlcControl100.VlcMediaplayerOptions = null;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1445, 960);
             Controls.Add(vlcControl91);
             Controls.Add(vlcControl92);
             Controls.Add(vlcControl93);

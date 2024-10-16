@@ -371,7 +371,6 @@
             camera_tab_panel.Name = "camera_tab_panel";
             camera_tab_panel.Size = new Size(80, 29);
             camera_tab_panel.TabIndex = 0;
-            camera_tab_panel.Click += cameraTabClick;
             camera_tab_panel.Paint += cameraTabBorderPaint;
             // 
             // camera_tab_label
@@ -384,6 +383,7 @@
             camera_tab_label.TabIndex = 0;
             camera_tab_label.Text = "Cameras";
             camera_tab_label.TextAlign = ContentAlignment.MiddleCenter;
+            camera_tab_label.Click += liveCameraLabelClick;
             // 
             // layout_tab_panel
             // 
@@ -394,7 +394,6 @@
             layout_tab_panel.Name = "layout_tab_panel";
             layout_tab_panel.Size = new Size(80, 29);
             layout_tab_panel.TabIndex = 1;
-            layout_tab_panel.Click += layoutTabClick;
             layout_tab_panel.Paint += layoutTabBorderPaint;
             // 
             // layout_tab_label
@@ -407,6 +406,7 @@
             layout_tab_label.TabIndex = 0;
             layout_tab_label.Text = "Layouts";
             layout_tab_label.TextAlign = ContentAlignment.MiddleCenter;
+            layout_tab_label.Click += liveLayoutLabelClick;
             // 
             // tracking_tab_panel
             // 
@@ -416,7 +416,6 @@
             tracking_tab_panel.Name = "tracking_tab_panel";
             tracking_tab_panel.Size = new Size(78, 27);
             tracking_tab_panel.TabIndex = 2;
-            tracking_tab_panel.Click += trackingTabClick;
             tracking_tab_panel.Paint += trackingTabBorderPaint;
             // 
             // tracking_tab_label
@@ -429,6 +428,7 @@
             tracking_tab_label.TabIndex = 0;
             tracking_tab_label.Text = "Tracking";
             tracking_tab_label.TextAlign = ContentAlignment.MiddleCenter;
+            tracking_tab_label.Click += liveTrackingLabelClick;
             // 
             // tabContent
             // 

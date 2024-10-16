@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ViettelWallClientNet8")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+4baa51b852273f116577a56ed843129ba7978dee")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+746ce9f5da5911f7b5bc6548eac7661263c282b5")]
 [assembly: System.Reflection.AssemblyProductAttribute("ViettelWallClientNet8")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ViettelWallClientNet8")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
