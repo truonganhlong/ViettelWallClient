@@ -14,7 +14,9 @@ namespace ViettelWallClientNet8
             ":sout-mux-caching=500",  // Giảm độ trễ của luồng khi mux (tạo luồng liên tục)
             ":clock-jitter=0",        // Loại bỏ hiện tượng jitter
             ":live-caching=1000",     // Giảm độ trễ của các luồng live (như RTSP)
-            ":avcodec-hw=dxva2"       // Sử dụng giải mã phần cứng nếu được hỗ trợ
+            ":avcodec-hw=dxva2",       // Sử dụng giải mã phần cứng nếu được hỗ trợ
+            ":sout-transcode-vfilter=canvas{width=1280,height=720}",
+            ":sout-transcode-fps=30"
         };
         public Form1()
         {
@@ -89,9 +91,12 @@ namespace ViettelWallClientNet8
             //    }
             //}
 
-            for (int i = 0; i < listControls().Count; i++) {
-                if (!string.IsNullOrWhiteSpace(listTextBox()[i].Text)){
-                    await Task.Run(() => listControls()[i].Play(new Uri(listTextBox()[i].Text), mediaOptions));
+            for (int i = 1; i <= dictVlc().Count; i++)
+            {
+                if (!string.IsNullOrWhiteSpace(dictTextBox()[i].Text))
+                {
+                    await Task.Run(() => dictVlc()[i].Play(new Uri(dictTextBox()[i].Text), mediaOptions));
+                    Thread.Sleep(100);
                 }
             }
 
@@ -99,181 +104,217 @@ namespace ViettelWallClientNet8
             //if (!string.IsNullOrWhiteSpace(textBox1.Text))
             //{
             //    await Task.Run(() => listControls()[0].Play(new Uri(textBox1.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox2.Text))
             //{
             //    await Task.Run(() => listControls()[1].Play(new Uri(textBox2.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox3.Text))
             //{
             //    await Task.Run(() => listControls()[2].Play(new Uri(textBox3.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox4.Text))
             //{
             //    await Task.Run(() => listControls()[3].Play(new Uri(textBox4.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox5.Text))
             //{
             //    await Task.Run(() => listControls()[4].Play(new Uri(textBox5.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox6.Text))
             //{
             //    await Task.Run(() => listControls()[5].Play(new Uri(textBox6.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox7.Text))
             //{
             //    await Task.Run(() => listControls()[6].Play(new Uri(textBox7.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox8.Text))
             //{
             //    await Task.Run(() => listControls()[7].Play(new Uri(textBox8.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox9.Text))
             //{
             //    await Task.Run(() => listControls()[8].Play(new Uri(textBox9.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox10.Text))
             //{
             //    await Task.Run(() => listControls()[9].Play(new Uri(textBox10.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox11.Text))
             //{
             //    await Task.Run(() => listControls()[10].Play(new Uri(textBox11.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox12.Text))
             //{
             //    await Task.Run(() => listControls()[11].Play(new Uri(textBox12.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox13.Text))
             //{
             //    await Task.Run(() => listControls()[12].Play(new Uri(textBox13.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox14.Text))
             //{
             //    await Task.Run(() => listControls()[13].Play(new Uri(textBox14.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox15.Text))
             //{
             //    await Task.Run(() => listControls()[14].Play(new Uri(textBox15.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox16.Text))
             //{
             //    await Task.Run(() => listControls()[15].Play(new Uri(textBox16.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox17.Text))
             //{
             //    await Task.Run(() => listControls()[16].Play(new Uri(textBox17.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox18.Text))
             //{
             //    await Task.Run(() => listControls()[17].Play(new Uri(textBox18.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox19.Text))
             //{
             //    await Task.Run(() => listControls()[18].Play(new Uri(textBox19.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox20.Text))
             //{
             //    await Task.Run(() => listControls()[19].Play(new Uri(textBox20.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox21.Text))
             //{
             //    await Task.Run(() => listControls()[20].Play(new Uri(textBox21.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox22.Text))
             //{
             //    await Task.Run(() => listControls()[21].Play(new Uri(textBox22.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox23.Text))
             //{
             //    await Task.Run(() => listControls()[22].Play(new Uri(textBox23.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox24.Text))
             //{
             //    await Task.Run(() => listControls()[23].Play(new Uri(textBox24.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox25.Text))
             //{
             //    await Task.Run(() => listControls()[24].Play(new Uri(textBox25.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox26.Text))
             //{
             //    await Task.Run(() => listControls()[25].Play(new Uri(textBox26.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox27.Text))
             //{
             //    await Task.Run(() => listControls()[26].Play(new Uri(textBox27.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox28.Text))
             //{
             //    await Task.Run(() => listControls()[27].Play(new Uri(textBox28.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox29.Text))
             //{
             //    await Task.Run(() => listControls()[28].Play(new Uri(textBox29.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox30.Text))
             //{
             //    await Task.Run(() => listControls()[29].Play(new Uri(textBox30.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox31.Text))
             //{
             //    await Task.Run(() => listControls()[30].Play(new Uri(textBox31.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox32.Text))
             //{
             //    await Task.Run(() => listControls()[31].Play(new Uri(textBox32.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox33.Text))
             //{
             //    await Task.Run(() => listControls()[32].Play(new Uri(textBox33.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox34.Text))
             //{
             //    await Task.Run(() => listControls()[33].Play(new Uri(textBox34.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox35.Text))
             //{
             //    await Task.Run(() => listControls()[34].Play(new Uri(textBox35.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox36.Text))
             //{
             //    await Task.Run(() => listControls()[35].Play(new Uri(textBox36.Text), mediaOptions));
+            //    Thread.Sleep(100);
             //}
 
             //if (!string.IsNullOrWhiteSpace(textBox37.Text))
@@ -782,6 +823,25 @@ namespace ViettelWallClientNet8
                     }
                 }
             }
+        }
+
+        private Dictionary<int, VlcControl> dictVlc()
+        {
+            Dictionary<int, VlcControl> dict = new Dictionary<int, VlcControl>();
+            for(int i = 0; i < listControls().Count; i++)
+            {
+                dict.Add(i + 1, listControls()[i]);
+            }
+            return dict;
+        }
+
+        private Dictionary<int, TextBox> dictTextBox() {
+            Dictionary<int, TextBox> dict = new Dictionary<int, TextBox>();
+            for (int i = 0; i < listTextBox().Count; i++)
+            {
+                dict.Add(i + 1, listTextBox()[i]);
+            }
+            return dict;
         }
     }
 }

@@ -276,34 +276,37 @@ namespace ViettelWallClientNet8.View
 
         private void liveCameraLabelClick(object sender, EventArgs e)
         {
+            this.Invalidate();
             is_click_camera_tab = true;
             is_click_layout_tab = false;
             is_click_tracking_tab = false;
             camera_tab_label.BackColor = Color.FromArgb(64, 64, 64);
-            layout_tab_label.BackColor = Color.FromArgb(190, 186, 191);
-            tracking_tab_label.BackColor = Color.FromArgb(190, 186, 191);
+            layout_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+            tracking_tab_label.BackColor = Color.FromArgb(170, 167, 167);
             //set camera content
         }
 
         private void liveLayoutLabelClick(object sender, EventArgs e)
         {
+            this.Invalidate();
             is_click_camera_tab = false;
             is_click_layout_tab = true;
             is_click_tracking_tab = false;
             layout_tab_label.BackColor = Color.FromArgb(64, 64, 64);
-            camera_tab_label.BackColor = Color.FromArgb(190, 186, 191);
-            tracking_tab_label.BackColor = Color.FromArgb(190, 186, 191);
+            camera_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+            tracking_tab_label.BackColor = Color.FromArgb(170, 167, 167);
             //set layout content
         }
 
         private void liveTrackingLabelClick(object sender, EventArgs e)
         {
+            this.Invalidate();
             is_click_camera_tab = false;
             is_click_layout_tab = false;
             is_click_tracking_tab = true;
             tracking_tab_label.BackColor = Color.FromArgb(64, 64, 64);
-            layout_tab_label.BackColor = Color.FromArgb(190, 186, 191);
-            camera_tab_label.BackColor = Color.FromArgb(190, 186, 191);
+            layout_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+            camera_tab_label.BackColor = Color.FromArgb(170, 167, 167);
             //set tracking content
         }
 
