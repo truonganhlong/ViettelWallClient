@@ -1,0 +1,10 @@
+[
+  {
+    "name": "default_layout",
+    "width": 4,
+    "height": 4,
+    "isNowUse": true,
+    "isLeftTabVisible": true,
+    "isRightTabVisible": false
+  }
+]

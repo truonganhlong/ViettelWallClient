@@ -12,6 +12,9 @@ using System.Diagnostics;
 using System.Windows.Forms;
 using System.Management;
 using System.Windows.Forms.VisualStyles;
+using ViettelWallClientNet8.Model.Setting;
+using LibVLCSharp.WinForms;
+using LibVLCSharp.Shared;
 
 
 namespace ViettelWallClientNet8.View
@@ -44,9 +47,13 @@ namespace ViettelWallClientNet8.View
         private bool is_click_camera_tab = true;
         private bool is_click_layout_tab = false;
         private bool is_click_tracking_tab = false;
+        private int videoViewIndex = 1;
         public Home()
         {
             InitializeComponent();
+            settingLeftTab();
+            //settingRightTab();
+            settingLayout();
             cpu_counter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             ram_counter = new PerformanceCounter("Memory", "Available MBytes");
         }
@@ -85,6 +92,10 @@ namespace ViettelWallClientNet8.View
         {
             footer_panel.Invalidate();
             toolbar_panel.Invalidate();
+            camera_tab_panel.Invalidate();
+            layout_tab_panel.Invalidate();
+            tracking_tab_panel.Invalidate();
+            left_tab_control_panel.Invalidate();
             float minResizeRatio = returnMinSizeRatio();
             float widthResizeRatio = returnWidthSizeRatio();
             float heightResizeRatio = returnHeightSizeRatio();
@@ -219,9 +230,15 @@ namespace ViettelWallClientNet8.View
                 e.Graphics.Clear(camera_tab_panel.BackColor);
                 using (Pen pen = new Pen(border_color, border_thickness))
                 {
-                    e.Graphics.DrawLine(pen, 0, 0, camera_tab_panel.Width - 1, camera_tab_panel.Height);
+                    //e.Graphics.DrawLine(pen, 0, 0, 0, camera_tab_panel.Height);
                     e.Graphics.DrawLine(pen, camera_tab_panel.Width - 1, 0, camera_tab_panel.Width - 1, camera_tab_panel.Height);
                 }
+                camera_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                layout_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                tracking_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                camera_tab_label.BackColor = Color.FromArgb(64, 64, 64);
+                layout_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+                tracking_tab_label.BackColor = Color.FromArgb(170, 167, 167);
             }
             else if (!is_click_camera_tab)
             {
@@ -239,9 +256,15 @@ namespace ViettelWallClientNet8.View
                 e.Graphics.Clear(layout_tab_panel.BackColor);
                 using (Pen pen = new Pen(border_color, border_thickness))
                 {
-                    e.Graphics.DrawLine(pen, 0, 0, layout_tab_panel.Width - 1, layout_tab_panel.Height);
+                    //e.Graphics.DrawLine(pen, 0, 0, 0, layout_tab_panel.Height);
                     e.Graphics.DrawLine(pen, layout_tab_panel.Width - 1, 0, layout_tab_panel.Width - 1, layout_tab_panel.Height);
                 }
+                camera_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                layout_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                tracking_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                layout_tab_label.BackColor = Color.FromArgb(64, 64, 64);
+                camera_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+                tracking_tab_label.BackColor = Color.FromArgb(170, 167, 167);
             }
             else if (!is_click_layout_tab)
             {
@@ -258,11 +281,17 @@ namespace ViettelWallClientNet8.View
             if (is_click_tracking_tab && !is_click_layout_tab && !is_click_camera_tab)
             {
                 e.Graphics.Clear(tracking_tab_panel.BackColor);
-                using (Pen pen = new Pen(border_color, border_thickness))
-                {
-                    e.Graphics.DrawLine(pen, 0, 0, tracking_tab_panel.Width - 1, tracking_tab_panel.Height);
-                    e.Graphics.DrawLine(pen, tracking_tab_panel.Width - 1, 0, tracking_tab_panel.Width - 1, tracking_tab_panel.Height);
-                }
+                //using (Pen pen = new Pen(border_color, border_thickness))
+                //{
+                //    //e.Graphics.DrawLine(pen, 0, 0, 0, tracking_tab_panel.Height);
+                //    e.Graphics.DrawLine(pen, tracking_tab_panel.Width - 1, 0, tracking_tab_panel.Width - 1, tracking_tab_panel.Height);
+                //}
+                camera_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                layout_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                tracking_tab_label.Anchor = AnchorStyles.Left | AnchorStyles.Right | AnchorStyles.Top | AnchorStyles.Bottom;
+                tracking_tab_label.BackColor = Color.FromArgb(64, 64, 64);
+                layout_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+                camera_tab_label.BackColor = Color.FromArgb(170, 167, 167);
             }
             else if (!is_click_tracking_tab)
             {
@@ -273,41 +302,45 @@ namespace ViettelWallClientNet8.View
                 }
             }
         }
-
         private void liveCameraLabelClick(object sender, EventArgs e)
         {
-            this.Invalidate();
             is_click_camera_tab = true;
             is_click_layout_tab = false;
             is_click_tracking_tab = false;
-            camera_tab_label.BackColor = Color.FromArgb(64, 64, 64);
-            layout_tab_label.BackColor = Color.FromArgb(170, 167, 167);
-            tracking_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+            camera_tab_panel.Invalidate();
+            layout_tab_panel.Invalidate();
+            tracking_tab_panel.Invalidate();
             //set camera content
         }
 
         private void liveLayoutLabelClick(object sender, EventArgs e)
         {
-            this.Invalidate();
             is_click_camera_tab = false;
             is_click_layout_tab = true;
             is_click_tracking_tab = false;
-            layout_tab_label.BackColor = Color.FromArgb(64, 64, 64);
-            camera_tab_label.BackColor = Color.FromArgb(170, 167, 167);
-            tracking_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+            layout_tab_panel.Invalidate();
+            camera_tab_panel.Invalidate();
+            tracking_tab_panel.Invalidate();
             //set layout content
         }
 
         private void liveTrackingLabelClick(object sender, EventArgs e)
         {
-            this.Invalidate();
             is_click_camera_tab = false;
             is_click_layout_tab = false;
             is_click_tracking_tab = true;
-            tracking_tab_label.BackColor = Color.FromArgb(64, 64, 64);
-            layout_tab_label.BackColor = Color.FromArgb(170, 167, 167);
-            camera_tab_label.BackColor = Color.FromArgb(170, 167, 167);
+            tracking_tab_panel.Invalidate();
+            camera_tab_panel.Invalidate();
+            layout_tab_panel.Invalidate();
             //set tracking content
+        }
+        private void rightTabControlPaintBorder(object sender, PaintEventArgs e)
+        {
+            e.Graphics.Clear(left_tab_control_panel.BackColor);
+            using (Pen pen = new Pen(border_color, border_thickness))
+            {
+                e.Graphics.DrawLine(pen, left_tab_control_panel.Width - 1, 0, left_tab_control_panel.Width - 1, left_tab_control_panel.Height);
+            }
         }
 
         private void tracking_on_label_Click(object sender, EventArgs e)
@@ -354,6 +387,74 @@ namespace ViettelWallClientNet8.View
                 return 1;
             }
             return (float)this.ClientSize.Height / original_height;
+        }
+
+        private void settingLayout()
+        {
+            SettingLayout? layout = SettingLayout.getLayoutSetting();
+            if (layout == null)
+            {
+                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
+            }
+            else {
+                main_table_layout_panel.ColumnCount = layout.width;
+                for (int i = 0; i < layout.width; i++) {
+                    main_table_layout_panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F/layout.width));
+                }
+                main_table_layout_panel.RowCount = layout.height;
+                for (int i = 0; i < layout.height; i++) {
+                    main_table_layout_panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F/layout.height));
+                }
+                float videoViewWidth = main_table_layout_panel.Width / layout.width;
+                float videoViewHeight = main_table_layout_panel.Height / layout.height;
+                //tạo nhiều videoView theo thứ tự từ trái sang phải, từ trên xuống dưới
+                for (int y = 0; y < layout.height; y++) {
+                    for (int x = 0; x < layout.width; x++) {
+                        VideoView videoView = new VideoView();
+                        main_table_layout_panel.Controls.Add(videoView, x, y);
+                        videoView.BackColor = Color.FromArgb(170, 167, 167);
+                        videoView.Dock = DockStyle.Fill;
+                        videoView.MediaPlayer = null;
+                        videoView.Size = new Size((int) Math.Floor(videoViewWidth), (int)Math.Floor(videoViewHeight));
+                        videoView.Name = "videoView" + videoViewIndex;
+                        videoView.Margin = new Padding(3, 3, 3, 3);
+                        videoViewIndex++;
+                    }
+                }
+            }
+        }
+
+        private void settingLeftTab()
+        {
+            SettingLayout? layout = SettingLayout.getLayoutSetting();
+            if (layout == null)
+            {
+                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
+            } else
+            {
+                if (!layout.isLeftTabVisible) { 
+                    left_tab_control_panel.Visible = false;
+                    full_table_layout_panel.Controls.Add(header, 4, 0);
+                    full_table_layout_panel.SetColumnSpan(header, 83);
+                    full_table_layout_panel.SetRowSpan(header, 2);
+                    full_table_layout_panel.Controls.Add(main_panel, 4, 2);
+                    full_table_layout_panel.SetColumnSpan(main_panel, 83);
+                    full_table_layout_panel.SetRowSpan(main_panel, 47);
+                }
+            }
+        }
+
+        private void settingRightTab()
+        {
+            SettingLayout? layout = SettingLayout.getLayoutSetting();
+            if (layout == null)
+            {
+                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
+            }
+            else
+            {
+
+            }
         }
     }
 }

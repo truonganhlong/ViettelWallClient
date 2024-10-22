@@ -50,9 +50,25 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "LibVLCSharp": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "LibVLCSharp.WinForms": {
+              "target": "Package",
+              "version": "[3.9.0, )"
+            },
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[13.0.3, )"
+            },
             "System.Management": {
               "target": "Package",
               "version": "[8.0.0, )"
+            },
+            "VideoLAN.LibVLC.Windows": {
+              "target": "Package",
+              "version": "[3.0.21, )"
             },
             "Vlc.DotNet.Forms": {
               "target": "Package",
