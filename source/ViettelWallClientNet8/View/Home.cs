@@ -51,6 +51,7 @@ namespace ViettelWallClientNet8.View
         public Home()
         {
             InitializeComponent();
+            InitializeAfter();
             settingLeftTab();
             //settingRightTab();
             settingLayout();
@@ -348,7 +349,28 @@ namespace ViettelWallClientNet8.View
             //later
         }
 
+        private void leftTabButtonClick(object sender, EventArgs e)
+        {
+            if (left_tab_button.Text.Equals("<"))
+            {
+                left_tab_button.Text = ">";
+
+            }
+            else if (left_tab_button.Text == ">")
+            {
+                left_tab_button.Text = "<";
+            }
+        }
+
         //-------------------------------------------------------------------------------------------------------------------------------------------------------//
+        private void InitializeAfter()
+        {
+            left_tab_button.Location = new Point(0, (main_panel.Height - left_tab_button.Height) / 2);
+            left_tab_button.FlatStyle = FlatStyle.Flat; // Đặt FlatStyle thành Flat
+            left_tab_button.FlatAppearance.BorderSize = 0; // Xóa viền
+            left_tab_button.BringToFront();
+        }
+        
         private float GetTotalPhysicalMemory()
         {
             // Sử dụng WMI để lấy tổng bộ nhớ vật lý
@@ -396,26 +418,31 @@ namespace ViettelWallClientNet8.View
             {
                 MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
             }
-            else {
+            else
+            {
                 main_table_layout_panel.ColumnCount = layout.width;
-                for (int i = 0; i < layout.width; i++) {
-                    main_table_layout_panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F/layout.width));
+                for (int i = 0; i < layout.width; i++)
+                {
+                    main_table_layout_panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / layout.width));
                 }
                 main_table_layout_panel.RowCount = layout.height;
-                for (int i = 0; i < layout.height; i++) {
-                    main_table_layout_panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F/layout.height));
+                for (int i = 0; i < layout.height; i++)
+                {
+                    main_table_layout_panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / layout.height));
                 }
                 float videoViewWidth = main_table_layout_panel.Width / layout.width;
                 float videoViewHeight = main_table_layout_panel.Height / layout.height;
                 //tạo nhiều videoView theo thứ tự từ trái sang phải, từ trên xuống dưới
-                for (int y = 0; y < layout.height; y++) {
-                    for (int x = 0; x < layout.width; x++) {
+                for (int y = 0; y < layout.height; y++)
+                {
+                    for (int x = 0; x < layout.width; x++)
+                    {
                         VideoView videoView = new VideoView();
                         main_table_layout_panel.Controls.Add(videoView, x, y);
                         videoView.BackColor = Color.FromArgb(170, 167, 167);
                         videoView.Dock = DockStyle.Fill;
                         videoView.MediaPlayer = null;
-                        videoView.Size = new Size((int) Math.Floor(videoViewWidth), (int)Math.Floor(videoViewHeight));
+                        videoView.Size = new Size((int)Math.Floor(videoViewWidth), (int)Math.Floor(videoViewHeight));
                         videoView.Name = "videoView" + videoViewIndex;
                         videoView.Margin = new Padding(3, 3, 3, 3);
                         videoViewIndex++;
@@ -430,9 +457,11 @@ namespace ViettelWallClientNet8.View
             if (layout == null)
             {
                 MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
-            } else
+            }
+            else
             {
-                if (!layout.isLeftTabVisible) { 
+                if (!layout.isLeftTabVisible)
+                {
                     left_tab_control_panel.Visible = false;
                     full_table_layout_panel.Controls.Add(header, 4, 0);
                     full_table_layout_panel.SetColumnSpan(header, 83);

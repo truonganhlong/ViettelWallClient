@@ -49,6 +49,7 @@
             header = new Panel();
             main_panel = new Panel();
             main_table_layout_panel = new TableLayoutPanel();
+            left_tab_button = new Button();
             cpu_and_ram_timer = new System.Windows.Forms.Timer(components);
             full_table_layout_panel.SuspendLayout();
             footer_panel.SuspendLayout();
@@ -470,6 +471,7 @@
             // 
             full_table_layout_panel.SetColumnSpan(main_panel, 67);
             main_panel.Controls.Add(main_table_layout_panel);
+            main_panel.Controls.Add(left_tab_button);
             main_panel.Dock = DockStyle.Fill;
             main_panel.Location = new Point(300, 30);
             main_panel.Margin = new Padding(0);
@@ -485,6 +487,23 @@
             main_table_layout_panel.Name = "main_table_layout_panel";
             main_table_layout_panel.Size = new Size(1005, 705);
             main_table_layout_panel.TabIndex = 0;
+            // 
+            // left_tab_button
+            // 
+            left_tab_button.Anchor = AnchorStyles.Left;
+            left_tab_button.BackColor = Color.FromArgb(227, 225, 231);
+            left_tab_button.FlatAppearance.BorderSize = 0;
+            left_tab_button.FlatStyle = FlatStyle.Flat;
+            left_tab_button.Font = new Font("Arial", 10F, FontStyle.Bold);
+            left_tab_button.ForeColor = Color.Red;
+            left_tab_button.Location = new Point(0, 705);
+            left_tab_button.Margin = new Padding(0);
+            left_tab_button.Name = "left_tab_button";
+            left_tab_button.Size = new Size(12, 60);
+            left_tab_button.TabIndex = 0;
+            left_tab_button.Text = "<";
+            left_tab_button.UseVisualStyleBackColor = false;
+            left_tab_button.Click += leftTabButtonClick;
             // 
             // cpu_and_ram_timer
             // 
@@ -540,6 +559,6 @@
         private Panel header;
         private Panel main_panel;
         private TableLayoutPanel main_table_layout_panel;
-        //private Button leftTabButton;
+        private Button left_tab_button;
     }
 }
