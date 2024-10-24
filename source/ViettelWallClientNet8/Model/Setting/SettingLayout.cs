@@ -16,23 +16,23 @@ namespace ViettelWallClientNet8.Model.Setting
         public required bool isLeftTabVisible { get; set; }
         public required bool isRightTabVisible { get; set; }
 
-        public static SettingLayout? getLayoutSetting() {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
-            try
-            {
-                var jsonData = File.ReadAllText(jsonFilePath);
-                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
-                if(data != null)
-                {
-                    return data.FirstOrDefault(x => x.isNowUse);
-                }
-                return null;
-            }
-            catch (Exception)
-            {
-                return null;
-            }
-        }
+        //public static SettingLayout? getLayoutSetting() {
+        //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+        //    string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
+        //    try
+        //    {
+        //        var jsonData = File.ReadAllText(jsonFilePath);
+        //        var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+        //        if(data != null)
+        //        {
+        //            return data.FirstOrDefault(x => x.isNowUse);
+        //        }
+        //        return null;
+        //    }
+        //    catch (Exception)
+        //    {
+        //        return null;
+        //    }
+        //}
     }
 }

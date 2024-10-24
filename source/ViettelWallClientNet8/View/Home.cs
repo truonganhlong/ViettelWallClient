@@ -15,6 +15,8 @@ using System.Windows.Forms.VisualStyles;
 using ViettelWallClientNet8.Model.Setting;
 using LibVLCSharp.WinForms;
 using LibVLCSharp.Shared;
+using ViettelWallClientNet8.Interface.Setting;
+using ViettelWallClientNet8.Service.Setting;
 
 
 namespace ViettelWallClientNet8.View
@@ -48,8 +50,11 @@ namespace ViettelWallClientNet8.View
         private bool is_click_layout_tab = false;
         private bool is_click_tracking_tab = false;
         private int videoViewIndex = 1;
+        //interface...
+        private readonly ISettingLayoutServicce _settingLayoutService;
         public Home()
         {
+            _settingLayoutService = new SettingLayoutService();
             InitializeComponent();
             InitializeAfter();
             settingLeftTab();
@@ -354,17 +359,27 @@ namespace ViettelWallClientNet8.View
             if (left_tab_button.Text.Equals("<"))
             {
                 left_tab_button.Text = ">";
-
             }
             else if (left_tab_button.Text == ">")
             {
                 left_tab_button.Text = "<";
             }
+            _settingLayoutService.updateIsLeftTabVisible();
+            this.Invalidate();
+            settingLeftTab();
+            settingLayout();
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------//
         private void InitializeAfter()
         {
+            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
+            if (layout != null && layout.isLeftTabVisible) {
+                left_tab_button.Text = "<";
+            } else if(layout != null && !layout.isLeftTabVisible)
+            {
+                left_tab_button.Text = ">";
+            }
             left_tab_button.Location = new Point(0, (main_panel.Height - left_tab_button.Height) / 2);
             left_tab_button.FlatStyle = FlatStyle.Flat; // Đặt FlatStyle thành Flat
             left_tab_button.FlatAppearance.BorderSize = 0; // Xóa viền
@@ -413,13 +428,21 @@ namespace ViettelWallClientNet8.View
 
         private void settingLayout()
         {
-            SettingLayout? layout = SettingLayout.getLayoutSetting();
+            //SettingLayout? layout = SettingLayout.getLayoutSetting();
+            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
             if (layout == null)
             {
                 MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
             }
             else
             {
+                if(videoViewIndex != 1)
+                {
+                    videoViewIndex = 1;
+                    main_table_layout_panel.Controls.Clear();
+                    main_table_layout_panel.ColumnStyles.Clear();
+                    main_table_layout_panel.RowStyles.Clear();
+                }
                 main_table_layout_panel.ColumnCount = layout.width;
                 for (int i = 0; i < layout.width; i++)
                 {
@@ -453,7 +476,8 @@ namespace ViettelWallClientNet8.View
 
         private void settingLeftTab()
         {
-            SettingLayout? layout = SettingLayout.getLayoutSetting();
+            //SettingLayout? layout = SettingLayout.getLayoutSetting();
+            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
             if (layout == null)
             {
                 MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
@@ -469,13 +493,23 @@ namespace ViettelWallClientNet8.View
                     full_table_layout_panel.Controls.Add(main_panel, 4, 2);
                     full_table_layout_panel.SetColumnSpan(main_panel, 83);
                     full_table_layout_panel.SetRowSpan(main_panel, 47);
+                } else
+                {
+                    left_tab_control_panel.Visible = true;
+                    full_table_layout_panel.Controls.Add(header, 20, 0);
+                    full_table_layout_panel.SetColumnSpan(header, 67);
+                    full_table_layout_panel.SetRowSpan(header, 2);
+                    full_table_layout_panel.Controls.Add(main_panel, 20, 2);
+                    full_table_layout_panel.SetColumnSpan(main_panel, 67);
+                    full_table_layout_panel.SetRowSpan(main_panel, 47);
                 }
             }
         }
 
         private void settingRightTab()
         {
-            SettingLayout? layout = SettingLayout.getLayoutSetting();
+            //SettingLayout? layout = SettingLayout.getLayoutSetting();
+            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
             if (layout == null)
             {
                 MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");

@@ -891,7 +891,6 @@ C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\libvlc\win-x86\plugins\visualization\libvisual_plugin.dll
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\LibVLCSharp.dll
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\LibVLCSharp.WinForms.dll
-C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
 C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\libvlc\win-x64\libvlc.dll
 C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\libvlc\win-x64\libvlc.lib
 C:\Users\Admin\OneDrive\Máy tính\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\libvlc\win-x64\libvlccore.dll
