@@ -32,7 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Asset\Json\" />
+    <Folder Include="UserCtrl\Tracking\" />
+    <Folder Include="UserCtrl\Replay\" />
   </ItemGroup>
 
 </Project>

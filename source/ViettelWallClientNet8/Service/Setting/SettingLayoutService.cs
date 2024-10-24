@@ -9,8 +9,24 @@ using ViettelWallClientNet8.Model.Setting;
 
 namespace ViettelWallClientNet8.Service.Setting
 {
-    public class SettingLayoutService : ISettingLayoutServicce
+    public class SettingLayoutService : ISettingLayoutService
     {
+        public SettingLastView? getLastViewSetting()
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
+                return data;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
+
         public SettingLayout? getLayoutSetting()
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
@@ -34,14 +50,14 @@ namespace ViettelWallClientNet8.Service.Setting
         public void updateIsLeftTabVisible()
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
-                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
                 if (data != null)
                 {
-                    data.First(x => x.isNowUse).isLeftTabVisible = !data.First(x => x.isNowUse).isLeftTabVisible;
+                    data.isLeftTabVisible = !data.isLeftTabVisible;
                     string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
                     File.WriteAllText(jsonFilePath, updateJson);
                 }
@@ -55,14 +71,14 @@ namespace ViettelWallClientNet8.Service.Setting
         public void updateIsRightTabVisible()
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
-                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
                 if (data != null)
                 {
-                    data.First(x => x.isNowUse).isRightTabVisible = !data.First(x => x.isNowUse).isRightTabVisible;
+                    data.isRightTabVisible = !data.isRightTabVisible;
                     string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
                     File.WriteAllText(jsonFilePath, updateJson);
                 }

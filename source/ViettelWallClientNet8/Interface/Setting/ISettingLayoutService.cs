@@ -7,9 +7,10 @@ using ViettelWallClientNet8.Model.Setting;
 
 namespace ViettelWallClientNet8.Interface.Setting
 {
-    public interface ISettingLayoutServicce
+    public interface ISettingLayoutService
     {
         SettingLayout? getLayoutSetting();
+        SettingLastView? getLastViewSetting();
         void updateIsLeftTabVisible();
         void updateIsRightTabVisible();
     }

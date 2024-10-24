@@ -7,6 +7,24 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="TestForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveHeaderUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveLeftTabUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveMainUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveRightTabCLUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveRightTabTUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\Home.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -13,8 +13,6 @@ namespace ViettelWallClientNet8.Model.Setting
         public required int width { get; set; }
         public required int height { get; set; }
         public required bool isNowUse { get; set; }
-        public required bool isLeftTabVisible { get; set; }
-        public required bool isRightTabVisible { get; set; }
 
         //public static SettingLayout? getLayoutSetting() {
         //    string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
