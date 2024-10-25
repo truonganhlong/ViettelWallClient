@@ -16,7 +16,7 @@ namespace ViettelWallClientNet8
         public TestForm()
         {
             InitializeComponent();
-            this.Size = new Size(705, 705);
+            this.Size = new Size(1005, 705);
             var test = new LiveMainUserCtrl();
             test.Dock = DockStyle.Fill;
             this.Controls.Add(test);

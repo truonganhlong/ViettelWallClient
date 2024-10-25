@@ -13,7 +13,16 @@
     <Compile Update="UserCtrl\Live\LiveHeaderUserCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserCtrl\Live\LiveLeftCameraTabUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveLeftLayoutTabUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="UserCtrl\Live\LiveLeftTabUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="UserCtrl\Live\LiveLeftTrackingTabUserCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="UserCtrl\Live\LiveMainUserCtrl.cs">

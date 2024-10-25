@@ -1770,3 +1770,6 @@ C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveMainUserCtrl.resources
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveRightTabCLUserCtrl.resources
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveRightTabTUserCtrl.resources
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveLeftCameraTabUserCtrl.resources
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveLeftLayoutTabUserCtrl.resources
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveLeftTrackingTabUserCtrl.resources

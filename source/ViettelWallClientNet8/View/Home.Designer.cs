@@ -38,15 +38,11 @@
             tracking_panel = new Panel();
             replay_panel = new Panel();
             live_panel = new Panel();
-            main_panel = new Panel();
-            main_table_layout_panel = new TableLayoutPanel();
-            left_tab_button = new Button();
             left_tab_panel = new Panel();
             cpu_and_ram_timer = new System.Windows.Forms.Timer(components);
             full_table_layout_panel.SuspendLayout();
             footer_panel.SuspendLayout();
             toolbar_panel.SuspendLayout();
-            main_panel.SuspendLayout();
             SuspendLayout();
             // 
             // full_table_layout_panel
@@ -142,7 +138,6 @@
             full_table_layout_panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.14F));
             full_table_layout_panel.Controls.Add(footer_panel, 0, 49);
             full_table_layout_panel.Controls.Add(toolbar_panel, 0, 0);
-            full_table_layout_panel.Controls.Add(main_panel, 20, 2);
             full_table_layout_panel.Controls.Add(left_tab_panel, 4, 0);
             full_table_layout_panel.Dock = DockStyle.Fill;
             full_table_layout_panel.Location = new Point(0, 0);
@@ -313,44 +308,6 @@
             live_panel.TabIndex = 0;
             live_panel.Click += livePanelClick;
             // 
-            // main_panel
-            // 
-            full_table_layout_panel.SetColumnSpan(main_panel, 67);
-            main_panel.Controls.Add(main_table_layout_panel);
-            main_panel.Controls.Add(left_tab_button);
-            main_panel.Dock = DockStyle.Fill;
-            main_panel.Location = new Point(300, 30);
-            main_panel.Margin = new Padding(0);
-            main_panel.Name = "main_panel";
-            full_table_layout_panel.SetRowSpan(main_panel, 47);
-            main_panel.Size = new Size(1005, 705);
-            main_panel.TabIndex = 4;
-            // 
-            // main_table_layout_panel
-            //
-            main_table_layout_panel.Dock = DockStyle.Fill;
-            main_table_layout_panel.Location = new Point(0, 0);
-            main_table_layout_panel.Name = "main_table_layout_panel";
-            main_table_layout_panel.Size = new Size(1005, 705);
-            main_table_layout_panel.TabIndex = 0;
-            // 
-            // left_tab_button
-            // 
-            left_tab_button.Anchor = AnchorStyles.Left;
-            left_tab_button.BackColor = Color.FromArgb(227, 225, 231);
-            left_tab_button.FlatAppearance.BorderSize = 0;
-            left_tab_button.FlatStyle = FlatStyle.Flat;
-            left_tab_button.Font = new Font("Arial", 10F, FontStyle.Bold);
-            left_tab_button.ForeColor = Color.Red;
-            left_tab_button.Location = new Point(0, 705);
-            left_tab_button.Margin = new Padding(0);
-            left_tab_button.Name = "left_tab_button";
-            left_tab_button.Size = new Size(12, 60);
-            left_tab_button.TabIndex = 0;
-            left_tab_button.Text = "<";
-            left_tab_button.UseVisualStyleBackColor = false;
-            left_tab_button.Click += leftTabButtonClick;
-            // 
             // left_tab_panel
             // 
             full_table_layout_panel.SetColumnSpan(left_tab_panel, 16);
@@ -384,7 +341,6 @@
             footer_panel.ResumeLayout(false);
             footer_panel.PerformLayout();
             toolbar_panel.ResumeLayout(false);
-            main_panel.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -400,9 +356,6 @@
         private System.Windows.Forms.Timer cpu_and_ram_timer;
         private Label tracking_on_label;
         private Label full_screen_label;
-        private Panel main_panel;
-        private TableLayoutPanel main_table_layout_panel;
-        private Button left_tab_button;
         private Panel left_tab_panel;
     }
 }

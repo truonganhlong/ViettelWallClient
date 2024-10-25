@@ -47,9 +47,6 @@ namespace ViettelWallClientNet8.View
         private float original_full_screen_label_location_x;
         private float original_full_screen_label_location_y;
         private float original_full_screnn_label_font_size;
-        //private bool is_click_camera_tab = true;
-        //private bool is_click_layout_tab = false;
-        //private bool is_click_tracking_tab = false;
         private int videoViewIndex = 1;
         //interface...
         private readonly ISettingLayoutService _settingLayoutService;
@@ -58,9 +55,7 @@ namespace ViettelWallClientNet8.View
             _settingLayoutService = new SettingLayoutService();
             InitializeComponent();
             InitializeAfter();
-            settingLeftTab();
-            //settingRightTab();
-            settingLayout();
+            settingTab();
             cpu_counter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             ram_counter = new PerformanceCounter("Memory", "Available MBytes");
         }
@@ -99,10 +94,6 @@ namespace ViettelWallClientNet8.View
         {
             footer_panel.Invalidate();
             toolbar_panel.Invalidate();
-            //camera_tab_panel.Invalidate();
-            //layout_tab_panel.Invalidate();
-            //tracking_tab_panel.Invalidate();
-            //left_tab_control_panel.Invalidate();
             left_tab_panel.Invalidate();
             float minResizeRatio = returnMinSizeRatio();
             float widthResizeRatio = returnWidthSizeRatio();
@@ -242,34 +233,20 @@ namespace ViettelWallClientNet8.View
 
         private void leftTabButtonClick(object sender, EventArgs e)
         {
-            if (left_tab_button.Text.Equals("<"))
-            {
-                left_tab_button.Text = ">";
-            }
-            else if (left_tab_button.Text == ">")
-            {
-                left_tab_button.Text = "<";
-            }
-            _settingLayoutService.updateIsLeftTabVisible();
             this.Invalidate();
-            settingLeftTab();
-            settingLayout();
+            settingTab();
+        }
+
+        private void rightTabButtonClick(object sender, EventArgs e)
+        {
+            this.Invalidate();
+            settingTab();
         }
 
         //-------------------------------------------------------------------------------------------------------------------------------------------------------//
         private void InitializeAfter()
         {
-            SettingLastView? lastView = _settingLayoutService.getLastViewSetting();
-            if (lastView != null && lastView.isLeftTabVisible) {
-                left_tab_button.Text = "<";
-            } else if(lastView != null && !lastView.isLeftTabVisible)
-            {
-                left_tab_button.Text = ">";
-            }
-            left_tab_button.Location = new Point(0, (main_panel.Height - left_tab_button.Height) / 2);
-            left_tab_button.FlatStyle = FlatStyle.Flat; // Đặt FlatStyle thành Flat
-            left_tab_button.FlatAppearance.BorderSize = 0; // Xóa viền
-            left_tab_button.BringToFront();
+
         }
         
         private float GetTotalPhysicalMemory()
@@ -312,54 +289,7 @@ namespace ViettelWallClientNet8.View
             return (float)this.ClientSize.Height / original_height;
         }
 
-        private void settingLayout()
-        {
-            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
-            if (layout == null)
-            {
-                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
-            }
-            else
-            {
-                if(videoViewIndex != 1)
-                {
-                    videoViewIndex = 1;
-                    main_table_layout_panel.Controls.Clear();
-                    main_table_layout_panel.ColumnStyles.Clear();
-                    main_table_layout_panel.RowStyles.Clear();
-                }
-                main_table_layout_panel.ColumnCount = layout.width;
-                for (int i = 0; i < layout.width; i++)
-                {
-                    main_table_layout_panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F / layout.width));
-                }
-                main_table_layout_panel.RowCount = layout.height;
-                for (int i = 0; i < layout.height; i++)
-                {
-                    main_table_layout_panel.RowStyles.Add(new RowStyle(SizeType.Percent, 100F / layout.height));
-                }
-                float videoViewWidth = main_table_layout_panel.Width / layout.width;
-                float videoViewHeight = main_table_layout_panel.Height / layout.height;
-                //tạo nhiều videoView theo thứ tự từ trái sang phải, từ trên xuống dưới
-                for (int y = 0; y < layout.height; y++)
-                {
-                    for (int x = 0; x < layout.width; x++)
-                    {
-                        VideoView videoView = new VideoView();
-                        main_table_layout_panel.Controls.Add(videoView, x, y);
-                        videoView.BackColor = Color.FromArgb(170, 167, 167);
-                        videoView.Dock = DockStyle.Fill;
-                        videoView.MediaPlayer = null;
-                        videoView.Size = new Size((int)Math.Floor(videoViewWidth), (int)Math.Floor(videoViewHeight));
-                        videoView.Name = "videoView" + videoViewIndex;
-                        videoView.Margin = new Padding(3, 3, 3, 3);
-                        videoViewIndex++;
-                    }
-                }
-            }
-        }
-
-        private void settingLeftTab()
+        private void settingTab()
         {
             SettingLastView? lastView = _settingLayoutService.getLastViewSetting();
             if (lastView == null)
@@ -369,13 +299,22 @@ namespace ViettelWallClientNet8.View
             else
             {
                 LiveHeaderUserCtrl? liveHeaderUserCtrl = null;
+                LiveMainUserCtrl? liveMainUserCtrl = null;
 
-                // Kiểm tra xem LiveHeaderUserCtrl đã được thêm vào full_table_layout_panel chưa
                 foreach (Control control in full_table_layout_panel.Controls)
                 {
                     if (control is LiveHeaderUserCtrl)
                     {
                         liveHeaderUserCtrl = (LiveHeaderUserCtrl)control;
+                        break;
+                    }
+                }
+
+                foreach (Control control in full_table_layout_panel.Controls)
+                {
+                    if (control is LiveMainUserCtrl)
+                    {
+                        liveMainUserCtrl = (LiveMainUserCtrl)control;
                         break;
                     }
                 }
@@ -388,38 +327,43 @@ namespace ViettelWallClientNet8.View
                     full_table_layout_panel.Controls.Add(liveHeaderUserCtrl);
                 }
 
-                if (!lastView.isLeftTabVisible)
+                if(liveMainUserCtrl == null)
+                {
+                    liveMainUserCtrl = new LiveMainUserCtrl();
+                    liveMainUserCtrl.leftTabClickEvent += leftTabButtonClick;
+                    liveMainUserCtrl.rightTabClickEvent += rightTabButtonClick;
+                    liveMainUserCtrl.Dock = DockStyle.Fill;
+                    full_table_layout_panel.Controls.Add(liveMainUserCtrl);
+                }
+
+                if (!lastView.isLeftTabVisible && !lastView.isRightTabVisible)
                 {
                     left_tab_panel.Visible = false;
                     full_table_layout_panel.Controls.Add(liveHeaderUserCtrl, 4, 0);
                     full_table_layout_panel.SetColumnSpan(liveHeaderUserCtrl, 83);
                     full_table_layout_panel.SetRowSpan(liveHeaderUserCtrl, 2);
-                    full_table_layout_panel.Controls.Add(main_panel, 4, 2);
-                    full_table_layout_panel.SetColumnSpan(main_panel, 83);
-                    full_table_layout_panel.SetRowSpan(main_panel, 47);
-                } else
+                    full_table_layout_panel.Controls.Add(liveMainUserCtrl, 4, 2);
+                    full_table_layout_panel.SetColumnSpan(liveMainUserCtrl, 83);
+                    full_table_layout_panel.SetRowSpan(liveMainUserCtrl, 47);
+                }
+                else if (lastView.isLeftTabVisible && !lastView.isRightTabVisible)
                 {
                     left_tab_panel.Visible = true;
                     full_table_layout_panel.Controls.Add(liveHeaderUserCtrl, 20, 0);
                     full_table_layout_panel.SetColumnSpan(liveHeaderUserCtrl, 67);
                     full_table_layout_panel.SetRowSpan(liveHeaderUserCtrl, 2);
-                    full_table_layout_panel.Controls.Add(main_panel, 20, 2);
-                    full_table_layout_panel.SetColumnSpan(main_panel, 67);
-                    full_table_layout_panel.SetRowSpan(main_panel, 47);
+                    full_table_layout_panel.Controls.Add(liveMainUserCtrl, 20, 2);
+                    full_table_layout_panel.SetColumnSpan(liveMainUserCtrl, 67);
+                    full_table_layout_panel.SetRowSpan(liveMainUserCtrl, 47);
                 }
-            }
-        }
-
-        private void settingRightTab()
-        {
-            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
-            if (layout == null)
-            {
-                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
-            }
-            else
-            {
-
+                else if (!lastView.isLeftTabVisible && lastView.isRightTabVisible)
+                {
+                    //code later
+                }
+                else if (lastView.isLeftTabVisible && lastView.isRightTabVisible) 
+                { 
+                    //code later
+                }
             }
         }
     }

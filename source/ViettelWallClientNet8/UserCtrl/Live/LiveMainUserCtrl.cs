@@ -18,6 +18,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
     {
         private int videoViewIndex = 1;
         private readonly ISettingLayoutService _settingLayoutService;
+        public event EventHandler? leftTabClickEvent;
+        public event EventHandler? rightTabClickEvent;
         public LiveMainUserCtrl()
         {
             _settingLayoutService = new SettingLayoutService();
@@ -32,11 +34,12 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             {
                 left_tab_button.Text = ">";
             }
-            else if (left_tab_button.Text == ">")
+            else if (left_tab_button.Text.Equals(">"))
             {
                 left_tab_button.Text = "<";
             }
             _settingLayoutService.updateIsLeftTabVisible();
+            leftTabClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void InitializeAfter()
@@ -54,9 +57,22 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             left_tab_button.FlatStyle = FlatStyle.Flat; // Đặt FlatStyle thành Flat
             left_tab_button.FlatAppearance.BorderSize = 0; // Xóa viền
             left_tab_button.BringToFront();
+
+            if (lastView != null && lastView.isRightTabVisible)
+            {
+                right_tab_button.Text = ">";
+            }
+            else if (lastView != null && !lastView.isRightTabVisible)
+            {
+                right_tab_button.Text = "<";
+            }
+            right_tab_button.Location = new Point(main_panel.Width - right_tab_button.Width, (main_panel.Height - right_tab_button.Height) / 2);
+            right_tab_button.FlatStyle = FlatStyle.Flat; // Đặt FlatStyle thành Flat
+            right_tab_button.FlatAppearance.BorderSize = 0; // Xóa viền
+            right_tab_button.BringToFront();
         }
 
-        private void settingLayout()
+        public void settingLayout()
         {
             SettingLayout? layout = _settingLayoutService.getLayoutSetting();
             if (layout == null)
@@ -101,6 +117,20 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     }
                 }
             }
+        }
+
+        private void rightTabButtonClick(object sender, EventArgs e)
+        {
+            if (right_tab_button.Text.Equals("<"))
+            {
+                right_tab_button.Text = ">";
+            }
+            else if (right_tab_button.Text.Equals(">"))
+            {
+                right_tab_button.Text = "<";
+            }
+            _settingLayoutService.updateIsRightTabVisible();
+            rightTabClickEvent?.Invoke(this, EventArgs.Empty);
         }
     }
 }
