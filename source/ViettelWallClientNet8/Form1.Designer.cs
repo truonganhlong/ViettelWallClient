@@ -980,7 +980,7 @@
             WindowState = FormWindowState.Maximized;
             Load += Form1_Load;
             tableLayoutPanel1.ResumeLayout(false);
-            var vlcDirectory = new DirectoryInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "VLC"));
+            var vlcDirectory = new DirectoryInfo(Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "libvlc", "win-x64"));
             vlcControl1.VlcLibDirectory = vlcDirectory;
             vlcControl2.VlcLibDirectory = vlcDirectory;
             vlcControl3.VlcLibDirectory = vlcDirectory;

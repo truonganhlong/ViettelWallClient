@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using LibVLCSharp.Shared;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Vlc.DotNet.Forms;
