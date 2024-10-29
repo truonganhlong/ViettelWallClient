@@ -13,5 +13,9 @@ namespace ViettelWallClientNet8.Interface.Setting
         SettingLastView? getLastViewSetting();
         void updateIsLeftTabVisible();
         void updateIsRightTabVisible();
+        void updateMainTabLocation(string location);
+        void updateLeftTabLocation(string location);
+        void updateRightTabLocation(string location);
+        
     }
 }

@@ -11,6 +11,7 @@ namespace ViettelWallClientNet8.Service.Setting
 {
     public class SettingLayoutService : ISettingLayoutService
     {
+        //NOTE: đầu tiên không nên có 2 file json setting, khi ứng dụng khởi đầu chạy lần đầu tiên hẵng tạo (test sau), từ đó các đoạn code if bên dưới sẽ thêm else là khởi tạo file 
         public SettingLastView? getLastViewSetting()
         {
             string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
@@ -85,6 +86,110 @@ namespace ViettelWallClientNet8.Service.Setting
             }
             catch (Exception e)
             {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void updateMainTabLocation(string location)
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
+                if (data != null) {
+                    switch (location)
+                    {
+                        case "Live":
+                            data.mainTabSelected = "Live";
+                            break;
+                        case "Replay":
+                            data.mainTabSelected = "Replay";
+                            break;
+                        case "Tracking":
+                            data.mainTabSelected = "Tracking";
+                            break;
+                        default:
+                            break;
+                    }
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void updateLeftTabLocation(string location)
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
+                if (data != null)
+                {
+                    switch (location)
+                    {
+                        case "Live":
+                            data.mainTabSelected = "Live";
+                            break;
+                        case "Replay":
+                            data.mainTabSelected = "Replay";
+                            break;
+                        case "Tracking":
+                            data.mainTabSelected = "Tracking";
+                            break;
+                        default:
+                            break;
+                    }
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void updateRightTabLocation(string location)
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
+                if (data != null)
+                {
+                    switch (location)
+                    {
+                        case "Live":
+                            data.mainTabSelected = "Live";
+                            break;
+                        case "Replay":
+                            data.mainTabSelected = "Replay";
+                            break;
+                        case "Tracking":
+                            data.mainTabSelected = "Tracking";
+                            break;
+                        default:
+                            break;
+                    }
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+
                 throw new Exception(e.Message);
             }
         }

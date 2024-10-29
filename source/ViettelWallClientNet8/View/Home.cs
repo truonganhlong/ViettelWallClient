@@ -358,10 +358,18 @@ namespace ViettelWallClientNet8.View
                 }
                 else if (!lastView.isLeftTabVisible && lastView.isRightTabVisible)
                 {
+                    left_tab_panel.Visible = false;
+                    full_table_layout_panel.Controls.Add(liveHeaderUserCtrl, 4, 0);
+                    full_table_layout_panel.SetColumnSpan(liveHeaderUserCtrl, 83);
+                    full_table_layout_panel.SetRowSpan(liveHeaderUserCtrl, 2);
                     //code later
                 }
                 else if (lastView.isLeftTabVisible && lastView.isRightTabVisible) 
-                { 
+                {
+                    left_tab_panel.Visible = true;
+                    full_table_layout_panel.Controls.Add(liveHeaderUserCtrl, 20, 0);
+                    full_table_layout_panel.SetColumnSpan(liveHeaderUserCtrl, 67);
+                    full_table_layout_panel.SetRowSpan(liveHeaderUserCtrl, 2);
                     //code later
                 }
             }
