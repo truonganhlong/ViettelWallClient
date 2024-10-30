@@ -1,4 +1,6 @@
-﻿namespace ViettelWallClientNet8.View
+﻿using ViettelWallClientNet8.UserCtrl.Main;
+
+namespace ViettelWallClientNet8.View
 {
     partial class Home
     {
@@ -38,8 +40,8 @@
             tracking_panel = new Panel();
             replay_panel = new Panel();
             live_panel = new Panel();
-            left_tab_panel = new Panel();
             cpu_and_ram_timer = new System.Windows.Forms.Timer(components);
+            main_user_ctrl = new UserCtrl.Main.MainUserCtrl();
             full_table_layout_panel.SuspendLayout();
             footer_panel.SuspendLayout();
             toolbar_panel.SuspendLayout();
@@ -138,7 +140,7 @@
             full_table_layout_panel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 1.14F));
             full_table_layout_panel.Controls.Add(footer_panel, 0, 49);
             full_table_layout_panel.Controls.Add(toolbar_panel, 0, 0);
-            full_table_layout_panel.Controls.Add(left_tab_panel, 4, 0);
+            full_table_layout_panel.Controls.Add(main_user_ctrl, 4, 0);
             full_table_layout_panel.Dock = DockStyle.Fill;
             full_table_layout_panel.Location = new Point(0, 0);
             full_table_layout_panel.Margin = new Padding(0);
@@ -308,21 +310,21 @@
             live_panel.TabIndex = 0;
             live_panel.Click += livePanelClick;
             // 
-            // left_tab_panel
-            // 
-            full_table_layout_panel.SetColumnSpan(left_tab_panel, 16);
-            full_table_layout_panel.SetRowSpan(left_tab_panel, 49);
-            left_tab_panel.Dock = DockStyle.Fill;
-            left_tab_panel.Location = new Point(60, 0);
-            left_tab_panel.Margin = new Padding(0);
-            left_tab_panel.Name = "left_tab_panel";
-            left_tab_panel.TabIndex = 5;
-            // 
             // cpu_and_ram_timer
             // 
             cpu_and_ram_timer.Enabled = true;
             cpu_and_ram_timer.Interval = 1000;
             cpu_and_ram_timer.Tick += cpuAndRamTimerTick;
+            // 
+            // main_user_ctrl
+            // 
+            main_user_ctrl.Location = new Point(60, 0);
+            main_user_ctrl.Margin = new Padding(0);
+            main_user_ctrl.Name = "main_user_ctrl";
+            full_table_layout_panel.SetColumnSpan(main_user_ctrl, 83);
+            full_table_layout_panel.SetRowSpan(main_user_ctrl, 49);
+            main_user_ctrl.Dock = DockStyle.Fill;
+            main_user_ctrl.TabIndex = 2;
             // 
             // Home
             // 
@@ -356,6 +358,6 @@
         private System.Windows.Forms.Timer cpu_and_ram_timer;
         private Label tracking_on_label;
         private Label full_screen_label;
-        private Panel left_tab_panel;
+        private UserCtrl.Main.MainUserCtrl main_user_ctrl;
     }
 }
