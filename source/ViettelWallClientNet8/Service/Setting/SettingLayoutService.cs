@@ -136,14 +136,20 @@ namespace ViettelWallClientNet8.Service.Setting
                 {
                     switch (location)
                     {
-                        case "Live":
-                            data.mainTabSelected = "Live";
+                        case "Camera":
+                            data.leftTabSelected = "Camera";
                             break;
-                        case "Replay":
-                            data.mainTabSelected = "Replay";
+                        case "Layout":
+                            data.leftTabSelected = "Layout";
                             break;
                         case "Tracking":
-                            data.mainTabSelected = "Tracking";
+                            data.leftTabSelected = "Tracking";
+                            break;
+                        case "CameraList":
+                            data.leftTabSelected = "CameraList";
+                            break;
+                        case "EventFilter":
+                            data.leftTabSelected = "EventFilter";
                             break;
                         default:
                             break;
@@ -171,14 +177,20 @@ namespace ViettelWallClientNet8.Service.Setting
                 {
                     switch (location)
                     {
-                        case "Live":
-                            data.mainTabSelected = "Live";
+                        case "All":
+                            data.rightTabSelected = "All";
                             break;
-                        case "Replay":
-                            data.mainTabSelected = "Replay";
+                        case "Security":
+                            data.rightTabSelected = "Security";
                             break;
-                        case "Tracking":
-                            data.mainTabSelected = "Tracking";
+                        case "Person":
+                            data.rightTabSelected = "Person";
+                            break;
+                        case "Transportation":
+                            data.rightTabSelected = "Transportation";
+                            break;
+                        case "Traffic":
+                            data.rightTabSelected = "Traffic";
                             break;
                         default:
                             break;

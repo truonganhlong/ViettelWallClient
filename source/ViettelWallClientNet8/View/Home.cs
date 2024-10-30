@@ -144,6 +144,9 @@ namespace ViettelWallClientNet8.View
             var liveLeftTabUserCtrl = new LiveLeftTabUserCtrl();
             liveLeftTabUserCtrl.Dock = DockStyle.Fill;
             left_tab_panel.Controls.Add(liveLeftTabUserCtrl);
+            _settingLayoutService.updateMainTabLocation("Live");
+            this.Invalidate();
+            settingLiveTab();
         }
         /// <summary>
         /// event when click on replay panel in toolbar
@@ -156,6 +159,9 @@ namespace ViettelWallClientNet8.View
             replay_panel.BackgroundImage = Properties.Resources.red_replay_icon;
             tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
             //navigate later
+            _settingLayoutService.updateMainTabLocation("Replay");
+            this.Invalidate();
+            settingReplayTab();
         }
         /// <summary>
         /// event when click on tracking panel in toolbar
@@ -168,6 +174,9 @@ namespace ViettelWallClientNet8.View
             replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
             tracking_panel.BackgroundImage = Properties.Resources.red_alert_icon;
             //navigate later
+            _settingLayoutService.updateMainTabLocation("Tracking");
+            this.Invalidate();
+            settingTrackingTab();
         }
 
         //}
@@ -246,7 +255,27 @@ namespace ViettelWallClientNet8.View
         //-------------------------------------------------------------------------------------------------------------------------------------------------------//
         private void InitializeAfter()
         {
-
+            // set main tab selected in history
+            SettingLastView? settingLastView = _settingLayoutService.getLastViewSetting();
+            if (settingLastView != null) {
+                switch (settingLastView.mainTabSelected)
+                {
+                    case "Live":
+                        livePanelClick(live_panel, EventArgs.Empty);
+                        break;
+                    case "Replay":
+                        replayPanelClick(replay_panel, EventArgs.Empty);
+                        break;
+                    case "Tracking":
+                        trackingPanelClick(tracking_panel, EventArgs.Empty);
+                        break;
+                    default:
+                        break;
+                }
+            } else
+            {
+                // think later
+            }
         }
         
         private float GetTotalPhysicalMemory()
@@ -298,6 +327,32 @@ namespace ViettelWallClientNet8.View
             }
             else
             {
+                switch (lastView.mainTabSelected)
+                {
+                    case "Live":
+                        settingLiveTab();
+                        break;
+                    case "Replay":
+                        settingReplayTab();
+                        break;
+                    case "Tracking":
+                        settingTrackingTab();
+                        break;
+                    default:
+                        break;
+                }
+            }
+        }
+
+        private void settingLiveTab()
+        {
+            SettingLastView? lastView = _settingLayoutService.getLastViewSetting();
+            if (lastView == null)
+            {
+                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
+            }
+            else
+            {
                 LiveHeaderUserCtrl? liveHeaderUserCtrl = null;
                 LiveMainUserCtrl? liveMainUserCtrl = null;
 
@@ -327,7 +382,7 @@ namespace ViettelWallClientNet8.View
                     full_table_layout_panel.Controls.Add(liveHeaderUserCtrl);
                 }
 
-                if(liveMainUserCtrl == null)
+                if (liveMainUserCtrl == null)
                 {
                     liveMainUserCtrl = new LiveMainUserCtrl();
                     liveMainUserCtrl.leftTabClickEvent += leftTabButtonClick;
@@ -364,7 +419,7 @@ namespace ViettelWallClientNet8.View
                     full_table_layout_panel.SetRowSpan(liveHeaderUserCtrl, 2);
                     //code later
                 }
-                else if (lastView.isLeftTabVisible && lastView.isRightTabVisible) 
+                else if (lastView.isLeftTabVisible && lastView.isRightTabVisible)
                 {
                     left_tab_panel.Visible = true;
                     full_table_layout_panel.Controls.Add(liveHeaderUserCtrl, 20, 0);
@@ -373,6 +428,16 @@ namespace ViettelWallClientNet8.View
                     //code later
                 }
             }
+        }
+
+        private void settingReplayTab()
+        {
+
+        }
+
+        private void settingTrackingTab()
+        {
+
         }
     }
 }
