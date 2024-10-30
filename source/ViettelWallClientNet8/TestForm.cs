@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using ViettelWallClientNet8.UserCtrl.Live;
+using ViettelWallClientNet8.UserCtrl.Main;
 
 namespace ViettelWallClientNet8
 {
@@ -16,8 +17,8 @@ namespace ViettelWallClientNet8
         public TestForm()
         {
             InitializeComponent();
-            this.Size = new Size(1005, 705);
-            var test = new LiveMainUserCtrl();
+            this.Size = new Size(1245, 735);
+            var test = new MainUserCtrl();
             test.Dock = DockStyle.Fill;
             this.Controls.Add(test);
             

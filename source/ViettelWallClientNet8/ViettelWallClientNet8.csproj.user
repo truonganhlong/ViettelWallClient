@@ -34,6 +34,9 @@
     <Compile Update="UserCtrl\Live\LiveRightTabTUserCtrl.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="UserCtrl\Main\MainUserCtrl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\Home.cs">
       <SubType>Form</SubType>
     </Compile>
