@@ -255,6 +255,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             using (Pen pen = new Pen(border_color, ApplicationConst.border_thickness))
             {
                 e.Graphics.DrawLine(pen, 0, 0, 0, right_tab_cl_control_panel.Height);
+                e.Graphics.DrawLine(pen, 0, 0, right_tab_cl_control_panel.Width, 0);
             }
         }
     }
