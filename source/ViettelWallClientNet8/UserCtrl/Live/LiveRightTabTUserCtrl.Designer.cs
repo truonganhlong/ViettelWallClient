@@ -35,6 +35,7 @@
             // 
             // scrollable_panel
             // 
+            scrollable_panel.AutoScroll = true;
             scrollable_panel.BackColor = Color.FromArgb(64, 64, 64);
             scrollable_panel.Controls.Add(live_right_tab_t_flow_layout_panel);
             scrollable_panel.Dock = DockStyle.Fill;
@@ -43,15 +44,15 @@
             scrollable_panel.Name = "scrollable_panel";
             scrollable_panel.Size = new Size(180, 705);
             scrollable_panel.TabIndex = 0;
-            scrollable_panel.AutoScroll = true;
+            scrollable_panel.Paint += scrollablePanelBorderPaint;
             // 
             // live_right_tab_t_flow_layout_panel
             // 
-            live_right_tab_t_flow_layout_panel.Dock = DockStyle.Fill;
             live_right_tab_t_flow_layout_panel.FlowDirection = FlowDirection.TopDown;
-            live_right_tab_t_flow_layout_panel.Location = new Point(0, 0);
+            live_right_tab_t_flow_layout_panel.Location = new Point(1, 1);
             live_right_tab_t_flow_layout_panel.Margin = new Padding(0);
             live_right_tab_t_flow_layout_panel.Name = "live_right_tab_t_flow_layout_panel";
+            live_right_tab_t_flow_layout_panel.Size = new Size(178, 100);
             live_right_tab_t_flow_layout_panel.TabIndex = 0;
             live_right_tab_t_flow_layout_panel.WrapContents = false;
             // 
@@ -63,6 +64,7 @@
             Margin = new Padding(0);
             Name = "LiveRightTabTUserCtrl";
             Size = new Size(180, 705);
+            Resize += resize;
             scrollable_panel.ResumeLayout(false);
             ResumeLayout(false);
         }

@@ -3,5 +3,6 @@
   "isLeftTabVisible": true,
   "leftTabSelected": "Tracking",
   "isRightTabVisible": true,
-  "rightTabSelected": null
+  "rightTabSelected": null,
+  "isFullScreen": false
 }

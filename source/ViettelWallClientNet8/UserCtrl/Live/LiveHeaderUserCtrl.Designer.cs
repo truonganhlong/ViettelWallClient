@@ -36,7 +36,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             // header
             // 
             header.Dock = DockStyle.Fill;
-            header.Location = new Point(300, 0);
+            header.Location = new Point(0, 0);
             header.Margin = new Padding(0);
             header.Name = "header";
             header.Size = new Size(1005, 30);

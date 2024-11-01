@@ -40,8 +40,8 @@ namespace ViettelWallClientNet8.View
             tracking_panel = new Panel();
             replay_panel = new Panel();
             live_panel = new Panel();
+            main_user_ctrl = new MainUserCtrl();
             cpu_and_ram_timer = new System.Windows.Forms.Timer(components);
-            main_user_ctrl = new UserCtrl.Main.MainUserCtrl();
             full_table_layout_panel.SuspendLayout();
             footer_panel.SuspendLayout();
             toolbar_panel.SuspendLayout();
@@ -310,21 +310,22 @@ namespace ViettelWallClientNet8.View
             live_panel.TabIndex = 0;
             live_panel.Click += livePanelClick;
             // 
+            // main_user_ctrl
+            // 
+            full_table_layout_panel.SetColumnSpan(main_user_ctrl, 83);
+            main_user_ctrl.Dock = DockStyle.Fill;
+            main_user_ctrl.Location = new Point(60, 0);
+            main_user_ctrl.Margin = new Padding(0);
+            main_user_ctrl.Name = "main_user_ctrl";
+            full_table_layout_panel.SetRowSpan(main_user_ctrl, 49);
+            main_user_ctrl.Size = new Size(1245, 735);
+            main_user_ctrl.TabIndex = 2;
+            // 
             // cpu_and_ram_timer
             // 
             cpu_and_ram_timer.Enabled = true;
             cpu_and_ram_timer.Interval = 1000;
             cpu_and_ram_timer.Tick += cpuAndRamTimerTick;
-            // 
-            // main_user_ctrl
-            // 
-            main_user_ctrl.Location = new Point(60, 0);
-            main_user_ctrl.Margin = new Padding(0);
-            main_user_ctrl.Name = "main_user_ctrl";
-            full_table_layout_panel.SetColumnSpan(main_user_ctrl, 83);
-            full_table_layout_panel.SetRowSpan(main_user_ctrl, 49);
-            main_user_ctrl.Dock = DockStyle.Fill;
-            main_user_ctrl.TabIndex = 2;
             // 
             // Home
             // 
@@ -338,6 +339,7 @@ namespace ViettelWallClientNet8.View
             Name = "Home";
             Text = "Home";
             Load += Home_Load;
+            SizeChanged += sizeChanged;
             Resize += resize;
             full_table_layout_panel.ResumeLayout(false);
             footer_panel.ResumeLayout(false);

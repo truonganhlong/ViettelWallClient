@@ -48,6 +48,8 @@ namespace ViettelWallClientNet8.View
         private float original_full_screen_label_location_x;
         private float original_full_screen_label_location_y;
         private float original_full_screnn_label_font_size;
+        private float original_main_user_ctrl_width;
+        private float original_main_user_ctrl_height;
         private int videoViewIndex = 1;
         //interface...
         private readonly ISettingLayoutService _settingLayoutService;
@@ -94,6 +96,7 @@ namespace ViettelWallClientNet8.View
         {
             footer_panel.Invalidate();
             toolbar_panel.Invalidate();
+            main_user_ctrl.Invalidate();
             float minResizeRatio = returnMinSizeRatio();
             float widthResizeRatio = returnWidthSizeRatio();
             float heightResizeRatio = returnHeightSizeRatio();
@@ -128,6 +131,8 @@ namespace ViettelWallClientNet8.View
                 Image resizedImage = new Bitmap(full_screen_label.Image, newSize);
                 full_screen_label.Image = resizedImage;
             }
+            main_user_ctrl.Width = (int)(original_main_user_ctrl_width * this.ClientSize.Width / original_width);
+            main_user_ctrl.Height = (int)(original_main_user_ctrl_height * this.ClientSize.Height / original_height);
         }
         /// <summary>
         /// event when click on live panel in toolbar
@@ -139,7 +144,7 @@ namespace ViettelWallClientNet8.View
             live_panel.BackgroundImage = Properties.Resources.red_live_icon;
             replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
             tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
-            main_user_ctrl.livePanelClick(e);
+            main_user_ctrl.livePanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
         }
         /// <summary>
         /// event when click on replay panel in toolbar
@@ -151,7 +156,7 @@ namespace ViettelWallClientNet8.View
             live_panel.BackgroundImage = Properties.Resources.white_live_icon;
             replay_panel.BackgroundImage = Properties.Resources.red_replay_icon;
             tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
-            main_user_ctrl.replayPanelClick(e);
+            main_user_ctrl.replayPanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
         }
         /// <summary>
         /// event when click on tracking panel in toolbar
@@ -163,7 +168,7 @@ namespace ViettelWallClientNet8.View
             live_panel.BackgroundImage = Properties.Resources.white_live_icon;
             replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
             tracking_panel.BackgroundImage = Properties.Resources.red_alert_icon;
-            main_user_ctrl.trackingPanelClick(e);
+            main_user_ctrl.trackingPanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
         }
 
         //}
@@ -206,6 +211,17 @@ namespace ViettelWallClientNet8.View
             original_tracking_on_label_height = tracking_on_label.Height;
             original_full_screen_label_width = full_screen_label.Width;
             original_full_screen_label_height = full_screen_label.Height;
+            original_main_user_ctrl_width = main_user_ctrl.Width;
+            original_main_user_ctrl_height = main_user_ctrl.Height;
+            SettingLastView? settingLastView = _settingLayoutService.getLastViewSetting();
+            if (settingLastView != null && settingLastView.isFullScreen)
+            {
+                this.WindowState = FormWindowState.Maximized;
+            }
+            else if (settingLastView != null && !settingLastView.isFullScreen)
+            {
+                this.WindowState = FormWindowState.Normal;
+            }
         }
 
         private void full_screen_label_Click(object sender, EventArgs e)
@@ -220,6 +236,7 @@ namespace ViettelWallClientNet8.View
                 this.WindowState = FormWindowState.Maximized;
                 full_screen_label.Image = Properties.Resources.white_minimize_screen_icon;
             }
+            _settingLayoutService.updateIsFullScreen();
         }
 
         private void tracking_on_label_Click(object sender, EventArgs e)
@@ -255,7 +272,7 @@ namespace ViettelWallClientNet8.View
                 // think later
             }
         }
-        
+
         private float GetTotalPhysicalMemory()
         {
             // Sử dụng WMI để lấy tổng bộ nhớ vật lý
@@ -294,6 +311,11 @@ namespace ViettelWallClientNet8.View
                 return 1;
             }
             return (float)this.ClientSize.Height / original_height;
+        }
+
+        private void sizeChanged(object sender, EventArgs e)
+        {
+            _settingLayoutService.updateIsFullScreen();
         }
     }
 }

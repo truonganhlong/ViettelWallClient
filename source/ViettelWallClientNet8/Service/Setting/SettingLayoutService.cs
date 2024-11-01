@@ -205,5 +205,26 @@ namespace ViettelWallClientNet8.Service.Setting
                 throw new Exception(e.Message);
             }
         }
+
+        public void updateIsFullScreen()
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
+                if (data != null)
+                {
+                    data.isFullScreen = !data.isFullScreen;
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

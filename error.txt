@@ -1,3 +1,4 @@
-1. scroll bar chưa hoạt động, chưa tìm được cách ẩn scroll bar dọc đi
-2. đang màn live -> sang replay -> full screen -> về lại live lỗi tỉ lệ
-3. livetrackingrighttab lỗi không hiển thị nội dung khi chuyển giữa các lefttab
+1. scroll bar chưa hoạt động, chưa tìm được cách ẩn scroll bar dọc đi // done
+2. đang màn live -> sang replay -> full screen -> về lại live lỗi tỉ lệ //done
+3. livetrackingrighttab lỗi không hiển thị nội dung khi chuyển giữa các lefttab // done
+4. chậm khi nhảy vào file setting chỉnh sửa fullscreen

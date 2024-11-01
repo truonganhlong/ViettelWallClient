@@ -13,5 +13,6 @@ namespace ViettelWallClientNet8.Model.Setting
         public required string? leftTabSelected { get; set; }
         public required bool isRightTabVisible { get; set; }
         public required string? rightTabSelected { get; set; }
+        public required bool isFullScreen {  get; set; }    
     }
 }

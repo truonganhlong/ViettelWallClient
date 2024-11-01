@@ -24,7 +24,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             _settingLayoutService = new SettingLayoutService();
             InitializeComponent();
             InitializeAfter();
-            settingTab();
+            //settingTab();
         }
 
         private void InitializeAfter()
@@ -69,6 +69,9 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             {
                 LiveHeaderUserCtrl? liveHeaderUserCtrl = null;
                 LiveMainUserCtrl? liveMainUserCtrl = null;
+
+                LiveRightTabCLUserCtrl? liveRightTabCLUserCtrl = new LiveRightTabCLUserCtrl();
+                LiveRightTabTUserCtrl? liveRightTabTUserCtrl = new LiveRightTabTUserCtrl();
 
                 foreach (Control control in main_table_layout.Controls)
                 {
@@ -134,23 +137,6 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     //code later
                     if(lastView.leftTabSelected == "Camera" || lastView.leftTabSelected == "Layout")
                     {
-                        LiveRightTabCLUserCtrl? liveRightTabCLUserCtrl = null;
-                        //foreach (Control control in main_table_layout.Controls)
-                        //{
-                        //    if (control is LiveRightTabCLUserCtrl)
-                        //    {
-                        //        liveRightTabCLUserCtrl = (LiveRightTabCLUserCtrl)control;
-                        //        break;
-                        //    }
-                        //}
-
-                        //if (liveRightTabCLUserCtrl == null)
-                        //{
-                        //    liveRightTabCLUserCtrl = new LiveRightTabCLUserCtrl();
-                        //    liveRightTabCLUserCtrl.Dock = DockStyle.Fill;
-                        //    main_table_layout.Controls.Add(liveRightTabCLUserCtrl);
-                        //}
-                        liveRightTabCLUserCtrl = new LiveRightTabCLUserCtrl();
                         liveRightTabCLUserCtrl.Dock = DockStyle.Fill;
 
                         main_table_layout.Controls.Add(liveRightTabCLUserCtrl, 65, 2);
@@ -161,23 +147,6 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                         main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
                     } else if(lastView.leftTabSelected == "Tracking")
                     {
-                        LiveRightTabTUserCtrl? liveRightTabTUserCtrl = null;
-                        //foreach (Control control in main_table_layout.Controls)
-                        //{
-                        //    if (control is LiveRightTabTUserCtrl)
-                        //    {
-                        //        liveRightTabTUserCtrl = (LiveRightTabTUserCtrl)control;
-                        //        break;
-                        //    }
-                        //}
-
-                        //if (liveRightTabTUserCtrl == null)
-                        //{
-                        //    liveRightTabTUserCtrl = new LiveRightTabTUserCtrl();
-                        //    liveRightTabTUserCtrl.Dock = DockStyle.Fill;
-                        //    main_table_layout.Controls.Add(liveRightTabTUserCtrl);
-                        //}
-                        liveRightTabTUserCtrl = new LiveRightTabTUserCtrl();
                         liveRightTabTUserCtrl.Dock = DockStyle.Fill;
 
                         main_table_layout.Controls.Add(liveRightTabTUserCtrl, 71, 2);
@@ -197,25 +166,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     //code later
                     if (lastView.leftTabSelected == "Camera" || lastView.leftTabSelected == "Layout")
                     {
-                        LiveRightTabCLUserCtrl? liveRightTabCLUserCtrl = null;
-                        //foreach (Control control in main_table_layout.Controls)
-                        //{
-                        //    if (control is LiveRightTabCLUserCtrl)
-                        //    {
-                        //        liveRightTabCLUserCtrl = (LiveRightTabCLUserCtrl)control;
-                        //        break;
-                        //    }
-                        //}
-
-                        //if (liveRightTabCLUserCtrl == null)
-                        //{
-                        //    liveRightTabCLUserCtrl = new LiveRightTabCLUserCtrl();
-                        //    liveRightTabCLUserCtrl.Dock = DockStyle.Fill;
-                        //    main_table_layout.Controls.Add(liveRightTabCLUserCtrl);
-                        //}
-                        liveRightTabCLUserCtrl = new LiveRightTabCLUserCtrl();
                         liveRightTabCLUserCtrl.Dock = DockStyle.Fill;
-
                         main_table_layout.Controls.Add(liveRightTabCLUserCtrl, 65, 2);
                         main_table_layout.SetColumnSpan(liveRightTabCLUserCtrl, 18);
                         main_table_layout.SetRowSpan(liveRightTabCLUserCtrl, 47);
@@ -225,25 +176,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     }
                     else if (lastView.leftTabSelected == "Tracking")
                     {
-                        LiveRightTabTUserCtrl? liveRightTabTUserCtrl = null;
-                        //foreach (Control control in main_table_layout.Controls)
-                        //{
-                        //    if (control is LiveRightTabTUserCtrl)
-                        //    {
-                        //        liveRightTabTUserCtrl = (LiveRightTabTUserCtrl)control;
-                        //        break;
-                        //    }
-                        //}
-
-                        //if (liveRightTabTUserCtrl == null)
-                        //{
-                        //    liveRightTabTUserCtrl = new LiveRightTabTUserCtrl();
-                        //    liveRightTabTUserCtrl.Dock = DockStyle.Fill;
-                        //    main_table_layout.Controls.Add(liveRightTabTUserCtrl);
-                        //}
-                        liveRightTabTUserCtrl = new LiveRightTabTUserCtrl();
                         liveRightTabTUserCtrl.Dock = DockStyle.Fill;
-
                         main_table_layout.Controls.Add(liveRightTabTUserCtrl, 71, 2);
                         main_table_layout.SetColumnSpan(liveRightTabTUserCtrl, 12);
                         main_table_layout.SetRowSpan(liveRightTabTUserCtrl, 47);
@@ -280,25 +213,27 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
         private void liveCameraLeftTabClick(object sender, EventArgs e)
         {
-            this.Invalidate();
+            clearMainTableLayoutPanelExcept(left_tab_panel);
             settingTab();
         }
 
         private void liveLayoutLeftTabClick(object sender, EventArgs e)
         {
-            this.Invalidate();
+            clearMainTableLayoutPanelExcept(left_tab_panel);
             settingTab();
         }
 
         private void liveTrackingLeftTabClick(object sender, EventArgs e)
         {
-            this.Invalidate();
+            clearMainTableLayoutPanelExcept(left_tab_panel);
             settingTab();
         }
-        public void livePanelClick(EventArgs e)
+        public void livePanelClick(EventArgs e, int width, int height)
         {
             this.Controls.Clear();
             InitializeComponent();
+            main_table_layout.Height = height;
+            main_table_layout.Width = width;
             var liveLeftTabUserCtrl = new LiveLeftTabUserCtrl();
             liveLeftTabUserCtrl.Dock = DockStyle.Fill;
             liveLeftTabUserCtrl.liveCameraLeftTabClickEvent += liveCameraLeftTabClick;
@@ -310,22 +245,44 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             settingLiveTab();
         }
 
-        public void replayPanelClick(EventArgs e)
+        public void replayPanelClick(EventArgs e, int width, int height)
         {
             this.Controls.Clear();
             InitializeComponent();
+            main_table_layout.Height = height;
+            main_table_layout.Width = width;
             _settingLayoutService.updateMainTabLocation("Replay");
             this.Invalidate();
             settingReplayTab();
         }
 
-        public void trackingPanelClick(EventArgs e)
+        public void trackingPanelClick(EventArgs e, int width, int height)
         {
             this.Controls.Clear();
             InitializeComponent();
+            main_table_layout.Height = height;
+            main_table_layout.Width = width;
             _settingLayoutService.updateMainTabLocation("Tracking");
             this.Invalidate();
             settingTrackingTab();
+        }
+
+        private void clearMainTableLayoutPanelExcept(params Control[] excludeControls)
+        {
+            // Tạo một danh sách chứa các control cần giữ lại để tiện kiểm tra
+            var controlsToKeep = new HashSet<Control>(excludeControls);
+
+            // Lặp qua các control trong TableLayoutPanel
+            for (int i = main_table_layout.Controls.Count - 1; i >= 0; i--)
+            {
+                Control control = main_table_layout.Controls[i];
+
+                // Nếu control không nằm trong danh sách cần giữ lại, thì xóa nó
+                if (!controlsToKeep.Contains(control))
+                {
+                    main_table_layout.Controls.Remove(control);
+                }
+            }
         }
 
     }
