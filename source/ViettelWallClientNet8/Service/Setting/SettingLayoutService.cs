@@ -18,7 +18,7 @@ namespace ViettelWallClientNet8.Service.Setting
             string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
-                var jsonData = File.ReadAllText(jsonFilePath);
+                var jsonData =  File.ReadAllText(jsonFilePath);
                 var data = JsonSerializer.Deserialize<SettingLastView>(jsonData);
                 return data;
             }
@@ -38,7 +38,7 @@ namespace ViettelWallClientNet8.Service.Setting
                 var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
                 if (data != null)
                 {
-                    return data.FirstOrDefault(x => x.isNowUse);
+                    return data.First(x => x.isNowUse);
                 }
                 return null;
             }

@@ -1,0 +1,27 @@
+[
+  {
+    "groupName": "380 Lac Long Quan",
+    "listCameras": [
+      {
+        "cameraName": "AI_CAMERA_HPG_01"
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01"
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01"
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01"
+      }
+    ]
+  },
+  {
+    "groupName": "Store Keangnam",
+    "listCameras": null
+  },
+  {
+    "groupName": "Store Hoa Lac",
+    "listCameras": null
+  }
+]

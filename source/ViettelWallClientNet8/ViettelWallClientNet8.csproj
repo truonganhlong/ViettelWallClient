@@ -32,6 +32,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="ApiResult\" />
+    <Folder Include="Service\Camera\" />
     <Folder Include="UserCtrl\Tracking\" />
     <Folder Include="UserCtrl\Replay\" />
   </ItemGroup>

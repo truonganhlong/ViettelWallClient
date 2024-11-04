@@ -9,5 +9,6 @@ namespace ViettelWallClientNet8.Util.Const
     public class ApplicationConst
     {
         public const float border_thickness = 0.75F;
+        public const string font_family_name = "Arial";
     }
 }

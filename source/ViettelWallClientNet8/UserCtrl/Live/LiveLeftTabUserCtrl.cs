@@ -94,6 +94,11 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             tracking_tab_panel.Invalidate();
             _settingLayoutService.updateLeftTabLocation("Camera");
             liveCameraLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
+            left_tab_content.Controls.Clear();
+            LiveLeftCameraTabUserCtrl liveLeftCameraTabUserCtrl = new LiveLeftCameraTabUserCtrl();
+            liveLeftCameraTabUserCtrl.Dock = DockStyle.Fill;
+            liveLeftCameraTabUserCtrl.Padding = new Padding(1);
+            left_tab_content.Controls.Add(liveLeftCameraTabUserCtrl);
         }
 
         private void layoutTabBorderPaint(object sender, PaintEventArgs e)
@@ -133,6 +138,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             tracking_tab_panel.Invalidate();
             _settingLayoutService.updateLeftTabLocation("Layout");
             liveLayoutLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
+            left_tab_content.Controls.Clear();
         }
 
         private void trackingTabBorderPaint(object sender, PaintEventArgs e)
@@ -172,6 +178,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             layout_tab_panel.Invalidate();
             _settingLayoutService.updateLeftTabLocation("Tracking");
             liveTrackingLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
+            left_tab_content.Controls.Clear();
         }
     }
 }

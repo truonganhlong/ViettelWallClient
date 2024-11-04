@@ -27,8 +27,6 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             scrollable_panel.AutoScroll = false;
             scrollable_panel.HorizontalScroll.Maximum = 0;
             scrollable_panel.VerticalScroll.Maximum = 0;
-            //scrollable_panel.VerticalScroll.Visible = false;
-            //scrollable_panel.HorizontalScroll.Visible = false;
             scrollable_panel.AutoScroll = true;
             live_right_tab_t_flow_layout_panel.Size = new Size(scrollable_panel.Width, scrollable_panel.Height / 6 * childPanelCount);
             live_right_tab_t_flow_layout_panel.Controls.Clear();

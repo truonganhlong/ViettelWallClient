@@ -1,8 +1,8 @@
 {
   "mainTabSelected": "Live",
   "isLeftTabVisible": true,
-  "leftTabSelected": "Tracking",
-  "isRightTabVisible": true,
+  "leftTabSelected": "Camera",
+  "isRightTabVisible": false,
   "rightTabSelected": null,
   "isFullScreen": false
 }
