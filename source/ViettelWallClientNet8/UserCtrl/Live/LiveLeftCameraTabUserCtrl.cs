@@ -12,8 +12,11 @@ using ViettelWallClientNet8.Util.Const;
 
 namespace ViettelWallClientNet8.UserCtrl.Live
 {
+
     public partial class LiveLeftCameraTabUserCtrl : UserControl
     {
+        private float original_width;
+        private float original_height;
         public LiveLeftCameraTabUserCtrl()
         {
             InitializeComponent();
@@ -24,24 +27,24 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         {
             Label titleLabel = new Label();
             titleLabel.Text = "Danh sách camera";
-            titleLabel.Height = 40;
+            titleLabel.Height = 30;
             titleLabel.Dock = DockStyle.Top;
             titleLabel.TextAlign = ContentAlignment.MiddleLeft;
             titleLabel.Font = new Font(ApplicationConst.font_family_name, 9, FontStyle.Bold);
             titleLabel.ForeColor = Color.White;
             titleLabel.BackColor = Color.FromArgb(64, 64, 64);
 
-           
+
 
             SearchTextBox searchTextBox = new SearchTextBox();
             searchTextBox.Multiline = true;
-            searchTextBox.Height = 30;
+            searchTextBox.Height = 40;
             searchTextBox.Dock = DockStyle.Bottom;
             searchTextBox.Font = new Font(ApplicationConst.font_family_name, 9);
             searchTextBox.ForeColor = Color.Gray;
             searchTextBox.Text = "Nhập tên camera...";
             searchTextBox.BackColor = Color.FromArgb(64, 64, 64);
-            
+
 
             searchTextBox.GotFocus += (sender, e) =>
             {
@@ -59,7 +62,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     searchTextBox.ForeColor = Color.FromArgb(64, 64, 64);
                 }
             };
-            
+
             top_content.Controls.Add(searchTextBox);
             top_content.Controls.Add(titleLabel);
 
@@ -72,7 +75,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             main_content_panel.AutoScroll = true;
             live_left_camera_flp.Size = new Size(main_content_panel.Width, main_content_panel.Height);
             TreeView cameraTreeView = new TreeView();
-            //cameraTreeView.Dock = DockStyle.Fill;
+            //cameraTreeView.Dock = DockStyle.Right;
             cameraTreeView.Size = new Size(live_left_camera_flp.Width, live_left_camera_flp.Height);
             cameraTreeView.BackColor = Color.FromArgb(64, 64, 64);
             cameraTreeView.ForeColor = Color.White;
@@ -156,6 +159,46 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
             // Vẽ tam giác
             g.FillPolygon(isExpanded ? Brushes.Gray : Brushes.Black, triangle);
+        }
+
+        private void resize(object sender, EventArgs e)
+        {
+            InitializeAfter();
+        }
+
+        private void load(object sender, EventArgs e)
+        {
+            original_width = this.ClientSize.Width;
+            original_height = this.ClientSize.Height;
+        }
+
+        private float returnMinSizeRatio()
+        {
+            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            {
+                return 1;
+            }
+            float widthRatio = (float)this.ClientSize.Width / original_width;
+            float heightRatio = (float)this.ClientSize.Height / original_height;
+            return Math.Min(widthRatio, heightRatio);
+        }
+
+        private float returnWidthSizeRatio()
+        {
+            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            {
+                return 1;
+            }
+            return (float)this.ClientSize.Width / original_width;
+        }
+
+        private float returnHeightSizeRatio()
+        {
+            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            {
+                return 1;
+            }
+            return (float)this.ClientSize.Height / original_height;
         }
     }
 }
