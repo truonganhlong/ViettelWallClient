@@ -100,6 +100,8 @@
             Margin = new Padding(0);
             Name = "LiveLeftCameraTabUserCtrl";
             Size = new Size(238, 704);
+            Load += load;
+            Resize += resize;
             live_left_camera_tlp.ResumeLayout(false);
             main_content_panel.ResumeLayout(false);
             ResumeLayout(false);

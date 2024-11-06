@@ -38,8 +38,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
             SearchTextBox searchTextBox = new SearchTextBox();
             searchTextBox.Multiline = true;
-            searchTextBox.Height = 40;
-            searchTextBox.Dock = DockStyle.Bottom;
+            searchTextBox.Height = 30;
+            searchTextBox.Dock = DockStyle.Top;
             searchTextBox.Font = new Font(ApplicationConst.font_family_name, 9);
             searchTextBox.ForeColor = Color.Gray;
             searchTextBox.Text = "Nhập tên camera...";
@@ -163,13 +163,18 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void resize(object sender, EventArgs e)
         {
+            top_content.Controls.Clear();
+            live_left_camera_flp.Controls.Clear();
             InitializeAfter();
+
         }
 
         private void load(object sender, EventArgs e)
         {
             original_width = this.ClientSize.Width;
             original_height = this.ClientSize.Height;
+            //top_content.Controls.Clear();
+            //InitializeAfter();
         }
 
         private float returnMinSizeRatio()

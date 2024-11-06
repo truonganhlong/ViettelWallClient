@@ -93,9 +93,29 @@ namespace ViettelWallClientNet8.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap broom_icon {
+            get {
+                object obj = ResourceManager.GetObject("broom_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap camera_icon {
             get {
                 object obj = ResourceManager.GetObject("camera_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap layout_icon {
+            get {
+                object obj = ResourceManager.GetObject("layout_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,6 +146,16 @@ namespace ViettelWallClientNet8.Properties {
         internal static System.Drawing.Bitmap red_replay_icon {
             get {
                 object obj = ResourceManager.GetObject("red_replay_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap setting_layout_icon {
+            get {
+                object obj = ResourceManager.GetObject("setting_layout_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
