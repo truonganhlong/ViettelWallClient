@@ -317,5 +317,10 @@ namespace ViettelWallClientNet8.View
         {
             _settingLayoutService.updateIsFullScreen();
         }
+
+        //----------------------------------------------------event handle---------------------------------------------------------------------//
+        //private void settingLayoutAfterSelectSize(object sender, EventArgs e) { 
+            
+        //}
     }
 }

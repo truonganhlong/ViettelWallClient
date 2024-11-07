@@ -18,7 +18,12 @@ namespace ViettelWallClientNet8.UserCtrl.Live
     {
         private bool isPrivate = true;
         private Color border_color = Color.WhiteSmoke;
-
+        // event handle
+        public event EventHandler? panel1x1ClickEvent;
+        public event EventHandler? panel2x2ClickEvent;
+        public event EventHandler? panel3x3ClickEvent;
+        public event EventHandler? panel4x4ClickEvent;
+        public event EventHandler? panel5x5ClickEvent;
         //interface
         private readonly ISettingLayoutService _settingLayoutService;
         public LiveHeaderUserCtrl()
@@ -72,6 +77,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "1x1 Ô";
             label.ForeColor = Color.White;
+            tableLayoutPanel.Click += panel_1x1_click;
+            label.Click += panel_1x1_click;
             panel_1x1.Controls.Add(label);
             panel_1x1.Controls.Add(tableLayoutPanel);
         }
@@ -98,6 +105,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "2x2 Ô";
             label.ForeColor = Color.White;
+            tableLayoutPanel.Click += panel_2x2_click;
+            label.Click += panel_2x2_click;
             panel_2x2.Controls.Add(label);
             panel_2x2.Controls.Add(tableLayoutPanel);
         }
@@ -126,6 +135,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "3x3 Ô";
             label.ForeColor = Color.White;
+            tableLayoutPanel.Click += panel_3x3_click;
+            label.Click += panel_3x3_click;
             panel_3x3.Controls.Add(label);
             panel_3x3.Controls.Add(tableLayoutPanel);
         }
@@ -156,6 +167,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "4x4 Ô";
             label.ForeColor = Color.White;
+            tableLayoutPanel.Click += panel_4x4_click;
+            label.Click += panel_4x4_click;
             panel_4x4.Controls.Add(label);
             panel_4x4.Controls.Add(tableLayoutPanel);
         }
@@ -188,6 +201,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "5x5 Ô";
             label.ForeColor = Color.White;
+            tableLayoutPanel.Click += panel_5x5_click;
+            label.Click += panel_5x5_click;
             panel_5x5.Controls.Add(label);
             panel_5x5.Controls.Add(tableLayoutPanel);
         }
@@ -240,27 +255,32 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void panel_1x1_click(object sender, EventArgs e)
         {
-
+            _settingLayoutService.updateLayoutSize(1, 1);
+            panel1x1ClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel_2x2_click(object sender, EventArgs e)
         {
-
+            _settingLayoutService.updateLayoutSize(2, 2);
+            panel2x2ClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel_3x3_click(object sender, EventArgs e)
         {
-
+            _settingLayoutService.updateLayoutSize(3, 3);
+            panel3x3ClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel_4x4_click(object sender, EventArgs e)
         {
-
+            _settingLayoutService.updateLayoutSize(4, 4);
+            panel4x4ClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void panel_5x5_click(object sender, EventArgs e)
         {
-
+            _settingLayoutService.updateLayoutSize(5, 5);
+            panel5x5ClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         //private void headerBorderPaint(object sender, PaintEventArgs e)

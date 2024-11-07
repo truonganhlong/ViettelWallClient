@@ -226,5 +226,27 @@ namespace ViettelWallClientNet8.Service.Setting
                 throw new Exception(e.Message);
             }
         }
+
+        public void updateLayoutSize(int width, int height)
+        {
+            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                if (data != null)
+                {
+                    data.First(x => x.isNowUse).width = width;
+                    data.First(x => x.isNowUse).height = height;
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
     }
 }

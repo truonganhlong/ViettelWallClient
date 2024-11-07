@@ -70,6 +70,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             right_tab_button.FlatStyle = FlatStyle.Flat; // Đặt FlatStyle thành Flat
             right_tab_button.FlatAppearance.BorderSize = 0; // Xóa viền
             right_tab_button.BringToFront();
+
         }
 
         public void settingLayout()

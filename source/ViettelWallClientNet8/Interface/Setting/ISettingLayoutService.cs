@@ -17,5 +17,6 @@ namespace ViettelWallClientNet8.Interface.Setting
         void updateLeftTabLocation(string location);
         void updateRightTabLocation(string location);
         void updateIsFullScreen();
+        void updateLayoutSize(int width, int height);
     }
 }
