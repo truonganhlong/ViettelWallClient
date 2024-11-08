@@ -17,13 +17,20 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 {
     public partial class MainUserCtrl : UserControl
     {
-        private bool isResizeLayout = false;
         private LiveHeaderUserCtrl? liveHeaderUserCtrl = null;
         private LiveMainUserCtrl? liveMainUserCtrl = null;
         private LiveRightTabCLUserCtrl? liveRightTabCLUserCtrl = null;
         private LiveRightTabTUserCtrl? liveRightTabTUserCtrl = null;
         //interface...
         private readonly ISettingLayoutService _settingLayoutService;
+
+        //
+        private int main_start_index;
+        private int main_end_index;
+        private int main_width_index;
+        private int main_height_index;
+        //
+        private bool isOpenLayoutSetting = false;
         public MainUserCtrl()
         {
             _settingLayoutService = new SettingLayoutService();
@@ -89,7 +96,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
                 foreach (Control control in main_table_layout.Controls)
                 {
-                    if (control is LiveMainUserCtrl && !isResizeLayout)
+                    if (control is LiveMainUserCtrl)
                     {
                         liveMainUserCtrl = (LiveMainUserCtrl)control;
                         break;
@@ -98,7 +105,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
                 foreach (Control control in main_table_layout.Controls)
                 {
-                    if (control is LiveRightTabCLUserCtrl && !isResizeLayout)
+                    if (control is LiveRightTabCLUserCtrl)
                     {
                         liveRightTabCLUserCtrl = (LiveRightTabCLUserCtrl)control;
                         break;
@@ -107,7 +114,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
                 foreach (Control control in main_table_layout.Controls)
                 {
-                    if (control is LiveRightTabTUserCtrl && !isResizeLayout)
+                    if (control is LiveRightTabTUserCtrl)
                     {
                         liveRightTabTUserCtrl = (LiveRightTabTUserCtrl)control;
                         break;
@@ -124,6 +131,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     liveHeaderUserCtrl.panel3x3ClickEvent += settingLayoutAfterSelectSize;
                     liveHeaderUserCtrl.panel4x4ClickEvent += settingLayoutAfterSelectSize;
                     liveHeaderUserCtrl.panel5x5ClickEvent += settingLayoutAfterSelectSize;
+                    liveHeaderUserCtrl.panelCustomClickEvent += openLayoutSetting;
                     main_table_layout.Controls.Add(liveHeaderUserCtrl);
                 }
 
@@ -136,12 +144,12 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     main_table_layout.Controls.Add(liveMainUserCtrl);
                 }
 
-                if(liveRightTabCLUserCtrl == null)
+                if (liveRightTabCLUserCtrl == null)
                 {
                     liveRightTabCLUserCtrl = new LiveRightTabCLUserCtrl();
                 }
 
-                if(liveRightTabTUserCtrl == null)
+                if (liveRightTabTUserCtrl == null)
                 {
                     liveRightTabTUserCtrl = new LiveRightTabTUserCtrl();
                 }
@@ -155,6 +163,10 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     main_table_layout.Controls.Add(liveMainUserCtrl, 0, 2);
                     main_table_layout.SetColumnSpan(liveMainUserCtrl, 83);
                     main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
+                    main_start_index = 0;
+                    main_end_index = 2;
+                    main_width_index = 83;
+                    main_height_index = 47;
                 }
                 else if (lastView.isLeftTabVisible && !lastView.isRightTabVisible)
                 {
@@ -165,6 +177,10 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     main_table_layout.Controls.Add(liveMainUserCtrl, 16, 2);
                     main_table_layout.SetColumnSpan(liveMainUserCtrl, 67);
                     main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
+                    main_start_index = 16;
+                    main_end_index = 2;
+                    main_width_index = 67;
+                    main_height_index = 47;
                 }
                 else if (!lastView.isLeftTabVisible && lastView.isRightTabVisible)
                 {
@@ -173,7 +189,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                     main_table_layout.SetColumnSpan(liveHeaderUserCtrl, 83);
                     main_table_layout.SetRowSpan(liveHeaderUserCtrl, 2);
                     //code later
-                    if(lastView.leftTabSelected == "Camera" || lastView.leftTabSelected == "Layout")
+                    if (lastView.leftTabSelected == "Camera" || lastView.leftTabSelected == "Layout")
                     {
                         liveRightTabCLUserCtrl.Dock = DockStyle.Fill;
                         main_table_layout.Controls.Add(liveRightTabCLUserCtrl, 65, 2);
@@ -182,7 +198,12 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                         main_table_layout.Controls.Add(liveMainUserCtrl, 0, 2);
                         main_table_layout.SetColumnSpan(liveMainUserCtrl, 65);
                         main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
-                    } else if(lastView.leftTabSelected == "Tracking")
+                        main_start_index = 0;
+                        main_end_index = 2;
+                        main_width_index = 65;
+                        main_height_index = 47;
+                    }
+                    else if (lastView.leftTabSelected == "Tracking")
                     {
                         liveRightTabTUserCtrl.Dock = DockStyle.Fill;
                         main_table_layout.Controls.Add(liveRightTabTUserCtrl, 71, 2);
@@ -191,6 +212,10 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                         main_table_layout.Controls.Add(liveMainUserCtrl, 0, 2);
                         main_table_layout.SetColumnSpan(liveMainUserCtrl, 71);
                         main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
+                        main_start_index = 0;
+                        main_end_index = 2;
+                        main_width_index = 71;
+                        main_height_index = 47;
                     }
                 }
                 else if (lastView.isLeftTabVisible && lastView.isRightTabVisible)
@@ -209,6 +234,10 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                         main_table_layout.Controls.Add(liveMainUserCtrl, 16, 2);
                         main_table_layout.SetColumnSpan(liveMainUserCtrl, 49);
                         main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
+                        main_start_index = 16;
+                        main_end_index = 2;
+                        main_width_index = 49;
+                        main_height_index = 47;
                     }
                     else if (lastView.leftTabSelected == "Tracking")
                     {
@@ -219,26 +248,48 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                         main_table_layout.Controls.Add(liveMainUserCtrl, 16, 2);
                         main_table_layout.SetColumnSpan(liveMainUserCtrl, 55);
                         main_table_layout.SetRowSpan(liveMainUserCtrl, 47);
+                        main_start_index = 16;
+                        main_end_index = 2;
+                        main_width_index = 55;
+                        main_height_index = 47;
                     }
 
                 }
             }
         }
 
+        private void openLayoutSetting(object? sender, EventArgs e)
+        {
+            setting_layout_panel.Invalidate();
+            Point rightMostPoint = GetCellLocation(main_table_layout, 65, 2);
+            Point leftMostPoint = new Point((int)(liveHeaderUserCtrl.Location.X + liveHeaderUserCtrl.Width * 0.49), rightMostPoint.Y + 6);
+            int width = rightMostPoint.X - leftMostPoint.X - 15;
+            setting_layout_panel.Location = leftMostPoint;
+            setting_layout_panel.Size = new Size(width, (int)(width * 1.1));
+            setting_layout_panel.Visible = true;
+            setting_layout_panel.BringToFront();
+            isOpenLayoutSetting = true;
+            TableLayoutPanel setting_table_layout = new TableLayoutPanel();
+            setting_table_layout.Margin = new Padding(3);
+            setting_table_layout.BackColor = Color.Red;
+            //setting_table_layout.BackColor = Color.FromArgb(170, 167, 167);
+            setting_table_layout.Width = setting_layout_panel.Width - 6;
+            setting_table_layout.Height = setting_table_layout.Width - 6;
+            setting_table_layout.Dock = DockStyle.Top;
+            setting_layout_panel.Controls.Add(setting_table_layout);
+        }
+
         private void settingLayoutAfterSelectSize(object? sender, EventArgs e)
         {
-            //LiveMainUserCtrl liveMainUserCtrlResize = new LiveMainUserCtrl();
-            //main_table_layout.Controls.Remove(liveMainUserCtrl);
-            //main_table_layout.Controls.Add(liveMainUserCtrlResize, main_start_index, main_end_index);
-            //main_table_layout.SetColumnSpan(liveMainUserCtrlResize, main_width_index);
-            //main_table_layout.SetRowSpan(liveMainUserCtrlResize, main_height_index);
-            //liveMainUserCtrl = liveMainUserCtrlResize;
-            isResizeLayout = true;
-            liveMainUserCtrl = null;
-            liveRightTabCLUserCtrl = null;
-            liveRightTabTUserCtrl = null;
-            this.Invalidate();
-            settingTab();
+            LiveMainUserCtrl liveMainUserCtrlResize = new LiveMainUserCtrl();
+            liveMainUserCtrlResize.leftTabClickEvent += leftTabButtonClick;
+            liveMainUserCtrlResize.rightTabClickEvent += rightTabButtonClick;
+            liveMainUserCtrlResize.Dock = DockStyle.Fill;
+            main_table_layout.Controls.Remove(liveMainUserCtrl);
+            main_table_layout.Controls.Add(liveMainUserCtrlResize, main_start_index, main_end_index);
+            main_table_layout.SetColumnSpan(liveMainUserCtrlResize, main_width_index);
+            main_table_layout.SetRowSpan(liveMainUserCtrlResize, main_height_index);
+            liveMainUserCtrl = liveMainUserCtrlResize;
         }
 
         private void settingReplayTab()
@@ -337,5 +388,33 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             }
         }
 
+        private Point GetCellLocation(TableLayoutPanel tableLayoutPanel, int column, int row)
+        {
+            // Bắt đầu tọa độ từ góc trên cùng trái của TableLayoutPanel
+            int x = tableLayoutPanel.Location.X;
+            int y = tableLayoutPanel.Location.Y;
+
+            // Tính toán tổng chiều rộng của các cột trước ô cần tìm
+            for (int i = 0; i < column; i++)
+            {
+                x += tableLayoutPanel.GetColumnWidths()[i];
+            }
+
+            // Tính toán tổng chiều cao của các hàng trước ô cần tìm
+            for (int i = 0; i < row; i++)
+            {
+                y += tableLayoutPanel.GetRowHeights()[i];
+            }
+
+            return new Point(x, y);
+        }
+
+        private void resize(object sender, EventArgs e)
+        {
+            if (isOpenLayoutSetting)
+            {
+                openLayoutSetting(this, EventArgs.Empty);
+            }
+        }
     }
 }

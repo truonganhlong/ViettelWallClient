@@ -59,12 +59,12 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             // 
             header_tlp.ColumnCount = 10;
             header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 5F));
-            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
-            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
+            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
+            header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 8F));
             header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
             header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 15F));
             header_tlp.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));

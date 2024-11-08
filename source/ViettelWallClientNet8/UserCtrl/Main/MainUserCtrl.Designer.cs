@@ -1,4 +1,6 @@
-﻿namespace ViettelWallClientNet8.UserCtrl.Main
+﻿using ViettelWallClientNet8.Custom;
+
+namespace ViettelWallClientNet8.UserCtrl.Main
 {
     partial class MainUserCtrl
     {
@@ -30,6 +32,7 @@
         {
             main_table_layout = new TableLayoutPanel();
             left_tab_panel = new Panel();
+            setting_layout_panel = new RoundedPanel();
             main_table_layout.SuspendLayout();
             SuspendLayout();
             // 
@@ -181,21 +184,33 @@
             // left_tab_panel
             // 
             main_table_layout.SetColumnSpan(left_tab_panel, 16);
-            main_table_layout.SetRowSpan(left_tab_panel, 49);
             left_tab_panel.Dock = DockStyle.Fill;
             left_tab_panel.Location = new Point(0, 0);
             left_tab_panel.Margin = new Padding(0);
             left_tab_panel.Name = "left_tab_panel";
+            main_table_layout.SetRowSpan(left_tab_panel, 49);
+            left_tab_panel.Size = new Size(240, 735);
             left_tab_panel.TabIndex = 0;
+            // 
+            // setting_layout_panel
+            // 
+            setting_layout_panel.Location = new Point(0, 0);
+            setting_layout_panel.Margin = new Padding(0);
+            setting_layout_panel.Name = "setting_layout_panel";
+            setting_layout_panel.Size = new Size(200, 100);
+            setting_layout_panel.TabIndex = 1;
+            setting_layout_panel.Visible = false;
             // 
             // MainUserCtrl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(main_table_layout);
+            Controls.Add(setting_layout_panel);
             Margin = new Padding(0);
             Name = "MainUserCtrl";
             Size = new Size(1245, 735);
+            Resize += resize;
             main_table_layout.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -204,5 +219,6 @@
 
         private TableLayoutPanel main_table_layout;
         private Panel left_tab_panel;
+        private RoundedPanel setting_layout_panel;
     }
 }

@@ -24,6 +24,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         public event EventHandler? panel3x3ClickEvent;
         public event EventHandler? panel4x4ClickEvent;
         public event EventHandler? panel5x5ClickEvent;
+        public event EventHandler? panelCustomClickEvent;
         //interface
         private readonly ISettingLayoutService _settingLayoutService;
         public LiveHeaderUserCtrl()
@@ -76,6 +77,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Padding = new Padding(5, 0, 0, 0);
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "1x1 Ô";
+            label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
             tableLayoutPanel.Click += panel_1x1_click;
             label.Click += panel_1x1_click;
@@ -104,6 +106,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Padding = new Padding(5, 0, 0, 0);
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "2x2 Ô";
+            label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
             tableLayoutPanel.Click += panel_2x2_click;
             label.Click += panel_2x2_click;
@@ -134,6 +137,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Padding = new Padding(5, 0, 0, 0);
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "3x3 Ô";
+            label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
             tableLayoutPanel.Click += panel_3x3_click;
             label.Click += panel_3x3_click;
@@ -166,6 +170,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Padding = new Padding(5, 0, 0, 0);
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "4x4 Ô";
+            label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
             tableLayoutPanel.Click += panel_4x4_click;
             label.Click += panel_4x4_click;
@@ -200,6 +205,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Padding = new Padding(5, 0, 0, 0);
             label.TextAlign = ContentAlignment.MiddleLeft;
             label.Text = "5x5 Ô";
+            label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
             tableLayoutPanel.Click += panel_5x5_click;
             label.Click += panel_5x5_click;
@@ -214,12 +220,20 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Margin = new Padding(0);
             label.TextAlign = ContentAlignment.MiddleCenter;
             label.Text = "Tùy chỉnh";
+            label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
             label.Image = Properties.Resources.setting_layout_icon;
             label.ImageAlign = ContentAlignment.MiddleLeft;
             label.Location = new Point(0, 0);
+            label.Click += custom_panel_click;
             panel_custom.Controls.Add(label);
         }
+
+        private void custom_panel_click(object? sender, EventArgs e)
+        {
+            panelCustomClickEvent?.Invoke(this, EventArgs.Empty);
+        }
+
         private void TableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
             TableLayoutPanel tableLayoutPanel = sender as TableLayoutPanel;

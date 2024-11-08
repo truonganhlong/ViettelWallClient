@@ -40,7 +40,7 @@ namespace ViettelWallClientNet8.Custom
             this.Region = new Region(path);
 
             // Vẽ viền nếu cần thiết
-            using (Pen pen = new Pen(Color.Black, 1)) // Đặt màu và độ dày đường viền
+            using (Pen pen = new Pen(Color.FromArgb(64,64,64))) // Đặt màu và độ dày đường viền
             {
                 graphics.DrawPath(pen, path);
             }
