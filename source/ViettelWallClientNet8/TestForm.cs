@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ViettelWallClientNet8.Custom;
 using ViettelWallClientNet8.UserCtrl.Live;
 using ViettelWallClientNet8.UserCtrl.Main;
 
@@ -17,9 +18,9 @@ namespace ViettelWallClientNet8
         public TestForm()
         {
             InitializeComponent();
-            this.MaximumSize = new Size(180, 705);
-            this.Size = new Size(180, 705);
-            var test = new LiveRightTabTUserCtrl();
+            this.MaximumSize = new Size(200, 40);
+            this.Size = new Size(200, 40);
+            var test = new SearchIconTextBox();
             test.Dock = DockStyle.Fill;
             this.Controls.Add(test);
             

@@ -35,33 +35,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             titleLabel.BackColor = Color.FromArgb(64, 64, 64);
 
 
-
-            SearchTextBox searchTextBox = new SearchTextBox();
-            searchTextBox.Multiline = true;
-            searchTextBox.Height = 30;
+            SearchIconTextBox searchTextBox = new SearchIconTextBox();
             searchTextBox.Dock = DockStyle.Top;
-            searchTextBox.Font = new Font(ApplicationConst.font_family_name, 9);
-            searchTextBox.ForeColor = Color.Gray;
-            searchTextBox.Text = "Nhập tên camera...";
-            searchTextBox.BackColor = Color.FromArgb(64, 64, 64);
-
-
-            searchTextBox.GotFocus += (sender, e) =>
-            {
-                if (searchTextBox.Text == "Nhập tên camera...")
-                {
-                    searchTextBox.Text = "";
-                    searchTextBox.ForeColor = Color.FromArgb(64, 64, 64);
-                }
-            };
-            searchTextBox.LostFocus += (sender, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(searchTextBox.Text))
-                {
-                    searchTextBox.Text = "Nhập tên camera...";
-                    searchTextBox.ForeColor = Color.FromArgb(64, 64, 64);
-                }
-            };
 
             top_content.Controls.Add(searchTextBox);
             top_content.Controls.Add(titleLabel);
@@ -80,9 +55,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             cameraTreeView.BackColor = Color.FromArgb(64, 64, 64);
             cameraTreeView.ForeColor = Color.White;
             cameraTreeView.Font = new Font(ApplicationConst.font_family_name, 9);
-            cameraTreeView.ShowLines = false; // Ẩn các đường kết nối giữa các node
-            cameraTreeView.DrawMode = TreeViewDrawMode.OwnerDrawAll;
-            cameraTreeView.DrawNode += cameraTreeView_drawNode;
+            cameraTreeView.ShowLines = false;
+            //cameraTreeView.DrawMode = TreeViewDrawMode.OwnerDrawAll;
+            //cameraTreeView.DrawNode += cameraTreeView_drawNode;
             cameraTreeView.ShowPlusMinus = false;
 
             // Tạo ImageList và thêm biểu tượng cho TreeNode
@@ -145,6 +120,28 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
             // Vẽ văn bản của node
             e.DrawDefault = true;
+            //TreeNode node = e.Node;
+
+            //// Đảm bảo rằng NodeFont không phải là null
+            //Font nodeFont = node.NodeFont ?? new Font(ApplicationConst.font_family_name, 10); // Sử dụng font mặc định nếu NodeFont là null
+
+            //// Vẽ background của node
+            //e.Graphics.FillRectangle(new SolidBrush(e.Node.BackColor), e.Bounds);
+
+            //// Vẽ text của node
+            //e.Graphics.DrawString(node.Text, nodeFont, new SolidBrush(e.Node.ForeColor), e.Bounds.X + 20, e.Bounds.Y);
+
+            //// Vẽ icon mở rộng/thu gọn tùy chỉnh
+            //if (node.IsExpanded)
+            //{
+            //    // Vẽ icon mở rộng (ví dụ: icon mở rộng)
+            //    e.Graphics.DrawImage(Properties.Resources.camera_icon, e.Bounds.X - 20, e.Bounds.Y + (e.Bounds.Height / 2) - 8);
+            //}
+            //else
+            //{
+            //    // Vẽ icon thu gọn (ví dụ: icon thu gọn)
+            //    e.Graphics.DrawImage(Properties.Resources.broom_icon, e.Bounds.X - 20, e.Bounds.Y + (e.Bounds.Height / 2) - 8);
+            //}
         }
 
         private void DrawTriangle(Graphics g, Point point, bool isExpanded)

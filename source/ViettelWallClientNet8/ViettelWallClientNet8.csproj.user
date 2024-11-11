@@ -10,6 +10,9 @@
     <Compile Update="Custom\RoundedPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Custom\SearchIconTextBox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Custom\SearchTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
