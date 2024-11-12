@@ -26,6 +26,7 @@ namespace ViettelWallClientNet8.Custom
             iconStart.SizeMode = PictureBoxSizeMode.AutoSize;
             iconStart.Image = Properties.Resources.search_icon;
             iconStart.Dock = DockStyle.Left;
+            iconStart.Padding = new Padding(0, 0, 5, 0);
 
             textBox = new TextBox();
             textBox.Multiline = true;
@@ -54,6 +55,7 @@ namespace ViettelWallClientNet8.Custom
                     textBox.ForeColor = Color.White;
                 }
             };
+            textBox.TabStop = false;
             textBox.TextChanged += textChanged;
 
             iconEnd = new PictureBox();

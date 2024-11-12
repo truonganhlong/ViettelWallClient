@@ -76,8 +76,9 @@
             // 
             live_left_camera_flp.FlowDirection = FlowDirection.TopDown;
             live_left_camera_flp.Location = new Point(1, 1);
-            live_left_camera_flp.Margin = new Padding(10, 10, 10, 0);
+            live_left_camera_flp.Margin = new Padding(0);
             live_left_camera_flp.Name = "live_left_camera_flp";
+            live_left_camera_flp.Padding = new Padding(10, 0, 10, 0);
             live_left_camera_flp.Size = new Size(236, 100);
             live_left_camera_flp.TabIndex = 0;
             live_left_camera_flp.WrapContents = false;

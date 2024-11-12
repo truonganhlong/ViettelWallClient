@@ -123,6 +123,16 @@ namespace ViettelWallClientNet8.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap down_triangle_icon {
+            get {
+                object obj = ResourceManager.GetObject("down_triangle_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap layout_icon {
             get {
                 object obj = ResourceManager.GetObject("layout_icon", resourceCulture);
@@ -156,6 +166,16 @@ namespace ViettelWallClientNet8.Properties {
         internal static System.Drawing.Bitmap red_replay_icon {
             get {
                 object obj = ResourceManager.GetObject("red_replay_icon", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap right_triangle_icon {
+            get {
+                object obj = ResourceManager.GetObject("right_triangle_icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
