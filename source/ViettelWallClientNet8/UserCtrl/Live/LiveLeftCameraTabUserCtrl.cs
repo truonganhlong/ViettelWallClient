@@ -21,11 +21,16 @@ namespace ViettelWallClientNet8.UserCtrl.Live
     {
         private float original_width;
         private float original_height;
+        private int? firstSelectedIndex = null;
+        private bool isShiftKeyPress = false;
         //interface
         private readonly ICameraService _cameraService;
+        //list camera group expand
+        private List<bool> isExpandList = new List<bool>();
         public LiveLeftCameraTabUserCtrl()
         {
             _cameraService = new CameraService();
+            updateIsExpandList();
             InitializeComponent();
             InitializeAfter();
             InitializeCameraGroup();
@@ -58,128 +63,23 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             //doi size live_left_camera_flp
 
             live_left_camera_flp.Size = new Size(main_content_panel.Width - 2, main_content_panel.Height - 2);
-            
-            //TreeView cameraTreeView = new TreeView();
-            ////cameraTreeView.Dock = DockStyle.Right;
-            //cameraTreeView.Size = new Size(live_left_camera_flp.Width, live_left_camera_flp.Height);
-            //cameraTreeView.BackColor = Color.FromArgb(64, 64, 64);
-            //cameraTreeView.ForeColor = Color.White;
-            //cameraTreeView.Font = new Font(ApplicationConst.font_family_name, 9);
-            //cameraTreeView.ShowLines = false;
-            ////cameraTreeView.DrawMode = TreeViewDrawMode.OwnerDrawAll;
-            ////cameraTreeView.DrawNode += cameraTreeView_drawNode;
-            //cameraTreeView.ShowPlusMinus = false;
-
-            //// Tạo ImageList và thêm biểu tượng cho TreeNode
-            //ImageList imageList = new ImageList();
-            //imageList.Images.Add("camera", Properties.Resources.camera_icon); // Icon camera
-            //imageList.Images.Add("store", Properties.Resources.store_icon); // Icon store
-            //cameraTreeView.ImageList = imageList;
-
-            //// Tạo đối tượng TreeNode cho "380 Lạc Long Quân"
-            //TreeNode node1 = new TreeNode("380 Lạc Long Quân");
-            //node1.ImageKey = "store"; // Icon của store
-            //node1.SelectedImageKey = "store";
-
-            //// Thêm các node con cho node1
-            //TreeNode cameraNode1 = new TreeNode("AI_CAMERA_HPG_001");
-            //cameraNode1.ImageKey = "camera";
-            //cameraNode1.SelectedImageKey = "camera";
-            //node1.Nodes.Add(cameraNode1);
-
-            //TreeNode cameraNode2 = new TreeNode("AI_CAMERA_HPG_002");
-            //cameraNode2.ImageKey = "camera";
-            //cameraNode2.SelectedImageKey = "camera";
-            //node1.Nodes.Add(cameraNode2);
-
-            //TreeNode cameraNode3 = new TreeNode("AI_CAMERA_HPG_003");
-            //cameraNode3.ImageKey = "camera";
-            //cameraNode3.SelectedImageKey = "camera";
-            //node1.Nodes.Add(cameraNode3);
-
-            //TreeNode cameraNode4 = new TreeNode("AI_CAMERA_HPG_004");
-            //cameraNode4.ImageKey = "camera";
-            //cameraNode4.SelectedImageKey = "camera";
-            //node1.Nodes.Add(cameraNode4);
-
-            //// Tạo các node cho "Store Keangnam" và "Store Hoa Lac"
-            //TreeNode node2 = new TreeNode("Store Keangnam");
-            //node2.ImageKey = "store";
-            //node2.SelectedImageKey = "store";
-
-            //TreeNode node3 = new TreeNode("Store Hoa Lac");
-            //node3.ImageKey = "store";
-            //node3.SelectedImageKey = "store";
-
-            //cameraTreeView.Nodes.Add(node1);
-            //cameraTreeView.Nodes.Add(node2);
-            //cameraTreeView.Nodes.Add(node3);
-
-            //// Thêm các control vào panel
-            //live_left_camera_flp.Controls.Add(cameraTreeView);
         }
 
-        //private void cameraTreeView_drawNode(object sender, DrawTreeNodeEventArgs e)
-        //{
-        //    if (e.Node.Nodes.Count > 0) // Kiểm tra nếu node có child
-        //    {
-        //        // Xác định vị trí vẽ tam giác
-        //        Point trianglePoint = new Point(e.Bounds.Left - 10, e.Bounds.Top + e.Bounds.Height / 2);
-        //        DrawTriangle(e.Graphics, trianglePoint, e.Node.IsExpanded);
-        //    }
-
-        //    // Vẽ văn bản của node
-        //    e.DrawDefault = true;
-        //    //TreeNode node = e.Node;
-
-        //    //// Đảm bảo rằng NodeFont không phải là null
-        //    //Font nodeFont = node.NodeFont ?? new Font(ApplicationConst.font_family_name, 10); // Sử dụng font mặc định nếu NodeFont là null
-
-        //    //// Vẽ background của node
-        //    //e.Graphics.FillRectangle(new SolidBrush(e.Node.BackColor), e.Bounds);
-
-        //    //// Vẽ text của node
-        //    //e.Graphics.DrawString(node.Text, nodeFont, new SolidBrush(e.Node.ForeColor), e.Bounds.X + 20, e.Bounds.Y);
-
-        //    //// Vẽ icon mở rộng/thu gọn tùy chỉnh
-        //    //if (node.IsExpanded)
-        //    //{
-        //    //    // Vẽ icon mở rộng (ví dụ: icon mở rộng)
-        //    //    e.Graphics.DrawImage(Properties.Resources.camera_icon, e.Bounds.X - 20, e.Bounds.Y + (e.Bounds.Height / 2) - 8);
-        //    //}
-        //    //else
-        //    //{
-        //    //    // Vẽ icon thu gọn (ví dụ: icon thu gọn)
-        //    //    e.Graphics.DrawImage(Properties.Resources.broom_icon, e.Bounds.X - 20, e.Bounds.Y + (e.Bounds.Height / 2) - 8);
-        //    //}
-        //}
-
-        //private void DrawTriangle(Graphics g, Point point, bool isExpanded)
-        //{
-        //    // Tạo hình tam giác
-        //    Point[] triangle = new Point[]
-        //    {
-        //        new Point(point.X, point.Y - 5), // đỉnh trên
-        //        new Point(point.X + 5, point.Y + 5), // đỉnh bên phải
-        //        new Point(point.X - 5, point.Y + 5)  // đỉnh bên trái
-        //    };
-
-        //    // Vẽ tam giác
-        //    g.FillPolygon(isExpanded ? Brushes.Gray : Brushes.Black, triangle);
-        //}
         private void InitializeCameraGroup()
         {
             List<CameraGroup> cameraGroups = _cameraService.getListCameraGroup();
             if (cameraGroups != null)
             {
                 int liveLeftCameraFlpHeight = 0;
+                int tagTriangleIcon = 0;
                 foreach (CameraGroup cameraGroup in cameraGroups)
                 {
                     Panel titlePanel = new Panel();
                     //titlePanel.Height = 30;
                     titlePanel.BackColor = Color.FromArgb(64, 64, 64);
-                    titlePanel.Paint += cameraBorderPaint;
+                    titlePanel.Paint += cameraGroupBorderPaint;
                     titlePanel.Padding = new Padding(0, 1, 0, 1);
+                    titlePanel.Margin = new Padding(0, 3, 0, 0);
                     titlePanel.AutoSize = false;
                     titlePanel.Size = new Size(live_left_camera_flp.Width, 30);
                     //titlePanel.Dock = DockStyle.Top;
@@ -187,9 +87,18 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     PictureBox triangle_icon = new PictureBox();
                     triangle_icon.Size = new Size(16, 16);
                     triangle_icon.SizeMode = PictureBoxSizeMode.AutoSize;
-                    triangle_icon.Image = Properties.Resources.down_triangle_icon;
+                    if (isExpandList[tagTriangleIcon])
+                    {
+                        triangle_icon.Image = Properties.Resources.down_triangle_icon;
+                    }
+                    else
+                    {
+                        triangle_icon.Image = Properties.Resources.right_triangle_icon;
+                    }
                     triangle_icon.Dock = DockStyle.Left;
                     triangle_icon.Padding = new Padding(0, 0, 7, 0);
+                    triangle_icon.Tag = tagTriangleIcon;
+                    triangle_icon.Click += triangleIconClick;
 
                     PictureBox store_icon = new PictureBox();
                     store_icon.Size = new Size(16, 16);
@@ -209,43 +118,68 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     titlePanel.Controls.Add(store_icon);
                     titlePanel.Controls.Add(triangle_icon);
                     live_left_camera_flp.Controls.Add(titlePanel);
-                    liveLeftCameraFlpHeight += 30;
+                    liveLeftCameraFlpHeight += 33;
 
-                    if (cameraGroup.listCameras != null && cameraGroup.listCameras.Count > 0)
+                    if (isExpandList[tagTriangleIcon])
                     {
-                        foreach (Camera camera in cameraGroup.listCameras)
+                        if (cameraGroup.listCameras != null && cameraGroup.listCameras.Count > 0)
                         {
-                            Panel subTitlePanel = new Panel();
-                            subTitlePanel.BackColor = Color.FromArgb(64, 64, 64);
-                            subTitlePanel.Paint += cameraBorderPaint;
-                            subTitlePanel.Padding = new Padding(0, 1, 0, 1);
-                            subTitlePanel.AutoSize = false;
-                            subTitlePanel.Size = new Size(live_left_camera_flp.Width - 42, 30);
-                            subTitlePanel.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+                            foreach (Camera camera in cameraGroup.listCameras)
+                            {
+                                Panel subTitlePanel = new Panel();
+                                subTitlePanel.BackColor = Color.FromArgb(64, 64, 64);
+                                subTitlePanel.Paint += cameraBorderPaint;
+                                subTitlePanel.Padding = new Padding(0, 1, 0, 1);
+                                subTitlePanel.AutoSize = false;
+                                subTitlePanel.Size = new Size(live_left_camera_flp.Width - 70, 30);
+                                subTitlePanel.Anchor = AnchorStyles.Right | AnchorStyles.Top;
+                                subTitlePanel.Margin = new Padding(0, 0, 25, 0);
+                                subTitlePanel.Tag = camera.cameraLink;
+                                subTitlePanel.MouseEnter += cameraMouseEnter;
+                                subTitlePanel.MouseLeave += cameraMouseLeave;
+                                subTitlePanel.Click += cameraClick;
+                                subTitlePanel.DoubleClick += cameraDoubleClick;
 
+                                PictureBox camera_icon = new PictureBox();
+                                camera_icon.Size = new Size(16, 16);
+                                camera_icon.SizeMode = PictureBoxSizeMode.AutoSize;
+                                camera_icon.Image = Properties.Resources.camera_icon;
+                                camera_icon.Dock = DockStyle.Left;
+                                camera_icon.BackColor = Color.Transparent;
+                                camera_icon.MouseEnter += (s, e) => cameraMouseEnter(subTitlePanel, e);
+                                camera_icon.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
+                                camera_icon.Click += (s, e) => cameraClick(subTitlePanel, e);
+                                camera_icon.DoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
 
-                            PictureBox camera_icon = new PictureBox();
-                            camera_icon.Size = new Size(16, 16);
-                            camera_icon.SizeMode = PictureBoxSizeMode.AutoSize;
-                            camera_icon.Image = Properties.Resources.camera_icon;
-                            camera_icon.Dock = DockStyle.Left;
+                                Label camera_name = new Label();
+                                camera_name.AutoSize = false;
+                                camera_name.Dock = DockStyle.Fill;
+                                camera_name.Text = camera.cameraName;
+                                camera_name.Font = new Font(ApplicationConst.font_family_name, 10);
+                                camera_name.ForeColor = Color.White;
+                                camera_name.BackColor = Color.Transparent;
+                                camera_name.TextAlign = ContentAlignment.MiddleLeft;
+                                camera_name.MouseEnter += (s, e) => cameraMouseEnter(subTitlePanel, e);
+                                camera_name.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
+                                camera_name.Click += (s, e) => cameraClick(subTitlePanel, e);
+                                camera_name.DoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
 
-                            Label camera_name = new Label();
-                            camera_name.AutoSize = false;
-                            camera_name.Dock = DockStyle.Fill;
-                            camera_name.Text = camera.cameraName;
-                            camera_name.Font = new Font(ApplicationConst.font_family_name, 10);
-                            camera_name.ForeColor = Color.White;
-                            camera_name.BackColor = Color.FromArgb(64, 64, 64);
-
-                            subTitlePanel.Controls.Add(camera_name);
-                            subTitlePanel.Controls.Add(camera_icon);
-                            live_left_camera_flp.Controls.Add(subTitlePanel);
+                                subTitlePanel.Controls.Add(camera_name);
+                                subTitlePanel.Controls.Add(camera_icon);
+                                live_left_camera_flp.Controls.Add(subTitlePanel);
+                                liveLeftCameraFlpHeight += 30;
+                            }
                         }
                     }
+                    tagTriangleIcon++;
+                }
+                if (liveLeftCameraFlpHeight > live_left_camera_flp.Height)
+                {
+                    live_left_camera_flp.Height = liveLeftCameraFlpHeight;
                 }
             }
         }
+
         private void resize(object sender, EventArgs e)
         {
             top_content.Controls.Clear();
@@ -261,8 +195,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             //top_content.Controls.Clear();
             //InitializeAfter();
         }
-
-        private void cameraBorderPaint(object sender, PaintEventArgs e)
+        private void cameraGroupBorderPaint(object? sender, PaintEventArgs e)
         {
             Panel panel = sender as Panel;
             Graphics g = e.Graphics;
@@ -275,6 +208,59 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
+        private void cameraBorderPaint(object sender, PaintEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            Graphics g = e.Graphics;
+
+            using (Pen pen = new Pen(Color.FromArgb(47, 47, 47), ApplicationConst.border_thickness))
+            {
+                //g.DrawLine(pen, 0, 0, panel.Width, 0);
+
+                g.DrawLine(pen, 0, panel.Height - 1, panel.Width, panel.Height - 1);
+            }
+        }
+        private void triangleIconClick(object? sender, EventArgs e)
+        {
+            PictureBox pictureBox = sender as PictureBox;
+            int tagValue = (int)pictureBox.Tag;
+            if (IsSameImage(pictureBox.Image, Properties.Resources.right_triangle_icon))
+            {
+                pictureBox.Image = Properties.Resources.down_triangle_icon;
+                isExpandList[tagValue] = true;
+            }
+            else if (IsSameImage(pictureBox.Image, Properties.Resources.down_triangle_icon))
+            {
+                pictureBox.Image = Properties.Resources.right_triangle_icon;
+                isExpandList[tagValue] = false;
+            }
+            pictureBox.Refresh();
+            live_left_camera_flp.Controls.Clear();
+            InitializeCameraGroup();
+        }
+
+        private void cameraDoubleClick(object? sender, EventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void cameraClick(object? sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Color.FromArgb(212, 171, 178);
+        }
+
+        private void cameraMouseEnter(object? sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Color.FromArgb(212, 171, 178);
+        }
+
+        private void cameraMouseLeave(object? sender, EventArgs e)
+        {
+            Panel panel = sender as Panel;
+            panel.BackColor = Color.FromArgb(64, 64, 64);
+        }
 
         private float returnMinSizeRatio()
         {
@@ -303,6 +289,58 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 return 1;
             }
             return (float)this.ClientSize.Height / original_height;
+        }
+
+        private bool IsSameImage(Image img1, Image img2)
+        {
+            // Kiểm tra nếu cả hai ảnh đều null
+            if (img1 == null && img2 == null)
+                return true;
+
+            // Kiểm tra nếu một trong hai ảnh là null
+            if (img1 == null || img2 == null)
+                return false;
+
+            using (MemoryStream ms1 = new MemoryStream())
+            using (MemoryStream ms2 = new MemoryStream())
+            {
+                img1.Save(ms1, img1.RawFormat);
+                img2.Save(ms2, img2.RawFormat);
+
+                byte[] img1Bytes = ms1.ToArray();
+                byte[] img2Bytes = ms2.ToArray();
+
+                // So sánh hai mảng byte
+                return img1Bytes.SequenceEqual(img2Bytes);
+            }
+        }
+
+        private void updateIsExpandList()
+        {
+            List<CameraGroup> cameraGroups = _cameraService.getListCameraGroup();
+            if (cameraGroups != null && cameraGroups.Count > 0)
+            {
+                for (int i = 0; i < cameraGroups.Count; i++)
+                {
+                    isExpandList.Add(false);
+                }
+            }
+        }
+
+        private void keydown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                isShiftKeyPress = true;
+            }
+        }
+
+        private void keyup(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                isShiftKeyPress = true;
+            }
         }
     }
 }

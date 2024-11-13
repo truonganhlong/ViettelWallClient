@@ -17,12 +17,65 @@
       {
         "cameraName": "AI_CAMERA_HPG_01",
         "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
+      },
+      {
+        "cameraName": "AI_CAMERA_HPG_01",
+        "cameraLink": null
       }
     ]
   },
   {
     "groupName": "Store Keangnam",
-    "listCameras": null
+    "listCameras": [
+      {
+        "cameraName": "AI_CAMERA_HPG_02",
+        "cameraLink":  null
+      }
+    ]
   },
   {
     "groupName": "Store Hoa Lac",

@@ -2,7 +2,7 @@
   "mainTabSelected": "Live",
   "isLeftTabVisible": true,
   "leftTabSelected": "Camera",
-  "isRightTabVisible": true,
+  "isRightTabVisible": false,
   "rightTabSelected": null,
   "isFullScreen": false
 }
