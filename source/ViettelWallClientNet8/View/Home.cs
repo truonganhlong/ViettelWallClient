@@ -61,6 +61,8 @@ namespace ViettelWallClientNet8.View
             cpu_counter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             ram_counter = new PerformanceCounter("Memory", "Available MBytes");
         }
+
+
         /// <summary>
         /// paint border for footer
         /// </summary>
@@ -320,7 +322,7 @@ namespace ViettelWallClientNet8.View
 
         //----------------------------------------------------event handle---------------------------------------------------------------------//
         //private void settingLayoutAfterSelectSize(object sender, EventArgs e) { 
-            
+
         //}
     }
 }

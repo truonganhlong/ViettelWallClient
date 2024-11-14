@@ -219,6 +219,6 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
         private TableLayoutPanel main_table_layout;
         private Panel left_tab_panel;
-        private RoundedPanel setting_layout_panel;
+        public RoundedPanel setting_layout_panel;
     }
 }

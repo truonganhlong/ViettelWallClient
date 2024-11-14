@@ -31,6 +31,17 @@ namespace ViettelWallClientNet8.UserCtrl.Main
         private int main_height_index;
         //
         private bool isOpenLayoutSetting = false;
+        //
+        private Label setting_layout_result_label = new Label();
+        private TableLayoutPanel setting_table_layout = new TableLayoutPanel();
+        //
+        private int startRow = 0;
+        private int startColumn = 9;
+        private int hoverRowEnd = 0;
+        private int hoverColumnEnd = 0;
+        private int previousRow = -1;
+        private int previousColumn = -1;
+        private bool isChooseLayout = false;
         public MainUserCtrl()
         {
             _settingLayoutService = new SettingLayoutService();
@@ -41,7 +52,18 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
         private void InitializeAfter()
         {
+            this.MouseDown += new MouseEventHandler(UserControl_MouseDown);
+        }
 
+        private void UserControl_MouseDown(object? sender, MouseEventArgs e)
+        {
+            if (!this.ClientRectangle.Contains(e.Location))
+            {
+                if (!setting_table_layout.Bounds.Contains(e.Location))
+                {
+                    setting_layout_panel.Visible = false;
+                }
+            }
         }
 
         private void settingTab()
@@ -260,23 +282,137 @@ namespace ViettelWallClientNet8.UserCtrl.Main
 
         private void openLayoutSetting(object? sender, EventArgs e)
         {
-            setting_layout_panel.Invalidate();
-            Point rightMostPoint = GetCellLocation(main_table_layout, 65, 2);
-            Point leftMostPoint = new Point((int)(liveHeaderUserCtrl.Location.X + liveHeaderUserCtrl.Width * 0.49), rightMostPoint.Y + 6);
-            int width = rightMostPoint.X - leftMostPoint.X - 15;
-            setting_layout_panel.Location = leftMostPoint;
-            setting_layout_panel.Size = new Size(width, (int)(width * 1.1));
-            setting_layout_panel.Visible = true;
-            setting_layout_panel.BringToFront();
-            isOpenLayoutSetting = true;
-            TableLayoutPanel setting_table_layout = new TableLayoutPanel();
-            setting_table_layout.Margin = new Padding(3);
-            setting_table_layout.BackColor = Color.Red;
-            //setting_table_layout.BackColor = Color.FromArgb(170, 167, 167);
-            setting_table_layout.Width = setting_layout_panel.Width - 6;
-            setting_table_layout.Height = setting_table_layout.Width - 6;
-            setting_table_layout.Dock = DockStyle.Top;
-            setting_layout_panel.Controls.Add(setting_table_layout);
+            if (!isOpenLayoutSetting)
+            {
+                setting_layout_panel.Invalidate();
+                Point rightMostPoint = GetCellLocation(main_table_layout, 65, 2);
+                Point leftMostPoint = new Point((int)(liveHeaderUserCtrl.Location.X + liveHeaderUserCtrl.Width * 0.49), rightMostPoint.Y + 6);
+                int width = rightMostPoint.X - leftMostPoint.X - 15;
+                setting_layout_panel.Location = leftMostPoint;
+                setting_layout_panel.Size = new Size(width, (int)(width * 1.1));
+                setting_layout_panel.Visible = true;
+                setting_layout_panel.BringToFront();
+                isOpenLayoutSetting = true;
+                setting_layout_result_label.Size = new Size(setting_layout_panel.Width - 6, (setting_layout_panel.Width - 6)/10);
+                setting_layout_result_label.Dock = DockStyle.Top;
+                setting_layout_result_label.BackColor = Color.FromArgb(100, 100, 100);
+                setting_layout_result_label.TextAlign = ContentAlignment.MiddleLeft;
+                setting_layout_result_label.ForeColor = Color.White;
+                setting_layout_result_label.Padding = new Padding(5, 0, 0, 0);
+                setting_layout_result_label.Text = "Chọn ô";
+                setting_layout_panel.Padding = new Padding(3);
+                setting_table_layout.BackColor = Color.FromArgb(232, 232, 232);
+                setting_table_layout.Width = setting_layout_panel.Width - 6;
+                setting_table_layout.Height = setting_layout_panel.Width - 6;
+                setting_table_layout.Dock = DockStyle.Top;
+                setting_table_layout.ColumnCount = 10;
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowCount = 10;
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+                setting_table_layout.Paint += settingTableLayoutPaint;
+                setting_table_layout.MouseMove += settingTableLayoutMouseMove;
+                setting_table_layout.MouseLeave += settingTableLayoutMouseLeave;
+                setting_layout_panel.Controls.Add(setting_layout_result_label);
+                setting_layout_panel.Controls.Add(setting_table_layout);
+            } else
+            {
+                setting_layout_panel.Controls.Clear();
+                setting_layout_panel.Visible = false;
+                isOpenLayoutSetting = false;
+            }
+            
+        }
+
+        private void settingTableLayoutMouseLeave(object? sender, EventArgs e)
+        {
+            setting_layout_result_label.Text = "Chọn Ô";
+            hoverRowEnd = 0;
+            hoverColumnEnd = 0;
+            setting_table_layout.Invalidate();
+            isChooseLayout = false;
+        }
+
+        private void settingTableLayoutMouseMove(object? sender, MouseEventArgs e)
+        {
+            TableLayoutPanel setting_table_layout = sender as TableLayoutPanel;
+            int mouseX = e.X;
+            int mouseY = e.Y;
+
+            int cellWidth = setting_table_layout.Width / setting_table_layout.ColumnCount;
+            int cellHeight = setting_table_layout.Height / setting_table_layout.RowCount;
+
+
+            int currentColumn = mouseX / cellWidth;
+            int currentRow = mouseY / cellHeight;
+
+            int rowCount = currentRow - startRow + 1;
+            int columnCount = startColumn - currentColumn + 1;
+            setting_layout_result_label.Text = $"{columnCount} x {rowCount} Ô";
+
+            hoverRowEnd = currentRow;
+            hoverColumnEnd = currentColumn;
+            isChooseLayout = true;
+            if (currentRow != previousRow || currentColumn != previousColumn)
+            {
+                previousRow = currentRow;
+                previousColumn = currentColumn;
+                setting_table_layout.Invalidate();
+            }
+        }
+
+        private void settingTableLayoutPaint(object? sender, PaintEventArgs e)
+        {
+            TableLayoutPanel tableLayoutPanel = sender as TableLayoutPanel;
+            if (tableLayoutPanel == null) return;
+
+            Graphics g = e.Graphics;
+            Pen pen = new Pen(Color.White);
+
+            int cellWidth = tableLayoutPanel.ClientSize.Width / tableLayoutPanel.ColumnCount;
+            int cellHeight = tableLayoutPanel.ClientSize.Height / tableLayoutPanel.RowCount;
+
+            for (int i = 0; i <= tableLayoutPanel.RowCount; i++)
+            {
+                g.DrawLine(pen, 0, i * cellHeight, tableLayoutPanel.ClientSize.Width, i * cellHeight);
+            }
+
+            for (int j = 0; j <= tableLayoutPanel.ColumnCount; j++)
+            {
+                g.DrawLine(pen, j * cellWidth, 0, j * cellWidth, tableLayoutPanel.ClientSize.Height);
+            }
+
+            if (isChooseLayout)
+            {
+                using (Pen hoverPen = new Pen(Color.Red))
+                {
+                    for (int row = startRow; row <= hoverRowEnd; row++)
+                    {
+                        for (int col = hoverColumnEnd; col <= startColumn; col++)
+                        {
+                            Rectangle cellRect = new Rectangle(col * cellWidth, row * cellHeight, cellWidth, cellHeight);
+                            e.Graphics.DrawRectangle(hoverPen, cellRect);
+                        }
+                    }
+                }
+            }
         }
 
         private void settingLayoutAfterSelectSize(object? sender, EventArgs e)
