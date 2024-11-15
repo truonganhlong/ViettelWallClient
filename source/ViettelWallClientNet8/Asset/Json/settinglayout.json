@@ -3,6 +3,28 @@
     "name": "default_layout",
     "width": 4,
     "height": 4,
-    "isNowUse": true
+    "isNowUse": true,
+    "shareBy": null,
+    "listCameras": [
+      {
+        "cameraName": "Camera 1",
+        "cameraLink": null,
+        "xIndex": 0,
+        "yIndex": 0
+      },
+      {
+        "cameraName": "Camera 2",
+        "cameraLink": null,
+        "xIndex": 1,
+        "yIndex": 0
+      },
+      {
+        "cameraName": "Camera 3",
+        "cameraLink": null,
+        "xIndex": 2,
+        "yIndex": 0
+      }
+
+    ]
   }
 ]

@@ -14,8 +14,8 @@ namespace ViettelWallClientNet8.Service.Camera
 
         public List<CameraGroup> getListCameraGroup()
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "ApiResult", "cameragroup.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "ApiResult", "cameragroup.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);

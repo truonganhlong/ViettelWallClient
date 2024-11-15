@@ -24,11 +24,7 @@ C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\ViettelWallClientNet8.runtimeconfig.json
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\ViettelWallClientNet8.dll
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\ViettelWallClientNet8.pdb
-C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\Vlc.DotNet.Core.dll
-C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\Vlc.DotNet.Core.Interops.dll
-C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\Vlc.DotNet.Forms.dll
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.csproj.AssemblyReference.cache
-C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.Form1.resources
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.View.Home.resources
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.csproj.GenerateResource.cache
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.GeneratedMSBuildEditorConfig.editorconfig
@@ -1775,3 +1771,7 @@ C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Live.LiveLeftTrackingTabUserCtrl.resources
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.UserCtrl.Main.MainUserCtrl.resources
 C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.Custom.SearchIconTextBox.resources
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\ApiResult\cameragroup.json
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\Asset\Json\settinglastview.json
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\bin\Debug\net8.0-windows\Asset\Json\settinglayout.json
+C:\Users\long.truong\Desktop\ViettelWallClient\source\ViettelWallClientNet8\obj\Debug\net8.0-windows\ViettelWallClientNet8.Popup.ShareLayoutPopup.resources

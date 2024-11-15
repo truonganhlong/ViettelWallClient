@@ -97,20 +97,20 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             // panel_5x5
             // 
             panel_5x5.Dock = DockStyle.Fill;
-            panel_5x5.Location = new Point(550, 0);
+            panel_5x5.Location = new Point(570, 0);
             panel_5x5.Margin = new Padding(0);
             panel_5x5.Name = "panel_5x5";
-            panel_5x5.Size = new Size(100, 30);
+            panel_5x5.Size = new Size(80, 30);
             panel_5x5.TabIndex = 6;
             panel_5x5.Click += panel_5x5_click;
             // 
             // panel_4x4
             // 
             panel_4x4.Dock = DockStyle.Fill;
-            panel_4x4.Location = new Point(450, 0);
+            panel_4x4.Location = new Point(490, 0);
             panel_4x4.Margin = new Padding(0);
             panel_4x4.Name = "panel_4x4";
-            panel_4x4.Size = new Size(100, 30);
+            panel_4x4.Size = new Size(80, 30);
             panel_4x4.TabIndex = 5;
             panel_4x4.Click += panel_4x4_click;
             // 
@@ -126,7 +126,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             layout_label.Margin = new Padding(0);
             layout_label.Name = "layout_label";
             layout_label.Padding = new Padding(20, 0, 0, 0);
-            layout_label.Size = new Size(150, 30);
+            layout_label.Size = new Size(250, 30);
             layout_label.TabIndex = 0;
             layout_label.TextAlign = ContentAlignment.MiddleCenter;
             // 
@@ -143,34 +143,35 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             remove_label.TabIndex = 1;
             remove_label.Text = "Xóa hết";
             remove_label.TextAlign = ContentAlignment.MiddleCenter;
+            remove_label.Click += removeLabelClick;
             // 
             // panel_1x1
             // 
             panel_1x1.Dock = DockStyle.Fill;
-            panel_1x1.Location = new Point(150, 0);
+            panel_1x1.Location = new Point(250, 0);
             panel_1x1.Margin = new Padding(0);
             panel_1x1.Name = "panel_1x1";
-            panel_1x1.Size = new Size(100, 30);
+            panel_1x1.Size = new Size(80, 30);
             panel_1x1.TabIndex = 2;
             panel_1x1.Click += panel_1x1_click;
             // 
             // panel_2x2
             // 
             panel_2x2.Dock = DockStyle.Fill;
-            panel_2x2.Location = new Point(250, 0);
+            panel_2x2.Location = new Point(330, 0);
             panel_2x2.Margin = new Padding(0);
             panel_2x2.Name = "panel_2x2";
-            panel_2x2.Size = new Size(100, 30);
+            panel_2x2.Size = new Size(80, 30);
             panel_2x2.TabIndex = 3;
             panel_2x2.Click += panel_2x2_click;
             // 
             // panel_3x3
             // 
             panel_3x3.Dock = DockStyle.Fill;
-            panel_3x3.Location = new Point(350, 0);
+            panel_3x3.Location = new Point(410, 0);
             panel_3x3.Margin = new Padding(0);
             panel_3x3.Name = "panel_3x3";
-            panel_3x3.Size = new Size(100, 30);
+            panel_3x3.Size = new Size(80, 30);
             panel_3x3.TabIndex = 4;
             panel_3x3.Click += panel_3x3_click;
             // 

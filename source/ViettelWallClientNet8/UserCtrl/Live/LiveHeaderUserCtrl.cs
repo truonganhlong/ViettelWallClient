@@ -25,6 +25,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         public event EventHandler? panel4x4ClickEvent;
         public event EventHandler? panel5x5ClickEvent;
         public event EventHandler? panelCustomClickEvent;
+        public event EventHandler? removeLabelClickEvent;
         //interface
         private readonly ISettingLayoutService _settingLayoutService;
         public LiveHeaderUserCtrl()
@@ -295,6 +296,11 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         {
             _settingLayoutService.updateLayoutSize(5, 5);
             panel5x5ClickEvent?.Invoke(this, EventArgs.Empty);
+        }
+
+        private void removeLabelClick(object sender, EventArgs e)
+        {
+            removeLabelClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         //private void headerBorderPaint(object sender, PaintEventArgs e)

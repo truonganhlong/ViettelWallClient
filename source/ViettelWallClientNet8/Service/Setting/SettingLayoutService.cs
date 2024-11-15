@@ -14,8 +14,8 @@ namespace ViettelWallClientNet8.Service.Setting
         //NOTE: đầu tiên không nên có 2 file json setting, khi ứng dụng khởi đầu chạy lần đầu tiên hẵng tạo (test sau), từ đó các đoạn code if bên dưới sẽ thêm else là khởi tạo file 
         public SettingLastView? getLastViewSetting()
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData =  File.ReadAllText(jsonFilePath);
@@ -30,8 +30,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public SettingLayout? getLayoutSetting()
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -50,8 +50,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateIsLeftTabVisible()
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -71,8 +71,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateIsRightTabVisible()
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -92,8 +92,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateMainTabLocation(string location)
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -126,8 +126,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateLeftTabLocation(string location)
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -167,8 +167,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateRightTabLocation(string location)
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -208,8 +208,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateIsFullScreen()
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglastview.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglastview.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);
@@ -229,8 +229,8 @@ namespace ViettelWallClientNet8.Service.Setting
 
         public void updateLayoutSize(int width, int height)
         {
-            string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
-            string jsonFilePath = Path.Combine(projectDirectory, "Asset", "Json", "settinglayout.json");
+            //string projectDirectory = Directory.GetParent(Environment.CurrentDirectory)!.Parent!.Parent!.FullName;
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
             try
             {
                 var jsonData = File.ReadAllText(jsonFilePath);

@@ -68,10 +68,6 @@
             "VideoLAN.LibVLC.Windows": {
               "target": "Package",
               "version": "[3.0.21, )"
-            },
-            "Vlc.DotNet.Forms": {
-              "target": "Package",
-              "version": "[3.1.0, )"
             }
           },
           "imports": [

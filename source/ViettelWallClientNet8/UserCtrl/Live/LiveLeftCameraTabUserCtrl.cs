@@ -21,7 +21,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
     {
         private float original_width;
         private float original_height;
-        private int? firstSelectedIndex = null;
+        //private int? firstSelectedIndex = null;
         private bool isShiftKeyPress = false;
         //interface
         private readonly ICameraService _cameraService;
@@ -339,7 +339,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         {
             if (e.KeyCode == Keys.ShiftKey)
             {
-                isShiftKeyPress = true;
+                isShiftKeyPress = false;
             }
         }
     }

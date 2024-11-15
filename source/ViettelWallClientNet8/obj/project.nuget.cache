@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ETEfvXtXCWs=",
+  "dgSpecHash": "3mOxJRiTRwE=",
   "success": true,
   "projectFilePath": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\ViettelWallClientNet8.csproj",
   "expectedPackageFiles": [
@@ -8,10 +8,7 @@
     "C:\\Users\\long.truong\\.nuget\\packages\\libvlcsharp.winforms\\3.9.0\\libvlcsharp.winforms.3.9.0.nupkg.sha512",
     "C:\\Users\\long.truong\\.nuget\\packages\\system.codedom\\8.0.0\\system.codedom.8.0.0.nupkg.sha512",
     "C:\\Users\\long.truong\\.nuget\\packages\\system.management\\8.0.0\\system.management.8.0.0.nupkg.sha512",
-    "C:\\Users\\long.truong\\.nuget\\packages\\videolan.libvlc.windows\\3.0.21\\videolan.libvlc.windows.3.0.21.nupkg.sha512",
-    "C:\\Users\\long.truong\\.nuget\\packages\\vlc.dotnet.core\\3.1.0\\vlc.dotnet.core.3.1.0.nupkg.sha512",
-    "C:\\Users\\long.truong\\.nuget\\packages\\vlc.dotnet.core.interops\\3.1.0\\vlc.dotnet.core.interops.3.1.0.nupkg.sha512",
-    "C:\\Users\\long.truong\\.nuget\\packages\\vlc.dotnet.forms\\3.1.0\\vlc.dotnet.forms.3.1.0.nupkg.sha512"
+    "C:\\Users\\long.truong\\.nuget\\packages\\videolan.libvlc.windows\\3.0.21\\videolan.libvlc.windows.3.0.21.nupkg.sha512"
   ],
   "logs": []
 }

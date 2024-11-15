@@ -13,7 +13,6 @@
     <PackageReference Include="LibVLCSharp.WinForms" Version="3.9.0" />
     <PackageReference Include="System.Management" Version="8.0.0" />
     <PackageReference Include="VideoLAN.LibVLC.Windows" Version="3.0.21" />
-    <PackageReference Include="Vlc.DotNet.Forms" Version="3.1.0" />
   </ItemGroup>
 
   <ItemGroup>
@@ -35,6 +34,18 @@
     <Folder Include="ApiResult\" />
     <Folder Include="UserCtrl\Tracking\" />
     <Folder Include="UserCtrl\Replay\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="ApiResult\cameragroup.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Asset\Json\settinglastview.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Asset\Json\settinglayout.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

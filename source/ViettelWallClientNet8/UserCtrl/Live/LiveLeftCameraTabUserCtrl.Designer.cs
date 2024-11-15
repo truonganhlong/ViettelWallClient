@@ -58,7 +58,7 @@
             live_left_camera_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1F));
             live_left_camera_tlp.Size = new Size(238, 704);
             live_left_camera_tlp.TabIndex = 0;
-            // 
+            //
             // main_content_panel
             // 
             main_content_panel.AutoScroll = true;
