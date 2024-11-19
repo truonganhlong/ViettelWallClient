@@ -139,6 +139,10 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             _settingLayoutService.updateLeftTabLocation("Layout");
             liveLayoutLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
             left_tab_content.Controls.Clear();
+            LiveLeftLayoutTabUserCtrl liveLeftLayoutTabUserCtrl = new LiveLeftLayoutTabUserCtrl();
+            liveLeftLayoutTabUserCtrl.Dock = DockStyle.Fill;
+            liveLeftLayoutTabUserCtrl.Padding = new Padding(1);
+            left_tab_content.Controls.Add(liveLeftLayoutTabUserCtrl);
         }
 
         private void trackingTabBorderPaint(object sender, PaintEventArgs e)

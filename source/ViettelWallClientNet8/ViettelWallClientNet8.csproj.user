@@ -16,6 +16,9 @@
     <Compile Update="Custom\SearchTextBox.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Update="Custom\ToggleButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Update="Popup\ShareLayoutPopup.cs">
       <SubType>Form</SubType>
     </Compile>

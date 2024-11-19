@@ -248,5 +248,24 @@ namespace ViettelWallClientNet8.Service.Setting
                 throw new Exception(e.Message);
             }
         }
+
+        public List<SettingLayout>? getAllSettingLayout()
+        {
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                if (data != null)
+                {
+                    return data;
+                }
+                return null;
+            }
+            catch (Exception)
+            {
+                return null;
+            }
+        }
     }
 }

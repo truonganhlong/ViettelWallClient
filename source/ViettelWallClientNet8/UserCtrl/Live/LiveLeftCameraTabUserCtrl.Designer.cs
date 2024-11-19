@@ -58,7 +58,7 @@
             live_left_camera_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1F));
             live_left_camera_tlp.Size = new Size(238, 704);
             live_left_camera_tlp.TabIndex = 0;
-            //
+            // 
             // main_content_panel
             // 
             main_content_panel.AutoScroll = true;
@@ -78,7 +78,7 @@
             live_left_camera_flp.Location = new Point(1, 1);
             live_left_camera_flp.Margin = new Padding(0);
             live_left_camera_flp.Name = "live_left_camera_flp";
-            live_left_camera_flp.Padding = new Padding(10, 0, 10, 0);
+            live_left_camera_flp.Padding = new Padding(3, 0, 3, 0);
             live_left_camera_flp.Size = new Size(236, 100);
             live_left_camera_flp.TabIndex = 0;
             live_left_camera_flp.WrapContents = false;
@@ -89,7 +89,7 @@
             top_content.Location = new Point(1, 1);
             top_content.Margin = new Padding(1);
             top_content.Name = "top_content";
-            top_content.Padding = new Padding(10, 0, 10, 0);
+            top_content.Padding = new Padding(3, 0, 3, 0);
             top_content.Size = new Size(236, 76);
             top_content.TabIndex = 1;
             // 

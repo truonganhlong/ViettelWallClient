@@ -18,7 +18,7 @@ namespace ViettelWallClientNet8.Custom
         private TextBox textBox;
         private PictureBox iconStart;
         private PictureBox iconEnd;
-        public SearchIconTextBox()
+        public SearchIconTextBox(string text,float ratio)
         {
             InitializeComponent();
             iconStart = new PictureBox();
@@ -29,19 +29,19 @@ namespace ViettelWallClientNet8.Custom
             iconStart.Padding = new Padding(0, 0, 5, 0);
 
             textBox = new TextBox();
-            textBox.Multiline = true;
-            textBox.Height = 25;
+            textBox.Multiline = false;
+            textBox.Height = (int)(25 * ratio);
             textBox.MaxLength = 50;
             textBox.BorderStyle = BorderStyle.None;
             textBox.Dock = DockStyle.Left;
             textBox.Width = this.Width - 20;
             textBox.Font = new Font(ApplicationConst.font_family_name, 10);
             textBox.ForeColor = Color.White;
-            textBox.Text = "Nhập tên camera...";
+            textBox.Text = text;
             textBox.BackColor = Color.FromArgb(64, 64, 64);
             textBox.GotFocus += (sender, e) =>
             {
-                if (textBox.Text == "Nhập tên camera...")
+                if (textBox.Text == text)
                 {
                     textBox.Text = "";
                     textBox.ForeColor = Color.White;
@@ -51,7 +51,7 @@ namespace ViettelWallClientNet8.Custom
             {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    textBox.Text = "Nhập tên camera...";
+                    textBox.Text = text;
                     textBox.ForeColor = Color.White;
                 }
             };
@@ -73,7 +73,7 @@ namespace ViettelWallClientNet8.Custom
             this.DoubleBuffered = true;
             this.ResizeRedraw = true;
             this.Padding = new Padding(2);
-            this.Size = new Size(200, 30);
+            this.Size = new Size(200, (int)(30 * ratio));
             this.BackColor = Color.FromArgb(64, 64, 64);
             iconEnd.Visible = false;
         }

@@ -288,7 +288,7 @@ namespace ViettelWallClientNet8.View
 
         private float returnMinSizeRatio()
         {
-            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
             {
                 return 1;
             }
@@ -299,7 +299,7 @@ namespace ViettelWallClientNet8.View
 
         private float returnWidthSizeRatio()
         {
-            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
             {
                 return 1;
             }
@@ -308,7 +308,7 @@ namespace ViettelWallClientNet8.View
 
         private float returnHeightSizeRatio()
         {
-            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
             {
                 return 1;
             }

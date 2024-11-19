@@ -20,7 +20,7 @@ namespace ViettelWallClientNet8
             InitializeComponent();
             this.MaximumSize = new Size(200, 40);
             this.Size = new Size(200, 40);
-            var test = new SearchIconTextBox();
+            var test = new LiveHeaderUserCtrl();
             test.Dock = DockStyle.Fill;
             this.Controls.Add(test);
             

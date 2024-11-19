@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using ViettelWallClientNet8.Model.Camera;
 
 namespace ViettelWallClientNet8.Model.Setting
 {
@@ -13,5 +14,7 @@ namespace ViettelWallClientNet8.Model.Setting
         public required int width { get; set; }
         public required int height { get; set; }
         public required bool isNowUse { get; set; }
+        public string? sharedBy { get; set; }
+        public List<CameraInLayout>? listCameras { get; set; }
     }
 }

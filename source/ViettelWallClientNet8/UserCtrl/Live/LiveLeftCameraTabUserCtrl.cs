@@ -48,7 +48,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             titleLabel.BackColor = Color.FromArgb(64, 64, 64);
 
 
-            SearchIconTextBox searchTextBox = new SearchIconTextBox();
+            SearchIconTextBox searchTextBox = new SearchIconTextBox("Nhập tên camera...", returnHeightSizeRatio());
             searchTextBox.Dock = DockStyle.Top;
 
             top_content.Controls.Add(searchTextBox);
@@ -81,7 +81,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     titlePanel.Padding = new Padding(0, 1, 0, 1);
                     titlePanel.Margin = new Padding(0, 3, 0, 0);
                     titlePanel.AutoSize = false;
-                    titlePanel.Size = new Size(live_left_camera_flp.Width, 30);
+                    titlePanel.Size = new Size(live_left_camera_flp.Width, (int)(30 * returnHeightSizeRatio()));
                     //titlePanel.Dock = DockStyle.Top;
 
                     PictureBox triangle_icon = new PictureBox();
@@ -118,7 +118,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     titlePanel.Controls.Add(store_icon);
                     titlePanel.Controls.Add(triangle_icon);
                     live_left_camera_flp.Controls.Add(titlePanel);
-                    liveLeftCameraFlpHeight += 33;
+                    liveLeftCameraFlpHeight += 3 + (int)(30 * returnHeightSizeRatio());
 
                     if (isExpandList[tagTriangleIcon])
                     {
@@ -131,9 +131,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 subTitlePanel.Paint += cameraBorderPaint;
                                 subTitlePanel.Padding = new Padding(0, 1, 0, 1);
                                 subTitlePanel.AutoSize = false;
-                                subTitlePanel.Size = new Size(live_left_camera_flp.Width - 70, 30);
+                                subTitlePanel.Size = new Size(live_left_camera_flp.Width - 55, (int)(30 * returnHeightSizeRatio()));
                                 subTitlePanel.Anchor = AnchorStyles.Right | AnchorStyles.Top;
-                                subTitlePanel.Margin = new Padding(0, 0, 25, 0);
+                                subTitlePanel.Margin = new Padding(0, 0, 10, 0);
                                 subTitlePanel.Tag = camera.cameraLink;
                                 subTitlePanel.MouseEnter += cameraMouseEnter;
                                 subTitlePanel.MouseLeave += cameraMouseLeave;
@@ -167,7 +167,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 subTitlePanel.Controls.Add(camera_name);
                                 subTitlePanel.Controls.Add(camera_icon);
                                 live_left_camera_flp.Controls.Add(subTitlePanel);
-                                liveLeftCameraFlpHeight += 30;
+                                liveLeftCameraFlpHeight += (int)(30 * returnHeightSizeRatio());
                             }
                         }
                     }
@@ -204,7 +204,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             {
                 //g.DrawLine(pen, 0, 0, panel.Width, 0);
 
-                g.DrawLine(pen, 0, panel.Height - 1, panel.Width - 25, panel.Height - 1);
+                g.DrawLine(pen, 0, panel.Height - 1, panel.Width - 10, panel.Height - 1);
             }
         }
 
@@ -264,7 +264,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private float returnMinSizeRatio()
         {
-            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
             {
                 return 1;
             }
@@ -275,7 +275,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private float returnWidthSizeRatio()
         {
-            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
             {
                 return 1;
             }
@@ -284,7 +284,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private float returnHeightSizeRatio()
         {
-            if (this.ClientSize.Width == 0 && this.ClientSize.Height == 0)
+            if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
             {
                 return 1;
             }

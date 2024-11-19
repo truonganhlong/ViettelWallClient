@@ -50,8 +50,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             live_left_layout_tlp.Margin = new Padding(0);
             live_left_layout_tlp.Name = "live_left_layout_tlp";
             live_left_layout_tlp.RowCount = 9;
-            live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 11.4F));
-            live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 10.8F));
+            live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 12.4F));
+            live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 9.8F));
             live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1F));
             live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1F));
             live_left_layout_tlp.RowStyles.Add(new RowStyle(SizeType.Percent, 11.1F));
@@ -67,12 +67,12 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             main_content_panel.AutoScroll = true;
             main_content_panel.Controls.Add(live_left_layout_flp);
             main_content_panel.Dock = DockStyle.Fill;
-            main_content_panel.Location = new Point(0, 82);
+            main_content_panel.Location = new Point(0, 87);
             main_content_panel.Margin = new Padding(0);
             main_content_panel.Name = "main_content_panel";
             main_content_panel.Padding = new Padding(1);
             live_left_layout_tlp.SetRowSpan(main_content_panel, 8);
-            main_content_panel.Size = new Size(238, 622);
+            main_content_panel.Size = new Size(238, 617);
             main_content_panel.TabIndex = 0;
             // 
             // live_left_layout_flp
@@ -81,7 +81,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             live_left_layout_flp.Location = new Point(1, 1);
             live_left_layout_flp.Margin = new Padding(0);
             live_left_layout_flp.Name = "live_left_layout_flp";
-            live_left_layout_flp.Padding = new Padding(10, 0, 10, 0);
+            live_left_layout_flp.Padding = new Padding(3, 0, 3, 0);
             live_left_layout_flp.Size = new Size(236, 100);
             live_left_layout_flp.TabIndex = 0;
             live_left_layout_flp.WrapContents = false;
@@ -92,8 +92,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             top_content.Location = new Point(1, 1);
             top_content.Margin = new Padding(1);
             top_content.Name = "top_content";
-            top_content.Padding = new Padding(10, 0, 10, 0);
-            top_content.Size = new Size(236, 80);
+            top_content.Padding = new Padding(3, 0, 3, 0);
+            top_content.Size = new Size(236, 85);
             top_content.TabIndex = 1;
             // 
             // LiveLeftLayoutTabUserCtrl

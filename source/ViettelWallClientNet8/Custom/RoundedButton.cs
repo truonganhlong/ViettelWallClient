@@ -9,43 +9,39 @@ namespace ViettelWallClientNet8.Custom
 {
     public class RoundedButton : Button
     {
-        public int BorderRadius { get; set; } = 20; // Bán kính bo góc
+        public int BorderRadius { get; set; } = 5; // Bán kính bo góc
 
         protected override void OnPaint(PaintEventArgs pevent)
         {
-            // Tạo hình chữ nhật với các góc bo tròn
+            base.OnPaint(pevent);
+            Graphics g = pevent.Graphics;
+            g.SmoothingMode = SmoothingMode.AntiAlias;
+
+            // Tạo viền bo góc
             GraphicsPath path = new GraphicsPath();
-            path.StartFigure();
             path.AddArc(0, 0, BorderRadius, BorderRadius, 180, 90);
             path.AddArc(Width - BorderRadius, 0, BorderRadius, BorderRadius, 270, 90);
             path.AddArc(Width - BorderRadius, Height - BorderRadius, BorderRadius, BorderRadius, 0, 90);
             path.AddArc(0, Height - BorderRadius, BorderRadius, BorderRadius, 90, 90);
             path.CloseFigure();
 
-            this.Region = new Region(path); // Thiết lập hình dạng cho Button
+            // Vẽ nền
+            g.FillPath(new SolidBrush(BackColor), path);
 
-            // Vẽ nền cho Button
-            using (SolidBrush brush = new SolidBrush(this.BackColor))
+            // Vẽ viền
+            using (Pen pen = new Pen(Color.FromArgb(189, 53, 55), 1))
             {
-                pevent.Graphics.FillPath(brush, path);
+                g.DrawPath(pen, path);
             }
 
-            // Vẽ chữ lên Button
-            //TextRenderer.DrawText(pevent.Graphics, this.Text, this.Font, new Point(0, 0), this.ForeColor);
-        }
-
-        protected override void OnMouseEnter(EventArgs e)
-        {
-            // Thay đổi màu nền khi chuột vào
-            this.BackColor = Color.LightCoral; // Ví dụ màu khi hover
-            base.OnMouseEnter(e);
-        }
-
-        protected override void OnMouseLeave(EventArgs e)
-        {
-            // Đặt lại màu nền khi chuột rời khỏi nút
-            this.BackColor = Color.LightBlue; // Màu nền ban đầu
-            base.OnMouseLeave(e);
+            TextRenderer.DrawText(
+                g,
+                Text,
+                Font,
+                ClientRectangle,
+                ForeColor,
+                TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter
+            );
         }
     }
 }

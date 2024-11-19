@@ -9,6 +9,7 @@ namespace ViettelWallClientNet8.Interface.Setting
 {
     public interface ISettingLayoutService
     {
+        List<SettingLayout>? getAllSettingLayout();
         SettingLayout? getLayoutSetting();
         SettingLastView? getLastViewSetting();
         void updateIsLeftTabVisible();
