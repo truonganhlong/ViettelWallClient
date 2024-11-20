@@ -23,10 +23,14 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private float original_height;
         //private int? firstSelectedIndex = null;
         private bool isShiftKeyPress = false;
+        private bool isCtrlKeyPress = false;
         //interface
         private readonly ICameraService _cameraService;
         //list camera group expand
         private List<bool> isExpandList = new List<bool>();
+        private SearchIconTextBox searchTextBox;
+
+        private List<Panel> chosenCameras = new List<Panel>();
         public LiveLeftCameraTabUserCtrl()
         {
             _cameraService = new CameraService();
@@ -48,8 +52,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             titleLabel.BackColor = Color.FromArgb(64, 64, 64);
 
 
-            SearchIconTextBox searchTextBox = new SearchIconTextBox("Nhập tên camera...", returnHeightSizeRatio());
+            searchTextBox = new SearchIconTextBox("Nhập tên camera...", returnHeightSizeRatio());
             searchTextBox.Dock = DockStyle.Top;
+            searchTextBox.textBox.TextChanged += searchFunction;
 
             top_content.Controls.Add(searchTextBox);
             top_content.Controls.Add(titleLabel);
@@ -64,10 +69,19 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
             live_left_camera_flp.Size = new Size(main_content_panel.Width - 2, main_content_panel.Height - 2);
         }
+        
 
         private void InitializeCameraGroup()
         {
-            List<CameraGroup> cameraGroups = _cameraService.getListCameraGroup();
+            List<CameraGroup> cameraGroups = new List<CameraGroup>();
+            if (searchTextBox.isPlaceHolder)
+            {
+                cameraGroups = _cameraService.getListCameraGroup(null);
+            } else
+            {
+                cameraGroups = _cameraService.getListCameraGroup(searchTextBox.Text.Trim());
+            }
+            //List<CameraGroup> cameraGroups = _cameraService.getListCameraGroup();
             if (cameraGroups != null)
             {
                 int liveLeftCameraFlpHeight = 0;
@@ -247,13 +261,13 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void cameraClick(object? sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(212, 171, 178);
+            panel.BackColor = Color.FromArgb(114, 82, 82);
         }
 
         private void cameraMouseEnter(object? sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(212, 171, 178);
+            panel.BackColor = Color.FromArgb(114, 82, 82);
         }
 
         private void cameraMouseLeave(object? sender, EventArgs e)
@@ -317,7 +331,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void updateIsExpandList()
         {
-            List<CameraGroup> cameraGroups = _cameraService.getListCameraGroup();
+            List<CameraGroup> cameraGroups = _cameraService.getListCameraGroup(null);
             if (cameraGroups != null && cameraGroups.Count > 0)
             {
                 for (int i = 0; i < cameraGroups.Count; i++)
@@ -327,11 +341,26 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
+        private void searchFunction(object? sender, EventArgs e)
+        {
+            live_left_camera_flp.Controls.Clear();
+            //updateIsExpandList();
+            InitializeCameraGroup();
+        }
+
         private void keydown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.ShiftKey)
             {
                 isShiftKeyPress = true;
+            }
+            if (e.KeyCode == Keys.Control)
+            {
+                isCtrlKeyPress = true;
+            }
+            if (isShiftKeyPress && isCtrlKeyPress) {
+                isShiftKeyPress = false;
+                isCtrlKeyPress = false;
             }
         }
 
@@ -340,6 +369,10 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             if (e.KeyCode == Keys.ShiftKey)
             {
                 isShiftKeyPress = false;
+            }
+            if (e.KeyCode == Keys.Control)
+            {
+                isCtrlKeyPress = false;
             }
         }
     }

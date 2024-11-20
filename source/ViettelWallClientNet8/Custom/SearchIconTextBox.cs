@@ -15,10 +15,11 @@ namespace ViettelWallClientNet8.Custom
     public partial class SearchIconTextBox : UserControl
     {
         public int borderRadius = 10;
-        private TextBox textBox;
-        private PictureBox iconStart;
-        private PictureBox iconEnd;
-        public SearchIconTextBox(string text,float ratio)
+        public TextBox textBox;
+        public PictureBox iconStart;
+        public PictureBox iconEnd;
+        public bool isPlaceHolder = true;
+        public SearchIconTextBox(string placeholder,float ratio)
         {
             InitializeComponent();
             iconStart = new PictureBox();
@@ -37,26 +38,28 @@ namespace ViettelWallClientNet8.Custom
             textBox.Width = this.Width - 20;
             textBox.Font = new Font(ApplicationConst.font_family_name, 10);
             textBox.ForeColor = Color.White;
-            textBox.Text = text;
+            textBox.Text = placeholder;
             textBox.BackColor = Color.FromArgb(64, 64, 64);
             textBox.GotFocus += (sender, e) =>
             {
-                if (textBox.Text == text)
+                if (textBox.Text == placeholder)
                 {
                     textBox.Text = "";
                     textBox.ForeColor = Color.White;
+                    isPlaceHolder = false;
                 }
             };
             textBox.LostFocus += (sender, e) =>
             {
                 if (string.IsNullOrWhiteSpace(textBox.Text))
                 {
-                    textBox.Text = text;
+                    textBox.Text = placeholder;
                     textBox.ForeColor = Color.White;
+                    isPlaceHolder = true;
                 }
             };
             textBox.TabStop = false;
-            textBox.TextChanged += textChanged;
+            //textBox.TextChanged += textChanged;
 
             iconEnd = new PictureBox();
             iconEnd.Size = new Size(16, 16);

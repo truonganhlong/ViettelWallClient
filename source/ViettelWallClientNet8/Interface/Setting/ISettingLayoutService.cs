@@ -9,7 +9,7 @@ namespace ViettelWallClientNet8.Interface.Setting
 {
     public interface ISettingLayoutService
     {
-        List<SettingLayout>? getAllSettingLayout();
+        List<SettingLayout>? getAllSettingLayout(bool isCreateNewLayoutRecent, string search);
         SettingLayout? getLayoutSetting();
         SettingLastView? getLastViewSetting();
         void updateIsLeftTabVisible();
@@ -19,5 +19,6 @@ namespace ViettelWallClientNet8.Interface.Setting
         void updateRightTabLocation(string location);
         void updateIsFullScreen();
         void updateLayoutSize(int width, int height);
+        void addLayout(string name);
     }
 }

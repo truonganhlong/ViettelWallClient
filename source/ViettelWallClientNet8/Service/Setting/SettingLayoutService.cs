@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.DirectoryServices;
 using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using ViettelWallClientNet8.Interface.Setting;
+using ViettelWallClientNet8.Model.Camera;
 using ViettelWallClientNet8.Model.Setting;
 
 namespace ViettelWallClientNet8.Service.Setting
@@ -249,7 +251,7 @@ namespace ViettelWallClientNet8.Service.Setting
             }
         }
 
-        public List<SettingLayout>? getAllSettingLayout()
+        public List<SettingLayout>? getAllSettingLayout(bool isCreateNewLayoutRecent, string search)
         {
             string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
             try
@@ -258,13 +260,84 @@ namespace ViettelWallClientNet8.Service.Setting
                 var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
                 if (data != null)
                 {
-                    return data;
+                    if (isCreateNewLayoutRecent)
+                    {
+                        List<SettingLayout> result = new List<SettingLayout>();
+                        SettingLayout newLayout = data.Last();
+                        result.Add(newLayout);
+                        data.Remove(newLayout);
+                        data.Sort((p1, p2) => string.Compare(p1.name, p2.name, StringComparison.OrdinalIgnoreCase));
+                        result.AddRange(data);
+                        return searchFunction(search, result);
+                    } else
+                    {
+                        data.Sort((p1, p2) => string.Compare(p1.name, p2.name, StringComparison.OrdinalIgnoreCase));
+                        return searchFunction(search, data);
+                    }
                 }
                 return null;
             }
             catch (Exception)
             {
                 return null;
+            }
+        }
+
+        public void addLayout(string name)
+        {
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                SettingLayout newLayout = new SettingLayout()
+                {
+                    name = name,
+                    height = 1,
+                    width = 1,
+                    isNowUse = false,
+                    sharedBy = null,
+                    listCameras = null
+                };
+                data.Add(newLayout);
+                string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                File.WriteAllText(jsonFilePath, updateJson);
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        private List<SettingLayout>? searchFunction(string search, List<SettingLayout> data)
+        {
+            if (string.IsNullOrEmpty(search))
+            {
+                return data;    
+            } else
+            {
+                List<SettingLayout>? result = new List<SettingLayout>();
+                foreach (var settingLayout in data)
+                {
+                    if (settingLayout.name.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0)
+                    {
+                        result.Add(settingLayout);
+                    }
+                    else
+                    {
+                        if (settingLayout.listCameras != null)
+                        {
+                            List<CameraInLayout>? cameraInLayouts = settingLayout.listCameras.Where(p => p.cameraName.IndexOf(search, StringComparison.OrdinalIgnoreCase) >= 0).ToList();
+                            if (cameraInLayouts.Any())
+                            {
+                                settingLayout.listCameras.Clear();
+                                settingLayout.listCameras.AddRange(cameraInLayouts);
+                                result.Add(settingLayout);
+                            }
+                        }
+                    }
+                }
+                return result;
             }
         }
     }

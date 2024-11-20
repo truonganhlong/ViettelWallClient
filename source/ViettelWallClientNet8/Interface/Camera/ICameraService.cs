@@ -9,6 +9,6 @@ namespace ViettelWallClientNet8.Interface.Camera
 {
     public interface ICameraService
     {
-        List<CameraGroup> getListCameraGroup();
+        List<CameraGroup> getListCameraGroup(string search);
     }
 }

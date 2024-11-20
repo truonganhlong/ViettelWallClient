@@ -25,6 +25,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private readonly ISettingLayoutService _settingLayoutService;
         //list layout expand
         private List<bool> isExpandList = new List<bool>();
+        private bool isCreateNewLayoutRecent = false;
+        private SearchIconTextBox searchTextBox;
+
         public LiveLeftLayoutTabUserCtrl()
         {
             _settingLayoutService = new SettingLayoutService();
@@ -41,9 +44,6 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             titlePanel.Dock = DockStyle.Top;
             titlePanel.BackColor = Color.FromArgb(64, 64, 64);
             titlePanel.Padding = new Padding(0, 10, 0, 10);
-            //titlePanel.
-            //titlePanel.FlowDirection = FlowDirection.LeftToRight; // Các control xếp ngang
-            //titlePanel.WrapContents = false; // Không xuống dòng khi hết chiều rộng
 
             Label titleLabel = new Label();
             titleLabel.Text = "Riêng tư";
@@ -74,8 +74,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             titlePanel.Controls.Add(createButton);
 
 
-            SearchIconTextBox searchTextBox = new SearchIconTextBox("Tìm kiếm Layouts, camera,...", returnHeightSizeRatio());
+            searchTextBox = new SearchIconTextBox("Tìm kiếm Layouts, camera,...", returnHeightSizeRatio());
             searchTextBox.Dock = DockStyle.Top;
+            searchTextBox.textBox.TextChanged += searchFunction;
 
             top_content.Controls.Add(searchTextBox);
             top_content.Controls.Add(titlePanel);
@@ -86,14 +87,22 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             main_content_panel.HorizontalScroll.Maximum = 0;
             main_content_panel.VerticalScroll.Maximum = 0;
             main_content_panel.AutoScroll = true;
-            //doi size live_left_camera_flp
 
             live_left_layout_flp.Size = new Size(main_content_panel.Width - 2, main_content_panel.Height - 2);
         }
 
+
         private void InitializeSettingLayoutList()
         {
-            List<SettingLayout>? settingLayouts = _settingLayoutService.getAllSettingLayout();
+            List<SettingLayout>? settingLayouts = new List<SettingLayout>();
+            if (searchTextBox.isPlaceHolder)
+            {
+                settingLayouts = _settingLayoutService.getAllSettingLayout(isCreateNewLayoutRecent, null);
+            } else
+            {
+                settingLayouts = _settingLayoutService.getAllSettingLayout(isCreateNewLayoutRecent, searchTextBox.Text.Trim());
+            }
+            //List<SettingLayout>? settingLayouts = _settingLayoutService.getAllSettingLayout(isCreateNewLayoutRecent, searchTextBox.Text.Trim());
             if (settingLayouts != null)
             {
                 int liveLeftLayoutFlpHeight = 0;
@@ -155,7 +164,10 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     Label layout_shared_by = new Label();
                     layout_shared_by.AutoSize = false;
                     layout_shared_by.Dock = DockStyle.Fill;
-                    layout_shared_by.Text = "Chia sẻ bởi: " + settingLayout.sharedBy;
+                    if(settingLayout.sharedBy != null)
+                    {
+                        layout_shared_by.Text = "Chia sẻ bởi: " + settingLayout.sharedBy;
+                    }
                     layout_shared_by.Font = new Font(ApplicationConst.font_family_name, 6 * returnMinSizeRatio());
                     layout_shared_by.ForeColor = Color.White;
                     layout_shared_by.BackColor = Color.FromArgb(64, 64, 64);
@@ -183,8 +195,6 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     camera_count.TextAlign = ContentAlignment.TopRight;
 
                     titlePanel.Controls.Add(camera_count);
-                    //titlePanel.Controls.Add(layout_name);
-                    //titlePanel.Controls.Add(layout_icon);
                     titlePanel.Controls.Add(layout_content_panel);
                     titlePanel.Controls.Add(triangle_icon);
                     live_left_layout_flp.Controls.Add(titlePanel);
@@ -252,7 +262,23 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void createLayoutClick(object? sender, EventArgs e)
         {
-            throw new NotImplementedException();
+            List<SettingLayout>? settingLayouts = _settingLayoutService.getAllSettingLayout(false, null);
+            string layoutName = "New Layout";
+            for(int i = 0; i >= 0; i++)
+            {
+                if(i != 0) { 
+                    layoutName = "New Layout " + i.ToString();
+                }
+                if(!settingLayouts.Any(x => x.name.Equals(layoutName)))
+                {
+                    _settingLayoutService.addLayout(layoutName);
+                    break;  
+                }
+            }
+            isCreateNewLayoutRecent = true;
+            live_left_layout_flp.Controls.Clear();
+            updateIsExpandList();
+            InitializeSettingLayoutList();
         }
 
         private void settingLayoutListBorderPaint(object? sender, PaintEventArgs e)
@@ -276,7 +302,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void cameraClick(object? sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(212, 171, 178);
+            panel.BackColor = Color.FromArgb(114, 82, 82);
         }
 
         private void cameraMouseLeave(object? sender, EventArgs e)
@@ -288,7 +314,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void cameraMouseEnter(object? sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(212, 171, 178);
+            panel.BackColor = Color.FromArgb(114, 82, 82);
         }
 
         private void triangleIconClick(object? sender, EventArgs e)
@@ -325,7 +351,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void updateIsExpandList()
         {
-            List<SettingLayout>? settingLayoutList = _settingLayoutService.getAllSettingLayout();
+            isExpandList.Clear();
+            List<SettingLayout>? settingLayoutList = _settingLayoutService.getAllSettingLayout(false, null);
             if (settingLayoutList != null && settingLayoutList.Count > 0)
             {
                 for (int i = 0; i < settingLayoutList.Count; i++)
@@ -356,6 +383,12 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             top_content.Controls.Clear();
             live_left_layout_flp.Controls.Clear();
             InitializeAfter();
+            InitializeSettingLayoutList();
+        }
+        private void searchFunction(object? sender, EventArgs e)
+        {
+            live_left_layout_flp.Controls.Clear();
+            //updateIsExpandList();
             InitializeSettingLayoutList();
         }
 
