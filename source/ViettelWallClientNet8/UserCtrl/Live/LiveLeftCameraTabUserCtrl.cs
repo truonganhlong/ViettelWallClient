@@ -22,15 +22,17 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private float original_width;
         private float original_height;
         //private int? firstSelectedIndex = null;
-        private bool isShiftKeyPress = false;
-        private bool isCtrlKeyPress = false;
+        public bool isShiftKeyPress = false;
+        public bool isCtrlKeyPress = false;
         //interface
         private readonly ICameraService _cameraService;
         //list camera group expand
         private List<bool> isExpandList = new List<bool>();
         private SearchIconTextBox searchTextBox;
 
+        private bool isClickedCamera = false;
         private List<Panel> chosenCameras = new List<Panel>();
+        private List<Panel> cameraPanelList = new List<Panel>();
         public LiveLeftCameraTabUserCtrl()
         {
             _cameraService = new CameraService();
@@ -112,7 +114,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     triangle_icon.Dock = DockStyle.Left;
                     triangle_icon.Padding = new Padding(0, 0, 7, 0);
                     triangle_icon.Tag = tagTriangleIcon;
-                    triangle_icon.Click += triangleIconClick;
+                    triangle_icon.MouseClick += triangleIconClick;
 
                     PictureBox store_icon = new PictureBox();
                     store_icon.Size = new Size(16, 16);
@@ -138,9 +140,11 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     {
                         if (cameraGroup.listCameras != null && cameraGroup.listCameras.Count > 0)
                         {
+                            int subTitlePanelIndex = 1;
                             foreach (Camera camera in cameraGroup.listCameras)
                             {
                                 Panel subTitlePanel = new Panel();
+                                subTitlePanel.Name = "subTitlePanel" + subTitlePanelIndex;
                                 subTitlePanel.BackColor = Color.FromArgb(64, 64, 64);
                                 subTitlePanel.Paint += cameraBorderPaint;
                                 subTitlePanel.Padding = new Padding(0, 1, 0, 1);
@@ -151,8 +155,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 subTitlePanel.Tag = camera.cameraLink;
                                 subTitlePanel.MouseEnter += cameraMouseEnter;
                                 subTitlePanel.MouseLeave += cameraMouseLeave;
-                                subTitlePanel.Click += cameraClick;
-                                subTitlePanel.DoubleClick += cameraDoubleClick;
+                                subTitlePanel.MouseClick += cameraClick;
+                                subTitlePanel.MouseDoubleClick += cameraDoubleClick;
+                                cameraPanelList.Add(subTitlePanel);
 
                                 PictureBox camera_icon = new PictureBox();
                                 camera_icon.Size = new Size(16, 16);
@@ -162,8 +167,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 camera_icon.BackColor = Color.Transparent;
                                 camera_icon.MouseEnter += (s, e) => cameraMouseEnter(subTitlePanel, e);
                                 camera_icon.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
-                                camera_icon.Click += (s, e) => cameraClick(subTitlePanel, e);
-                                camera_icon.DoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
+                                camera_icon.MouseClick += (s, e) => cameraClick(subTitlePanel, e);
+                                camera_icon.MouseDoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
 
                                 Label camera_name = new Label();
                                 camera_name.AutoSize = false;
@@ -175,8 +180,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 camera_name.TextAlign = ContentAlignment.MiddleLeft;
                                 camera_name.MouseEnter += (s, e) => cameraMouseEnter(subTitlePanel, e);
                                 camera_name.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
-                                camera_name.Click += (s, e) => cameraClick(subTitlePanel, e);
-                                camera_name.DoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
+                                camera_name.MouseClick += (s, e) => cameraClick(subTitlePanel, e);
+                                camera_name.MouseDoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
 
                                 subTitlePanel.Controls.Add(camera_name);
                                 subTitlePanel.Controls.Add(camera_icon);
@@ -206,8 +211,6 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         {
             original_width = this.ClientSize.Width;
             original_height = this.ClientSize.Height;
-            //top_content.Controls.Clear();
-            //InitializeAfter();
         }
         private void cameraGroupBorderPaint(object? sender, PaintEventArgs e)
         {
@@ -234,34 +237,73 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 g.DrawLine(pen, 0, panel.Height - 1, panel.Width, panel.Height - 1);
             }
         }
-        private void triangleIconClick(object? sender, EventArgs e)
+        private void triangleIconClick(object? sender, MouseEventArgs e)
         {
-            PictureBox pictureBox = sender as PictureBox;
-            int tagValue = (int)pictureBox.Tag;
-            if (IsSameImage(pictureBox.Image, Properties.Resources.right_triangle_icon))
+            if(e.Button == MouseButtons.Left)
             {
-                pictureBox.Image = Properties.Resources.down_triangle_icon;
-                isExpandList[tagValue] = true;
+                PictureBox pictureBox = sender as PictureBox;
+                int tagValue = (int)pictureBox.Tag;
+                if (IsSameImage(pictureBox.Image, Properties.Resources.right_triangle_icon))
+                {
+                    pictureBox.Image = Properties.Resources.down_triangle_icon;
+                    isExpandList[tagValue] = true;
+                }
+                else if (IsSameImage(pictureBox.Image, Properties.Resources.down_triangle_icon))
+                {
+                    pictureBox.Image = Properties.Resources.right_triangle_icon;
+                    isExpandList[tagValue] = false;
+                }
+                pictureBox.Refresh();
+                live_left_camera_flp.Controls.Clear();
+                InitializeCameraGroup();
             }
-            else if (IsSameImage(pictureBox.Image, Properties.Resources.down_triangle_icon))
-            {
-                pictureBox.Image = Properties.Resources.right_triangle_icon;
-                isExpandList[tagValue] = false;
-            }
-            pictureBox.Refresh();
-            live_left_camera_flp.Controls.Clear();
-            InitializeCameraGroup();
         }
 
-        private void cameraDoubleClick(object? sender, EventArgs e)
+        private void cameraDoubleClick(object? sender, MouseEventArgs e)
         {
             throw new NotImplementedException();
         }
 
-        private void cameraClick(object? sender, EventArgs e)
+        private void cameraClick(object? sender, MouseEventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(114, 82, 82);
+            if(e.Button == MouseButtons.Left)
+            {
+                if (!chosenCameras.Contains(panel))
+                {
+                    if (isCtrlKeyPress && !isShiftKeyPress)
+                    {
+                        chosenCameras.Add(panel);
+                        panel.BackColor = Color.FromArgb(114, 82, 82);
+                    }
+                    else if (isShiftKeyPress && !isCtrlKeyPress) {
+                        Panel beginIndexPanel = new Panel();
+                        if (chosenCameras.Count == 0) {
+                            chosenCameras.Add(panel);
+                            beginIndexPanel = panel;
+                        } else
+                        {
+                            beginIndexPanel = chosenCameras.Last();
+                            int beginIndex = cameraPanelList.IndexOf(beginIndexPanel);
+                            int endIndex = cameraPanelList.IndexOf(panel);
+                            List<Panel> listSelected = cameraPanelList.GetRange(beginIndex, endIndex);
+                            foreach (var item in listSelected) { 
+                                item.BackColor = Color.FromArgb(114, 82, 82);
+                            }
+                        }
+                    } 
+                    else
+                    {
+                        foreach (var camera in chosenCameras) { 
+                            camera.BackColor = Color.FromArgb(64, 64, 64);
+                        }
+                        chosenCameras.Clear();
+                        chosenCameras.Add(panel);
+                        panel.BackColor = Color.FromArgb(114, 82, 82);
+                    }
+                    
+                }
+            }
         }
 
         private void cameraMouseEnter(object? sender, EventArgs e)
@@ -273,7 +315,10 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void cameraMouseLeave(object? sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(64, 64, 64);
+            if (!chosenCameras.Contains(panel))
+            {
+                panel.BackColor = Color.FromArgb(64, 64, 64);
+            }
         }
 
         private float returnMinSizeRatio()
@@ -344,36 +389,19 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void searchFunction(object? sender, EventArgs e)
         {
             live_left_camera_flp.Controls.Clear();
-            //updateIsExpandList();
             InitializeCameraGroup();
         }
 
-        private void keydown(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.ShiftKey)
-            {
-                isShiftKeyPress = true;
-            }
-            if (e.KeyCode == Keys.Control)
-            {
-                isCtrlKeyPress = true;
-            }
-            if (isShiftKeyPress && isCtrlKeyPress) {
-                isShiftKeyPress = false;
-                isCtrlKeyPress = false;
-            }
-        }
+        //private List<Panel> GetPanelsInRange(Control container, int start, int end)
+        //{
+        //    var panelsInRange = container.Controls
+        //        .OfType<Panel>() 
+        //        .Where(p => int.TryParse(p.Name.Replace("subTitlePanel", ""), out int panelNumber)
+        //                    && panelNumber >= start
+        //                    && panelNumber <= end)
+        //        .ToList(); 
+        //    return panelsInRange;
+        //}
 
-        private void keyup(object sender, KeyEventArgs e)
-        {
-            if (e.KeyCode == Keys.ShiftKey)
-            {
-                isShiftKeyPress = false;
-            }
-            if (e.KeyCode == Keys.Control)
-            {
-                isCtrlKeyPress = false;
-            }
-        }
     }
 }

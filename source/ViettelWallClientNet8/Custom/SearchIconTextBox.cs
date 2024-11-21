@@ -59,7 +59,7 @@ namespace ViettelWallClientNet8.Custom
                 }
             };
             textBox.TabStop = false;
-            //textBox.TextChanged += textChanged;
+            textBox.TextChanged += textChanged;
 
             iconEnd = new PictureBox();
             iconEnd.Size = new Size(16, 16);
@@ -67,7 +67,7 @@ namespace ViettelWallClientNet8.Custom
             iconEnd.SizeMode = PictureBoxSizeMode.AutoSize;
             iconEnd.Image = Properties.Resources.delete_icon;
             iconEnd.Dock = DockStyle.Right;
-            iconEnd.Click += iconEndClick;
+            iconEnd.MouseClick += iconEndClick;
 
 
             this.Controls.Add(iconEnd);
@@ -81,9 +81,12 @@ namespace ViettelWallClientNet8.Custom
             iconEnd.Visible = false;
         }
 
-        private void iconEndClick(object? sender, EventArgs e)
+        private void iconEndClick(object? sender, MouseEventArgs e)
         {
-            textBox.Text = string.Empty;
+            if(e.Button == MouseButtons.Left)
+            {
+                textBox.Text = string.Empty;
+            }
         }
 
         private void textChanged(object? sender, EventArgs e)

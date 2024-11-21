@@ -102,8 +102,6 @@
             Name = "LiveLeftCameraTabUserCtrl";
             Size = new Size(238, 704);
             Load += load;
-            KeyDown += keydown;
-            KeyUp += keyup;
             Resize += resize;
             live_left_camera_tlp.ResumeLayout(false);
             main_content_panel.ResumeLayout(false);

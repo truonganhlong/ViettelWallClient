@@ -51,6 +51,7 @@ namespace ViettelWallClientNet8.View
         private float original_main_user_ctrl_width;
         private float original_main_user_ctrl_height;
         private int videoViewIndex = 1;
+
         //interface...
         private readonly ISettingLayoutService _settingLayoutService;
         public Home()
@@ -58,6 +59,7 @@ namespace ViettelWallClientNet8.View
             _settingLayoutService = new SettingLayoutService();
             InitializeComponent();
             InitializeAfter();
+            InitialMouseDown();
             cpu_counter = new PerformanceCounter("Processor", "% Processor Time", "_Total");
             ram_counter = new PerformanceCounter("Memory", "Available MBytes");
         }
@@ -141,36 +143,42 @@ namespace ViettelWallClientNet8.View
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void livePanelClick(object sender, EventArgs e)
+        private void livePanelClick(object sender, MouseEventArgs e)
         {
-            live_panel.BackgroundImage = Properties.Resources.red_live_icon;
-            replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
-            tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
-            main_user_ctrl.livePanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
+            if (e.Button == MouseButtons.Left) {
+                live_panel.BackgroundImage = Properties.Resources.red_live_icon;
+                replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
+                tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
+                main_user_ctrl.livePanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
+            }
         }
         /// <summary>
         /// event when click on replay panel in toolbar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void replayPanelClick(object sender, EventArgs e)
+        private void replayPanelClick(object sender, MouseEventArgs e)
         {
-            live_panel.BackgroundImage = Properties.Resources.white_live_icon;
-            replay_panel.BackgroundImage = Properties.Resources.red_replay_icon;
-            tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
-            main_user_ctrl.replayPanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
+            if (e.Button == MouseButtons.Left) {
+                live_panel.BackgroundImage = Properties.Resources.white_live_icon;
+                replay_panel.BackgroundImage = Properties.Resources.red_replay_icon;
+                tracking_panel.BackgroundImage = Properties.Resources.white_alert_icon;
+                main_user_ctrl.replayPanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
+            }
         }
         /// <summary>
         /// event when click on tracking panel in toolbar
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void trackingPanelClick(object sender, EventArgs e)
+        private void trackingPanelClick(object sender, MouseEventArgs e)
         {
-            live_panel.BackgroundImage = Properties.Resources.white_live_icon;
-            replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
-            tracking_panel.BackgroundImage = Properties.Resources.red_alert_icon;
-            main_user_ctrl.trackingPanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
+            if (e.Button == MouseButtons.Left) {
+                live_panel.BackgroundImage = Properties.Resources.white_live_icon;
+                replay_panel.BackgroundImage = Properties.Resources.white_replay_icon;
+                tracking_panel.BackgroundImage = Properties.Resources.red_alert_icon;
+                main_user_ctrl.trackingPanelClick(e, main_user_ctrl.Width, main_user_ctrl.Height);
+            }
         }
 
         //}
@@ -226,24 +234,28 @@ namespace ViettelWallClientNet8.View
             }
         }
 
-        private void full_screen_label_Click(object sender, EventArgs e)
+        private void full_screen_label_Click(object sender, MouseEventArgs e)
         {
-            if (this.WindowState == FormWindowState.Maximized)
-            {
-                this.WindowState = FormWindowState.Normal;
-                full_screen_label.Image = Properties.Resources.white_full_screen_icon;
+            if (e.Button == MouseButtons.Left) {
+                if (this.WindowState == FormWindowState.Maximized)
+                {
+                    this.WindowState = FormWindowState.Normal;
+                    full_screen_label.Image = Properties.Resources.white_full_screen_icon;
+                }
+                else if (this.WindowState == FormWindowState.Normal)
+                {
+                    this.WindowState = FormWindowState.Maximized;
+                    full_screen_label.Image = Properties.Resources.white_minimize_screen_icon;
+                }
+                _settingLayoutService.updateIsFullScreen();
             }
-            else if (this.WindowState == FormWindowState.Normal)
-            {
-                this.WindowState = FormWindowState.Maximized;
-                full_screen_label.Image = Properties.Resources.white_minimize_screen_icon;
-            }
-            _settingLayoutService.updateIsFullScreen();
         }
 
-        private void tracking_on_label_Click(object sender, EventArgs e)
+        private void tracking_on_label_Click(object sender, MouseEventArgs e)
         {
-            //later
+            if (e.Button == MouseButtons.Left) {
+                //later   
+            }
         }
 
 
@@ -251,19 +263,20 @@ namespace ViettelWallClientNet8.View
         private void InitializeAfter()
         {
             // set main tab selected in history
+            var mouseEventArgs = new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0);
             SettingLastView? settingLastView = _settingLayoutService.getLastViewSetting();
             if (settingLastView != null)
             {
                 switch (settingLastView.mainTabSelected)
                 {
                     case "Live":
-                        livePanelClick(live_panel, EventArgs.Empty);
+                        livePanelClick(live_panel, mouseEventArgs);
                         break;
                     case "Replay":
-                        replayPanelClick(replay_panel, EventArgs.Empty);
+                        replayPanelClick(replay_panel, mouseEventArgs);
                         break;
                     case "Tracking":
-                        trackingPanelClick(tracking_panel, EventArgs.Empty);
+                        trackingPanelClick(tracking_panel, mouseEventArgs);
                         break;
                     default:
                         break;
@@ -272,6 +285,30 @@ namespace ViettelWallClientNet8.View
             else
             {
                 // think later
+            }
+        }
+
+        private void keydown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                UpdateKeyPress(this, true, false);  
+            }
+            if (e.KeyCode == Keys.ControlKey)
+            {
+                UpdateKeyPress(this, false, true);
+            }
+        }
+
+        private void keyup(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.ShiftKey)
+            {
+                UpdateKeyPress(this, false, false);
+            }
+            if (e.KeyCode == Keys.ControlKey)
+            {
+                UpdateKeyPress(this, false, false);
             }
         }
 
@@ -320,9 +357,44 @@ namespace ViettelWallClientNet8.View
             _settingLayoutService.updateIsFullScreen();
         }
 
-        //----------------------------------------------------event handle---------------------------------------------------------------------//
-        //private void settingLayoutAfterSelectSize(object sender, EventArgs e) { 
+        private void InitialMouseDown()
+        {
+            RegisterMouseDown(this);
+        }
+        private void RegisterMouseDown(Control parentControl)
+        {
+            foreach (Control control in parentControl.Controls)
+            {
+                control.MouseDown += Control_MouseDown;
+                RegisterMouseDown(control); 
+            }
+        }
 
-        //}
+        private void Control_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (!main_user_ctrl.setting_layout_panel.Bounds.Contains(this.PointToClient(Cursor.Position)) && main_user_ctrl.setting_layout_panel.Visible)
+            {
+                main_user_ctrl.setting_layout_panel.Visible = false;
+            }
+        }
+
+        private void UpdateKeyPress(Control parent, bool isShiftKey, bool isCtrlKey)
+        {
+            foreach (Control control in parent.Controls)
+            {
+                if (control is LiveLeftCameraTabUserCtrl liveLeftCameraTabUserCtrl)
+                {
+                    liveLeftCameraTabUserCtrl.isShiftKeyPress = isShiftKey;
+                    liveLeftCameraTabUserCtrl.isCtrlKeyPress = isCtrlKey;
+                    break;
+                }
+
+                if (control.HasChildren)
+                {
+                    UpdateKeyPress(control, isShiftKey, isCtrlKey);
+                }
+            }
+        }
+
     }
 }

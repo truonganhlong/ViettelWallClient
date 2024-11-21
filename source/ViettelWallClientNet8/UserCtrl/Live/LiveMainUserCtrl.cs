@@ -83,18 +83,20 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void leftTabButtonClick(object sender, EventArgs e)
+        private void leftTabButtonClick(object sender, MouseEventArgs e)
         {
-            if (left_tab_button.Text.Equals("<"))
-            {
-                left_tab_button.Text = ">";
+            if (e.Button == MouseButtons.Left) {
+                if (left_tab_button.Text.Equals("<"))
+                {
+                    left_tab_button.Text = ">";
+                }
+                else if (left_tab_button.Text.Equals(">"))
+                {
+                    left_tab_button.Text = "<";
+                }
+                _settingLayoutService.updateIsLeftTabVisible();
+                leftTabClickEvent?.Invoke(this, EventArgs.Empty);
             }
-            else if (left_tab_button.Text.Equals(">"))
-            {
-                left_tab_button.Text = "<";
-            }
-            _settingLayoutService.updateIsLeftTabVisible();
-            leftTabClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private void InitializeAfter()
@@ -221,18 +223,20 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void rightTabButtonClick(object sender, EventArgs e)
+        private void rightTabButtonClick(object sender, MouseEventArgs e)
         {
-            if (right_tab_button.Text.Equals("<"))
-            {
-                right_tab_button.Text = ">";
+            if (e.Button == MouseButtons.Left) {
+                if (right_tab_button.Text.Equals("<"))
+                {
+                    right_tab_button.Text = ">";
+                }
+                else if (right_tab_button.Text.Equals(">"))
+                {
+                    right_tab_button.Text = "<";
+                }
+                _settingLayoutService.updateIsRightTabVisible();
+                rightTabClickEvent?.Invoke(this, EventArgs.Empty);
             }
-            else if (right_tab_button.Text.Equals(">"))
-            {
-                right_tab_button.Text = "<";
-            }
-            _settingLayoutService.updateIsRightTabVisible();
-            rightTabClickEvent?.Invoke(this, EventArgs.Empty);
         }
 
         private async void execute(int index)

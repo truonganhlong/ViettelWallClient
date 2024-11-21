@@ -80,8 +80,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Text = "1x1 Ô";
             label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
-            tableLayoutPanel.Click += panel_1x1_click;
-            label.Click += panel_1x1_click;
+            tableLayoutPanel.MouseClick += panel_1x1_click;
+            label.MouseClick += panel_1x1_click;
             panel_1x1.Controls.Add(label);
             panel_1x1.Controls.Add(tableLayoutPanel);
         }
@@ -109,8 +109,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Text = "2x2 Ô";
             label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
-            tableLayoutPanel.Click += panel_2x2_click;
-            label.Click += panel_2x2_click;
+            tableLayoutPanel.MouseClick += panel_2x2_click;
+            label.MouseClick += panel_2x2_click;
             panel_2x2.Controls.Add(label);
             panel_2x2.Controls.Add(tableLayoutPanel);
         }
@@ -140,8 +140,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Text = "3x3 Ô";
             label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
-            tableLayoutPanel.Click += panel_3x3_click;
-            label.Click += panel_3x3_click;
+            tableLayoutPanel.MouseClick += panel_3x3_click;
+            label.MouseClick += panel_3x3_click;
             panel_3x3.Controls.Add(label);
             panel_3x3.Controls.Add(tableLayoutPanel);
         }
@@ -173,8 +173,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Text = "4x4 Ô";
             label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
-            tableLayoutPanel.Click += panel_4x4_click;
-            label.Click += panel_4x4_click;
+            tableLayoutPanel.MouseClick += panel_4x4_click;
+            label.MouseClick += panel_4x4_click;
             panel_4x4.Controls.Add(label);
             panel_4x4.Controls.Add(tableLayoutPanel);
         }
@@ -208,8 +208,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Text = "5x5 Ô";
             label.Font = new Font(ApplicationConst.font_family_name, 7);
             label.ForeColor = Color.White;
-            tableLayoutPanel.Click += panel_5x5_click;
-            label.Click += panel_5x5_click;
+            tableLayoutPanel.MouseClick += panel_5x5_click;
+            label.MouseClick += panel_5x5_click;
             panel_5x5.Controls.Add(label);
             panel_5x5.Controls.Add(tableLayoutPanel);
         }
@@ -226,13 +226,16 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             label.Image = Properties.Resources.setting_layout_icon;
             label.ImageAlign = ContentAlignment.MiddleLeft;
             label.Location = new Point(0, 0);
-            label.Click += custom_panel_click;
+            label.MouseClick += custom_panel_click;
             panel_custom.Controls.Add(label);
         }
 
-        private void custom_panel_click(object? sender, EventArgs e)
+        private void custom_panel_click(object? sender, MouseEventArgs e)
         {
-            panelCustomClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                panelCustomClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         private void TableLayoutPanel_Paint(object sender, PaintEventArgs e)
@@ -268,39 +271,57 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             InitializeAfter();
         }
 
-        private void panel_1x1_click(object sender, EventArgs e)
+        private void panel_1x1_click(object sender, MouseEventArgs e)
         {
-            _settingLayoutService.updateLayoutSize(1, 1);
-            panel1x1ClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                _settingLayoutService.updateLayoutSize(1, 1);
+                panel1x1ClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        private void panel_2x2_click(object sender, EventArgs e)
+        private void panel_2x2_click(object sender, MouseEventArgs e)
         {
-            _settingLayoutService.updateLayoutSize(2, 2);
-            panel2x2ClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                _settingLayoutService.updateLayoutSize(2, 2);
+                panel2x2ClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        private void panel_3x3_click(object sender, EventArgs e)
+        private void panel_3x3_click(object sender, MouseEventArgs e)
         {
-            _settingLayoutService.updateLayoutSize(3, 3);
-            panel3x3ClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                _settingLayoutService.updateLayoutSize(3, 3);
+                panel3x3ClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        private void panel_4x4_click(object sender, EventArgs e)
+        private void panel_4x4_click(object sender, MouseEventArgs e)
         {
-            _settingLayoutService.updateLayoutSize(4, 4);
-            panel4x4ClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                _settingLayoutService.updateLayoutSize(4, 4);
+                panel4x4ClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        private void panel_5x5_click(object sender, EventArgs e)
+        private void panel_5x5_click(object sender, MouseEventArgs e)
         {
-            _settingLayoutService.updateLayoutSize(5, 5);
-            panel5x5ClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                _settingLayoutService.updateLayoutSize(5, 5);
+                panel5x5ClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
-        private void removeLabelClick(object sender, EventArgs e)
+        private void removeLabelClick(object sender, MouseEventArgs e)
         {
-            removeLabelClickEvent?.Invoke(this, EventArgs.Empty);
+            if(e.Button == MouseButtons.Left)
+            {
+                removeLabelClickEvent?.Invoke(this, EventArgs.Empty);
+            }
         }
 
         //private void headerBorderPaint(object sender, PaintEventArgs e)

@@ -70,7 +70,7 @@
             left_tab_button.TabIndex = 0;
             left_tab_button.Text = "<";
             left_tab_button.UseVisualStyleBackColor = false;
-            left_tab_button.Click += leftTabButtonClick;
+            left_tab_button.MouseClick += leftTabButtonClick;
             // 
             // right_tab_button
             // 
@@ -87,7 +87,7 @@
             right_tab_button.TabIndex = 0;
             right_tab_button.Text = "<";
             right_tab_button.UseVisualStyleBackColor = false;
-            right_tab_button.Click += rightTabButtonClick;
+            right_tab_button.MouseClick += rightTabButtonClick;
             // 
             // LiveMainUserCtrl
             // 

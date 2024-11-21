@@ -67,7 +67,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             createButton.ForeColor = Color.White;
             createButton.FlatStyle = FlatStyle.Flat;
             createButton.FlatAppearance.BorderSize = 0;
-            createButton.Click += createLayoutClick;
+            createButton.MouseClick += createLayoutClick;
 
             titlePanel.Controls.Add(toggleButton);
             titlePanel.Controls.Add(titleLabel);
@@ -133,7 +133,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     triangle_icon.Dock = DockStyle.Left;
                     triangle_icon.Padding = new Padding(0, 0, 7, 0);
                     triangle_icon.Tag = tagTriangleIcon;
-                    triangle_icon.Click += triangleIconClick;
+                    triangle_icon.MouseClick += triangleIconClick;
 
                     Panel layout_content_panel = new Panel();
                     layout_content_panel.Dock = DockStyle.Fill;
@@ -217,8 +217,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 subTitlePanel.Tag = cameraInLayout.cameraLink;
                                 subTitlePanel.MouseEnter += cameraMouseEnter;
                                 subTitlePanel.MouseLeave += cameraMouseLeave;
-                                subTitlePanel.Click += cameraClick;
-                                subTitlePanel.DoubleClick += cameraDoubleClick;
+                                subTitlePanel.MouseClick += cameraClick;
+                                subTitlePanel.MouseDoubleClick += cameraDoubleClick;
 
                                 PictureBox camera_icon = new PictureBox();
                                 camera_icon.Size = new Size(16, 16);
@@ -228,8 +228,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 camera_icon.BackColor = Color.Transparent;
                                 camera_icon.MouseEnter += (s, e) => cameraMouseEnter(subTitlePanel, e);
                                 camera_icon.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
-                                camera_icon.Click += (s, e) => cameraClick(subTitlePanel, e);
-                                camera_icon.DoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
+                                camera_icon.MouseClick += (s, e) => cameraClick(subTitlePanel, e);
+                                camera_icon.MouseDoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
 
                                 Label camera_name = new Label();
                                 camera_name.AutoSize = false;
@@ -241,8 +241,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 camera_name.TextAlign = ContentAlignment.MiddleLeft;
                                 camera_name.MouseEnter += (s, e) => cameraMouseEnter(subTitlePanel, e);
                                 camera_name.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
-                                camera_name.Click += (s, e) => cameraClick(subTitlePanel, e);
-                                camera_name.DoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
+                                camera_name.MouseClick += (s, e) => cameraClick(subTitlePanel, e);
+                                camera_name.MouseDoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
 
                                 subTitlePanel.Controls.Add(camera_name);
                                 subTitlePanel.Controls.Add(camera_icon);
@@ -260,25 +260,29 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void createLayoutClick(object? sender, EventArgs e)
+        private void createLayoutClick(object? sender, MouseEventArgs e)
         {
-            List<SettingLayout>? settingLayouts = _settingLayoutService.getAllSettingLayout(false, null);
-            string layoutName = "New Layout";
-            for(int i = 0; i >= 0; i++)
+            if(e.Button == MouseButtons.Left)
             {
-                if(i != 0) { 
-                    layoutName = "New Layout " + i.ToString();
-                }
-                if(!settingLayouts.Any(x => x.name.Equals(layoutName)))
+                List<SettingLayout>? settingLayouts = _settingLayoutService.getAllSettingLayout(false, null);
+                string layoutName = "New Layout";
+                for (int i = 0; i >= 0; i++)
                 {
-                    _settingLayoutService.addLayout(layoutName);
-                    break;  
+                    if (i != 0)
+                    {
+                        layoutName = "New Layout " + i.ToString();
+                    }
+                    if (!settingLayouts.Any(x => x.name.Equals(layoutName)))
+                    {
+                        _settingLayoutService.addLayout(layoutName);
+                        break;
+                    }
                 }
+                isCreateNewLayoutRecent = true;
+                live_left_layout_flp.Controls.Clear();
+                updateIsExpandList();
+                InitializeSettingLayoutList();
             }
-            isCreateNewLayoutRecent = true;
-            live_left_layout_flp.Controls.Clear();
-            updateIsExpandList();
-            InitializeSettingLayoutList();
         }
 
         private void settingLayoutListBorderPaint(object? sender, PaintEventArgs e)
@@ -299,10 +303,13 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             throw new NotImplementedException();
         }
 
-        private void cameraClick(object? sender, EventArgs e)
+        private void cameraClick(object? sender, MouseEventArgs e)
         {
-            Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(114, 82, 82);
+            if(e.Button == MouseButtons.Left)
+            {
+                Panel panel = sender as Panel;
+                panel.BackColor = Color.FromArgb(114, 82, 82);
+            }
         }
 
         private void cameraMouseLeave(object? sender, EventArgs e)
@@ -317,23 +324,26 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             panel.BackColor = Color.FromArgb(114, 82, 82);
         }
 
-        private void triangleIconClick(object? sender, EventArgs e)
+        private void triangleIconClick(object? sender, MouseEventArgs e)
         {
-            PictureBox pictureBox = sender as PictureBox;
-            int tagValue = (int)pictureBox.Tag;
-            if (IsSameImage(pictureBox.Image, Properties.Resources.right_triangle_icon))
+            if(e.Button == MouseButtons.Left)
             {
-                pictureBox.Image = Properties.Resources.down_triangle_icon;
-                isExpandList[tagValue] = true;
+                PictureBox pictureBox = sender as PictureBox;
+                int tagValue = (int)pictureBox.Tag;
+                if (IsSameImage(pictureBox.Image, Properties.Resources.right_triangle_icon))
+                {
+                    pictureBox.Image = Properties.Resources.down_triangle_icon;
+                    isExpandList[tagValue] = true;
+                }
+                else if (IsSameImage(pictureBox.Image, Properties.Resources.down_triangle_icon))
+                {
+                    pictureBox.Image = Properties.Resources.right_triangle_icon;
+                    isExpandList[tagValue] = false;
+                }
+                pictureBox.Refresh();
+                live_left_layout_flp.Controls.Clear();
+                InitializeSettingLayoutList();
             }
-            else if (IsSameImage(pictureBox.Image, Properties.Resources.down_triangle_icon))
-            {
-                pictureBox.Image = Properties.Resources.right_triangle_icon;
-                isExpandList[tagValue] = false;
-            }
-            pictureBox.Refresh();
-            live_left_layout_flp.Controls.Clear();
-            InitializeSettingLayoutList();
         }
 
         private void settingLayoutBorderPaint(object? sender, PaintEventArgs e)

@@ -119,7 +119,7 @@
             all_tab_label.TabIndex = 1;
             all_tab_label.Text = "Tất cả";
             all_tab_label.TextAlign = ContentAlignment.MiddleCenter;
-            all_tab_label.Click += allTabLabelClick;
+            all_tab_label.MouseClick += allTabLabelClick;
             // 
             // security_tab_panel
             // 
@@ -144,7 +144,7 @@
             security_tab_label.TabIndex = 1;
             security_tab_label.Text = "An ninh";
             security_tab_label.TextAlign = ContentAlignment.MiddleCenter;
-            security_tab_label.Click += securityTabLabelClick;
+            security_tab_label.MouseClick += securityTabLabelClick;
             // 
             // person_tab_panel
             // 
@@ -169,7 +169,7 @@
             person_tab_label.TabIndex = 1;
             person_tab_label.Text = "Người";
             person_tab_label.TextAlign = ContentAlignment.MiddleCenter;
-            person_tab_label.Click += personTabLabelClick;
+            person_tab_label.MouseClick += personTabLabelClick;
             // 
             // transportation_tab_panel
             // 
@@ -194,7 +194,7 @@
             transportation_tab_label.TabIndex = 1;
             transportation_tab_label.Text = "Phương tiện";
             transportation_tab_label.TextAlign = ContentAlignment.MiddleCenter;
-            transportation_tab_label.Click += transportationTabLabelClick;
+            transportation_tab_label.MouseClick += transportationTabLabelClick;
             // 
             // traffic_tab_panel
             // 
@@ -219,7 +219,7 @@
             traffic_tab_label.TabIndex = 1;
             traffic_tab_label.Text = "Tắc đường";
             traffic_tab_label.TextAlign = ContentAlignment.MiddleCenter;
-            traffic_tab_label.Click += trafficTabLabelClick;
+            traffic_tab_label.MouseClick += trafficTabLabelClick;
             // 
             // right_tab_content
             // 

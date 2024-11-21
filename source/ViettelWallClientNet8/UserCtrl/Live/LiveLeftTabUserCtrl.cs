@@ -33,16 +33,17 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void InitializeAfter()
         {
+            var mouseEventArgs = new MouseEventArgs(MouseButtons.Left, 1, 0, 0, 0);
             switch (_settingLayoutService.getLastViewSetting().leftTabSelected)
             {
                 case "Camera":
-                    liveCameraLabelClick(camera_tab_label, EventArgs.Empty);
+                    liveCameraLabelClick(camera_tab_label, mouseEventArgs);
                     break;
                 case "Layout":
-                    liveLayoutLabelClick(layout_tab_label, EventArgs.Empty);
+                    liveLayoutLabelClick(layout_tab_label, mouseEventArgs);
                     break;
                 case "Tracking":
-                    liveTrackingLabelClick(tracking_tab_label, EventArgs.Empty);
+                    liveTrackingLabelClick(tracking_tab_label, mouseEventArgs);
                     break;
                 default:
                     break;
@@ -84,21 +85,24 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void liveCameraLabelClick(object sender, EventArgs e)
+        private void liveCameraLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_camera_tab = true;
-            is_click_layout_tab = false;
-            is_click_tracking_tab = false;
-            camera_tab_panel.Invalidate();
-            layout_tab_panel.Invalidate();
-            tracking_tab_panel.Invalidate();
-            _settingLayoutService.updateLeftTabLocation("Camera");
-            liveCameraLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
-            left_tab_content.Controls.Clear();
-            LiveLeftCameraTabUserCtrl liveLeftCameraTabUserCtrl = new LiveLeftCameraTabUserCtrl();
-            liveLeftCameraTabUserCtrl.Dock = DockStyle.Fill;
-            liveLeftCameraTabUserCtrl.Padding = new Padding(1);
-            left_tab_content.Controls.Add(liveLeftCameraTabUserCtrl);
+            if(e.Button == MouseButtons.Left) {
+                is_click_camera_tab = true;
+                is_click_layout_tab = false;
+                is_click_tracking_tab = false;
+                camera_tab_panel.Invalidate();
+                layout_tab_panel.Invalidate();
+                tracking_tab_panel.Invalidate();
+                _settingLayoutService.updateLeftTabLocation("Camera");
+                liveCameraLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
+                left_tab_content.Controls.Clear();
+                LiveLeftCameraTabUserCtrl liveLeftCameraTabUserCtrl = new LiveLeftCameraTabUserCtrl();
+                liveLeftCameraTabUserCtrl.Dock = DockStyle.Fill;
+                liveLeftCameraTabUserCtrl.Padding = new Padding(1);
+                left_tab_content.Controls.Add(liveLeftCameraTabUserCtrl);
+            }
+            
         }
 
         private void layoutTabBorderPaint(object sender, PaintEventArgs e)
@@ -128,21 +132,23 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void liveLayoutLabelClick(object sender, EventArgs e)
+        private void liveLayoutLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_camera_tab = false;
-            is_click_layout_tab = true;
-            is_click_tracking_tab = false;
-            layout_tab_panel.Invalidate();
-            camera_tab_panel.Invalidate();
-            tracking_tab_panel.Invalidate();
-            _settingLayoutService.updateLeftTabLocation("Layout");
-            liveLayoutLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
-            left_tab_content.Controls.Clear();
-            LiveLeftLayoutTabUserCtrl liveLeftLayoutTabUserCtrl = new LiveLeftLayoutTabUserCtrl();
-            liveLeftLayoutTabUserCtrl.Dock = DockStyle.Fill;
-            liveLeftLayoutTabUserCtrl.Padding = new Padding(1);
-            left_tab_content.Controls.Add(liveLeftLayoutTabUserCtrl);
+            if(e.Button == MouseButtons.Left) {
+                is_click_camera_tab = false;
+                is_click_layout_tab = true;
+                is_click_tracking_tab = false;
+                layout_tab_panel.Invalidate();
+                camera_tab_panel.Invalidate();
+                tracking_tab_panel.Invalidate();
+                _settingLayoutService.updateLeftTabLocation("Layout");
+                liveLayoutLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
+                left_tab_content.Controls.Clear();
+                LiveLeftLayoutTabUserCtrl liveLeftLayoutTabUserCtrl = new LiveLeftLayoutTabUserCtrl();
+                liveLeftLayoutTabUserCtrl.Dock = DockStyle.Fill;
+                liveLeftLayoutTabUserCtrl.Padding = new Padding(1);
+                left_tab_content.Controls.Add(liveLeftLayoutTabUserCtrl);
+            }
         }
 
         private void trackingTabBorderPaint(object sender, PaintEventArgs e)
@@ -172,17 +178,19 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void liveTrackingLabelClick(object sender, EventArgs e)
+        private void liveTrackingLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_camera_tab = false;
-            is_click_layout_tab = false;
-            is_click_tracking_tab = true;
-            tracking_tab_panel.Invalidate();
-            camera_tab_panel.Invalidate();
-            layout_tab_panel.Invalidate();
-            _settingLayoutService.updateLeftTabLocation("Tracking");
-            liveTrackingLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
-            left_tab_content.Controls.Clear();
+            if(e.Button == MouseButtons.Left) {
+                is_click_camera_tab = false;
+                is_click_layout_tab = false;
+                is_click_tracking_tab = true;
+                tracking_tab_panel.Invalidate();
+                camera_tab_panel.Invalidate();
+                layout_tab_panel.Invalidate();
+                _settingLayoutService.updateLeftTabLocation("Tracking");
+                liveTrackingLeftTabClickEvent?.Invoke(this, EventArgs.Empty);
+                left_tab_content.Controls.Clear();
+            }
         }
     }
 }

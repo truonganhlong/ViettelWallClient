@@ -179,74 +179,84 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void allTabLabelClick(object sender, EventArgs e)
+        private void allTabLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_all_tab = true;
-            is_click_person_tab = false;
-            is_click_security_tab = false;
-            is_click_traffic_tab = false;
-            is_click_transportation_tab = false;
-            all_tab_panel.Invalidate();
-            person_tab_panel.Invalidate();
-            security_tab_panel.Invalidate();
-            traffic_tab_panel.Invalidate();
-            transportation_tab_panel.Invalidate();
+            if (e.Button == MouseButtons.Left) {
+                is_click_all_tab = true;
+                is_click_person_tab = false;
+                is_click_security_tab = false;
+                is_click_traffic_tab = false;
+                is_click_transportation_tab = false;
+                all_tab_panel.Invalidate();
+                person_tab_panel.Invalidate();
+                security_tab_panel.Invalidate();
+                traffic_tab_panel.Invalidate();
+                transportation_tab_panel.Invalidate();
+            }
         }
 
-        private void personTabLabelClick(object sender, EventArgs e)
+        private void personTabLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_all_tab = false;
-            is_click_person_tab = true;
-            is_click_security_tab = false;
-            is_click_traffic_tab = false;
-            is_click_transportation_tab = false;
-            all_tab_panel.Invalidate();
-            person_tab_panel.Invalidate();
-            security_tab_panel.Invalidate();
-            traffic_tab_panel.Invalidate();
-            transportation_tab_panel.Invalidate();
+            if (e.Button == MouseButtons.Left) {
+                is_click_all_tab = false;
+                is_click_person_tab = true;
+                is_click_security_tab = false;
+                is_click_traffic_tab = false;
+                is_click_transportation_tab = false;
+                all_tab_panel.Invalidate();
+                person_tab_panel.Invalidate();
+                security_tab_panel.Invalidate();
+                traffic_tab_panel.Invalidate();
+                transportation_tab_panel.Invalidate();
+            }
         }
 
-        private void securityTabLabelClick(object sender, EventArgs e)
+        private void securityTabLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_all_tab = false;
-            is_click_security_tab = true;
-            is_click_traffic_tab = false;
-            is_click_person_tab = false;
-            is_click_transportation_tab =false;
-            all_tab_panel.Invalidate();
-            person_tab_panel.Invalidate();
-            security_tab_panel.Invalidate();
-            traffic_tab_panel.Invalidate();
-            transportation_tab_panel.Invalidate();
+            if (e.Button == MouseButtons.Left) {
+                is_click_all_tab = false;
+                is_click_security_tab = true;
+                is_click_traffic_tab = false;
+                is_click_person_tab = false;
+                is_click_transportation_tab = false;
+                all_tab_panel.Invalidate();
+                person_tab_panel.Invalidate();
+                security_tab_panel.Invalidate();
+                traffic_tab_panel.Invalidate();
+                transportation_tab_panel.Invalidate();
+            }
         }
 
-        private void trafficTabLabelClick(object sender, EventArgs e)
+        private void trafficTabLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_all_tab = false;
-            is_click_security_tab = false;
-            is_click_traffic_tab = true;
-            is_click_person_tab = false;
-            is_click_transportation_tab =false;
-            all_tab_panel.Invalidate();
-            person_tab_panel.Invalidate();
-            security_tab_panel.Invalidate();
-            traffic_tab_panel.Invalidate();
-            transportation_tab_panel.Invalidate();
+            if (e.Button == MouseButtons.Left) {
+                is_click_all_tab = false;
+                is_click_security_tab = false;
+                is_click_traffic_tab = true;
+                is_click_person_tab = false;
+                is_click_transportation_tab = false;
+                all_tab_panel.Invalidate();
+                person_tab_panel.Invalidate();
+                security_tab_panel.Invalidate();
+                traffic_tab_panel.Invalidate();
+                transportation_tab_panel.Invalidate();
+            }
         }
 
-        private void transportationTabLabelClick(object sender, EventArgs e)
+        private void transportationTabLabelClick(object sender, MouseEventArgs e)
         {
-            is_click_all_tab = false;
-            is_click_security_tab = false;
-            is_click_traffic_tab = false;
-            is_click_person_tab =false;
-            is_click_transportation_tab = true;
-            all_tab_panel.Invalidate();
-            person_tab_panel.Invalidate();
-            security_tab_panel.Invalidate();
-            traffic_tab_panel.Invalidate();
-            transportation_tab_panel.Invalidate();
+            if (e.Button == MouseButtons.Left) {
+                is_click_all_tab = false;
+                is_click_security_tab = false;
+                is_click_traffic_tab = false;
+                is_click_person_tab = false;
+                is_click_transportation_tab = true;
+                all_tab_panel.Invalidate();
+                person_tab_panel.Invalidate();
+                security_tab_panel.Invalidate();
+                traffic_tab_panel.Invalidate();
+                transportation_tab_panel.Invalidate();
+            }
         }
 
         private void rightTabClControlPaintBorder(object sender, PaintEventArgs e)

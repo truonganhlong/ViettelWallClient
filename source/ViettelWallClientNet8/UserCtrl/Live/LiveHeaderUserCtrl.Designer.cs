@@ -102,7 +102,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             panel_5x5.Name = "panel_5x5";
             panel_5x5.Size = new Size(80, 30);
             panel_5x5.TabIndex = 6;
-            panel_5x5.Click += panel_5x5_click;
+            panel_5x5.MouseClick += panel_5x5_click;
             // 
             // panel_4x4
             // 
@@ -112,7 +112,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             panel_4x4.Name = "panel_4x4";
             panel_4x4.Size = new Size(80, 30);
             panel_4x4.TabIndex = 5;
-            panel_4x4.Click += panel_4x4_click;
+            panel_4x4.MouseClick += panel_4x4_click;
             // 
             // layout_label
             // 
@@ -143,7 +143,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             remove_label.TabIndex = 1;
             remove_label.Text = "Xóa hết";
             remove_label.TextAlign = ContentAlignment.MiddleCenter;
-            remove_label.Click += removeLabelClick;
+            remove_label.MouseClick += removeLabelClick;
             // 
             // panel_1x1
             // 
@@ -153,7 +153,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             panel_1x1.Name = "panel_1x1";
             panel_1x1.Size = new Size(80, 30);
             panel_1x1.TabIndex = 2;
-            panel_1x1.Click += panel_1x1_click;
+            panel_1x1.MouseClick += panel_1x1_click;
             // 
             // panel_2x2
             // 
@@ -163,7 +163,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             panel_2x2.Name = "panel_2x2";
             panel_2x2.Size = new Size(80, 30);
             panel_2x2.TabIndex = 3;
-            panel_2x2.Click += panel_2x2_click;
+            panel_2x2.MouseClick += panel_2x2_click;
             // 
             // panel_3x3
             // 
@@ -173,7 +173,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             panel_3x3.Name = "panel_3x3";
             panel_3x3.Size = new Size(80, 30);
             panel_3x3.TabIndex = 4;
-            panel_3x3.Click += panel_3x3_click;
+            panel_3x3.MouseClick += panel_3x3_click;
             // 
             // LiveHeaderUserCtrl
             // 

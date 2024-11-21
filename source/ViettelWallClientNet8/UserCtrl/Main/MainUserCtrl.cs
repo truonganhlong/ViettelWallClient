@@ -331,7 +331,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                 setting_table_layout.Paint += settingTableLayoutPaint;
                 setting_table_layout.MouseMove += settingTableLayoutMouseMove;
                 setting_table_layout.MouseLeave += settingTableLayoutMouseLeave;
-                setting_table_layout.Click += settingTableLayoutClick;
+                setting_table_layout.MouseClick += settingTableLayoutClick;
                 setting_layout_panel.Controls.Add(setting_layout_result_label);
                 setting_layout_panel.Controls.Add(setting_table_layout);
             } else
@@ -343,15 +343,18 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             
         }
 
-        private void settingTableLayoutClick(object? sender, EventArgs e)
+        private void settingTableLayoutClick(object? sender, MouseEventArgs e)
         {
-            int rowCount = hoverRowEnd - startRow + 1;
-            int columnCount = startColumn - hoverColumnEnd + 1;
-            _settingLayoutService.updateLayoutSize(columnCount, rowCount);
-            settingLayoutAfterSelectSize(this, EventArgs.Empty);
-            setting_layout_panel.Controls.Clear();
-            setting_layout_panel.Visible = false;
-            isOpenLayoutSetting = false;
+            if(e.Button == MouseButtons.Left)
+            {
+                int rowCount = hoverRowEnd - startRow + 1;
+                int columnCount = startColumn - hoverColumnEnd + 1;
+                _settingLayoutService.updateLayoutSize(columnCount, rowCount);
+                settingLayoutAfterSelectSize(this, EventArgs.Empty);
+                setting_layout_panel.Controls.Clear();
+                setting_layout_panel.Visible = false;
+                isOpenLayoutSetting = false;
+            }
         }
 
         private void settingTableLayoutMouseLeave(object? sender, EventArgs e)

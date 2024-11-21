@@ -231,7 +231,7 @@ namespace ViettelWallClientNet8.View
             full_screen_label.TabIndex = 2;
             full_screen_label.Text = "Toàn màn hình";
             full_screen_label.TextAlign = ContentAlignment.TopCenter;
-            full_screen_label.Click += full_screen_label_Click;
+            full_screen_label.MouseClick += full_screen_label_Click;
             // 
             // tracking_on_label
             // 
@@ -247,7 +247,7 @@ namespace ViettelWallClientNet8.View
             tracking_on_label.TabIndex = 1;
             tracking_on_label.Text = "Mở nhận diện";
             tracking_on_label.TextAlign = ContentAlignment.TopCenter;
-            tracking_on_label.Click += tracking_on_label_Click;
+            tracking_on_label.MouseClick += tracking_on_label_Click;
             // 
             // cpu_and_ram_label
             // 
@@ -286,7 +286,7 @@ namespace ViettelWallClientNet8.View
             tracking_panel.Name = "tracking_panel";
             tracking_panel.Size = new Size(50, 50);
             tracking_panel.TabIndex = 2;
-            tracking_panel.Click += trackingPanelClick;
+            tracking_panel.MouseClick += trackingPanelClick;
             // 
             // replay_panel
             // 
@@ -297,7 +297,7 @@ namespace ViettelWallClientNet8.View
             replay_panel.Name = "replay_panel";
             replay_panel.Size = new Size(50, 50);
             replay_panel.TabIndex = 1;
-            replay_panel.Click += replayPanelClick;
+            replay_panel.MouseClick += replayPanelClick;
             // 
             // live_panel
             // 
@@ -308,7 +308,7 @@ namespace ViettelWallClientNet8.View
             live_panel.Name = "live_panel";
             live_panel.Size = new Size(50, 50);
             live_panel.TabIndex = 0;
-            live_panel.Click += livePanelClick;
+            live_panel.MouseClick += livePanelClick;
             // 
             // main_user_ctrl
             // 
@@ -338,9 +338,12 @@ namespace ViettelWallClientNet8.View
             Margin = new Padding(0);
             Name = "Home";
             Text = "Home";
+            KeyDown += keydown;
+            KeyUp += keyup;
             Load += Home_Load;
             SizeChanged += sizeChanged;
             Resize += resize;
+            KeyPreview = true;
             full_table_layout_panel.ResumeLayout(false);
             footer_panel.ResumeLayout(false);
             footer_panel.PerformLayout();
