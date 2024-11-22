@@ -172,6 +172,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                         textBox.Dock = DockStyle.Top;
                         textBox.Height = 20;
                         textBox.KeyDown += textBoxKeyDown;
+                        textBox.AllowDrop = true;
+                        textBox.DragEnter += dragEnter;
+                        textBox.DragDrop += dragTextBoxDrop;
                         VideoView videoView = new VideoView();
                         //main_table_layout_panel.Controls.Add(videoView, x, y);
                         videoView.BackColor = Color.FromArgb(170, 167, 167);
@@ -179,14 +182,51 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                         videoView.MediaPlayer = null;
                         videoView.Size = new Size((int)Math.Floor(videoViewWidth), (int)Math.Floor(videoViewHeight));
                         videoView.Name = "videoView" + videoViewIndex;
+                        videoView.AllowDrop = true;
+                        videoView.DragEnter += dragEnter;
+                        videoView.DragDrop += dragDrop;
                         //videoView.Margin = new Padding(3, 3, 3, 3);
                         panel.Controls.Add(videoView);
                         panel.Controls.Add(textBox);
                         dictVideoView.Add(videoViewIndex, videoView);
                         dictTextBox.Add(videoViewIndex, textBox);
                         videoViewIndex++;
+
+                        //VideoView videoView = new VideoView();
+                        //main_table_layout_panel.Controls.Add(videoView, x, y);
+                        //videoView.BackColor = Color.FromArgb(170, 167, 167);
+                        //videoView.Dock = DockStyle.Fill;
+                        //videoView.MediaPlayer = null;
+                        //videoView.Size = new Size((int)Math.Floor(videoViewWidth), (int)Math.Floor(videoViewHeight));
+                        //videoView.Name = "videoView" + videoViewIndex;
+                        //videoView.Margin = new Padding(3, 3, 3, 3);
+                        //videoViewIndex++;
                     }
                 }
+            }
+        }
+
+        private void dragDrop(object? sender, DragEventArgs e)
+        {
+            throw new NotImplementedException();
+        }
+
+        private void dragTextBoxDrop(object? sender, DragEventArgs e)
+        {
+            TextBox textBox = sender as TextBox;
+            List<string> data = (List<string>)e.Data.GetData(typeof(List<string>));
+            textBox.Text = string.Join(", ", data);
+        }
+
+        private void dragEnter(object? sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(typeof(List<string>)))
+            {
+                e.Effect = DragDropEffects.Move;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
             }
         }
 
@@ -216,6 +256,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     finally {
                         textBox.Visible = false;
                         dictVideoView[index].Dock = DockStyle.Fill;
+                        dictVideoView.Remove(index);
                     }
                 }
                 e.SuppressKeyPress = true;

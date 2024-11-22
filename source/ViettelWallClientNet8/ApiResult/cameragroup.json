@@ -4,15 +4,15 @@
     "listCameras": [
       {
         "cameraName": "AI_CAMERA_HPG_01",
-        "cameraLink": null
+        "cameraLink": "test1"
       },
       {
         "cameraName": "AI_CAMERA_HPG_01",
-        "cameraLink": null
+        "cameraLink": "test2"
       },
       {
         "cameraName": "AI_CAMERA_HPG_01",
-        "cameraLink": null
+        "cameraLink": "test3"
       },
       {
         "cameraName": "AI_CAMERA_HPG_01",

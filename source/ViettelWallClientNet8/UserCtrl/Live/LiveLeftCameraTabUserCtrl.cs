@@ -30,7 +30,6 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private List<bool> isExpandList = new List<bool>();
         private SearchIconTextBox searchTextBox;
 
-        private bool isClickedCamera = false;
         private List<Panel> chosenCameras = new List<Panel>();
         private List<Panel> cameraPanelList = new List<Panel>();
         public LiveLeftCameraTabUserCtrl()
@@ -157,7 +156,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 subTitlePanel.MouseLeave += cameraMouseLeave;
                                 subTitlePanel.MouseClick += cameraClick;
                                 subTitlePanel.MouseDoubleClick += cameraDoubleClick;
+                                subTitlePanel.MouseDown += cameraMouseDown;
                                 cameraPanelList.Add(subTitlePanel);
+                                subTitlePanelIndex++;
 
                                 PictureBox camera_icon = new PictureBox();
                                 camera_icon.Size = new Size(16, 16);
@@ -169,6 +170,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 camera_icon.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
                                 camera_icon.MouseClick += (s, e) => cameraClick(subTitlePanel, e);
                                 camera_icon.MouseDoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
+                                camera_icon.MouseDown += (s, e) => cameraMouseDown(subTitlePanel, e);
 
                                 Label camera_name = new Label();
                                 camera_name.AutoSize = false;
@@ -182,6 +184,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 camera_name.MouseLeave += (s, e) => cameraMouseLeave(subTitlePanel, e);
                                 camera_name.MouseClick += (s, e) => cameraClick(subTitlePanel, e);
                                 camera_name.MouseDoubleClick += (s, e) => cameraDoubleClick(subTitlePanel, e);
+                                camera_name.MouseDown += (s, e) => cameraMouseDown(subTitlePanel, e);
 
                                 subTitlePanel.Controls.Add(camera_name);
                                 subTitlePanel.Controls.Add(camera_icon);
@@ -269,40 +272,58 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             Panel panel = sender as Panel;
             if(e.Button == MouseButtons.Left)
             {
-                if (!chosenCameras.Contains(panel))
-                {
-                    if (isCtrlKeyPress && !isShiftKeyPress)
-                    {
-                        chosenCameras.Add(panel);
-                        panel.BackColor = Color.FromArgb(114, 82, 82);
-                    }
-                    else if (isShiftKeyPress && !isCtrlKeyPress) {
-                        Panel beginIndexPanel = new Panel();
-                        if (chosenCameras.Count == 0) {
-                            chosenCameras.Add(panel);
-                            beginIndexPanel = panel;
-                        } else
-                        {
-                            beginIndexPanel = chosenCameras.Last();
-                            int beginIndex = cameraPanelList.IndexOf(beginIndexPanel);
-                            int endIndex = cameraPanelList.IndexOf(panel);
-                            List<Panel> listSelected = cameraPanelList.GetRange(beginIndex, endIndex);
-                            foreach (var item in listSelected) { 
-                                item.BackColor = Color.FromArgb(114, 82, 82);
-                            }
-                        }
-                    } 
-                    else
-                    {
-                        foreach (var camera in chosenCameras) { 
-                            camera.BackColor = Color.FromArgb(64, 64, 64);
-                        }
-                        chosenCameras.Clear();
-                        chosenCameras.Add(panel);
-                        panel.BackColor = Color.FromArgb(114, 82, 82);
-                    }
-                    
-                }
+                //if (!chosenCameras.Contains(panel))
+                //{
+                //    if (isCtrlKeyPress && !isShiftKeyPress)
+                //    {
+                //        chosenCameras.Add(panel);
+                //        panel.BackColor = Color.FromArgb(114, 82, 82);
+                //    }
+                //    else if (isShiftKeyPress && !isCtrlKeyPress)
+                //    {
+                //        Panel beginIndexPanel = new Panel();
+                //        if (chosenCameras.Count == 0)
+                //        {
+                //            chosenCameras.Add(panel);
+                //        }
+                //        else
+                //        {
+                //            beginIndexPanel = chosenCameras.Last();
+                //            int beginIndex = cameraPanelList.IndexOf(beginIndexPanel);
+                //            int endIndex = cameraPanelList.IndexOf(panel);
+                //            List<Panel> listSelected = new List<Panel>();
+                //            if (beginIndex > endIndex)
+                //            {
+                //                listSelected = cameraPanelList.GetRange(endIndex, beginIndex - endIndex + 1);
+                //            }
+                //            else
+                //            {
+                //                listSelected = cameraPanelList.GetRange(beginIndex, endIndex - beginIndex + 1);
+                //            }
+                //            foreach (var camera in chosenCameras)
+                //            {
+                //                camera.BackColor = Color.FromArgb(64, 64, 64);
+                //            }
+                //            chosenCameras.Clear();
+                //            chosenCameras.AddRange(listSelected);
+                //            foreach (var item in chosenCameras)
+                //            {
+                //                item.BackColor = Color.FromArgb(114, 82, 82);
+                //            }
+                //        }
+                //    }
+                //    else
+                //    {
+                //        foreach (var camera in chosenCameras)
+                //        {
+                //            camera.BackColor = Color.FromArgb(64, 64, 64);
+                //        }
+                //        chosenCameras.Clear();
+                //        chosenCameras.Add(panel);
+                //        panel.BackColor = Color.FromArgb(114, 82, 82);
+                //    }
+
+                //}
             }
         }
 
@@ -321,6 +342,68 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
+        private void cameraMouseDown(object? sender, MouseEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if (e.Button == MouseButtons.Left)
+            {
+                if (!chosenCameras.Contains(panel))
+                {
+                    if (isCtrlKeyPress && !isShiftKeyPress)
+                    {
+                        chosenCameras.Add(panel);
+                        panel.BackColor = Color.FromArgb(114, 82, 82);
+                    }
+                    else if (isShiftKeyPress && !isCtrlKeyPress)
+                    {
+                        Panel beginIndexPanel = new Panel();
+                        if (chosenCameras.Count == 0)
+                        {
+                            chosenCameras.Add(panel);
+                        }
+                        else
+                        {
+                            beginIndexPanel = chosenCameras.Last();
+                            int beginIndex = cameraPanelList.IndexOf(beginIndexPanel);
+                            int endIndex = cameraPanelList.IndexOf(panel);
+                            List<Panel> listSelected = new List<Panel>();
+                            if (beginIndex > endIndex)
+                            {
+                                listSelected = cameraPanelList.GetRange(endIndex, beginIndex - endIndex + 1);
+                            }
+                            else
+                            {
+                                listSelected = cameraPanelList.GetRange(beginIndex, endIndex - beginIndex + 1);
+                            }
+                            foreach (var camera in chosenCameras)
+                            {
+                                camera.BackColor = Color.FromArgb(64, 64, 64);
+                            }
+                            chosenCameras.Clear();
+                            chosenCameras.AddRange(listSelected);
+                            foreach (var item in chosenCameras)
+                            {
+                                item.BackColor = Color.FromArgb(114, 82, 82);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var camera in chosenCameras)
+                        {
+                            camera.BackColor = Color.FromArgb(64, 64, 64);
+                        }
+                        chosenCameras.Clear();
+                        chosenCameras.Add(panel);
+                        panel.BackColor = Color.FromArgb(114, 82, 82);
+                    }
+
+                }
+                panel.DoDragDrop(getListLinkChosenCameras(chosenCameras), DragDropEffects.Move);
+            }
+        }
+
+        //-----------------------------------------------------------------------------------------------------------------//
         private float returnMinSizeRatio()
         {
             if (this.ClientSize.Width == 0 || this.ClientSize.Height == 0 || original_width == 0 || original_height == 0)
@@ -390,6 +473,19 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         {
             live_left_camera_flp.Controls.Clear();
             InitializeCameraGroup();
+        }
+
+        private List<String> getListLinkChosenCameras(List<Panel> chosenCameras)
+        {
+            List<string> result = new List<string>();
+            foreach (var camera in chosenCameras)
+            {
+                if(!string.IsNullOrEmpty((string?)camera.Tag))
+                {
+                    result.Add(camera.Tag.ToString());
+                } 
+            }
+            return result;
         }
 
         //private List<Panel> GetPanelsInRange(Control container, int start, int end)

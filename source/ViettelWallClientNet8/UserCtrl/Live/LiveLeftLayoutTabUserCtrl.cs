@@ -20,7 +20,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
     {
         private float original_width;
         private float original_height;
-        private bool isShiftKeyPress;
+        public bool isShiftKeyPress;
+        public bool isCtrlKeyPress;
         //interface
         private readonly ISettingLayoutService _settingLayoutService;
         //list layout expand
@@ -28,6 +29,10 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private bool isCreateNewLayoutRecent = false;
         private SearchIconTextBox searchTextBox;
 
+        private List<Panel> chosenCameras = new List<Panel>();
+        private List<Panel> cameraPanelList = new List<Panel>();
+        //
+        public event EventHandler? privateToggleClickEvent;
         public LiveLeftLayoutTabUserCtrl()
         {
             _settingLayoutService = new SettingLayoutService();
@@ -58,6 +63,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             toggleButton.Anchor = AnchorStyles.Left;
             toggleButton.Size = new Size(35, 15);
             toggleButton.Location = new Point(55, 16);
+            toggleButton.CheckedChanged += privateToggleChange;
             
             Button createButton = new Button();
             createButton.BackColor = Color.FromArgb(189, 53, 55);
@@ -204,9 +210,11 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     {
                         if (settingLayout.listCameras != null && settingLayout.listCameras.Count > 0)
                         {
+                            int subTitlePanelIndex = 1;
                             foreach (CameraInLayout cameraInLayout in settingLayout.listCameras)
                             {
                                 Panel subTitlePanel = new Panel();
+                                subTitlePanel.Name = "subTitlePanel" + subTitlePanelIndex;
                                 subTitlePanel.BackColor = Color.FromArgb(64, 64, 64);
                                 subTitlePanel.Paint += settingLayoutBorderPaint;
                                 subTitlePanel.Padding = new Padding(0, 1, 0, 1);
@@ -219,6 +227,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                                 subTitlePanel.MouseLeave += cameraMouseLeave;
                                 subTitlePanel.MouseClick += cameraClick;
                                 subTitlePanel.MouseDoubleClick += cameraDoubleClick;
+                                cameraPanelList.Add(subTitlePanel);
+                                subTitlePanelIndex++;
 
                                 PictureBox camera_icon = new PictureBox();
                                 camera_icon.Size = new Size(16, 16);
@@ -257,6 +267,18 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 {
                     live_left_layout_flp.Height = liveLeftLayoutFlpHeight;
                 }
+            }
+        }
+
+        private void privateToggleChange(object? sender, EventArgs e)
+        {
+            CheckBox checkBox = sender as CheckBox;
+            if (checkBox.Checked)
+            {
+
+            } else
+            {
+
             }
         }
 
@@ -305,17 +327,71 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void cameraClick(object? sender, MouseEventArgs e)
         {
-            if(e.Button == MouseButtons.Left)
+            Panel panel = sender as Panel;
+            if (e.Button == MouseButtons.Left)
             {
-                Panel panel = sender as Panel;
-                panel.BackColor = Color.FromArgb(114, 82, 82);
+                if (!chosenCameras.Contains(panel))
+                {
+                    if (isCtrlKeyPress && !isShiftKeyPress)
+                    {
+                        chosenCameras.Add(panel);
+                        panel.BackColor = Color.FromArgb(114, 82, 82);
+                    }
+                    else if (isShiftKeyPress && !isCtrlKeyPress)
+                    {
+                        Panel beginIndexPanel = new Panel();
+                        if (chosenCameras.Count == 0)
+                        {
+                            chosenCameras.Add(panel);
+                        }
+                        else
+                        {
+                            beginIndexPanel = chosenCameras.Last();
+                            int beginIndex = cameraPanelList.IndexOf(beginIndexPanel);
+                            int endIndex = cameraPanelList.IndexOf(panel);
+                            List<Panel> listSelected = new List<Panel>();
+                            if (beginIndex > endIndex)
+                            {
+                                listSelected = cameraPanelList.GetRange(endIndex, beginIndex - endIndex + 1);
+                            }
+                            else
+                            {
+                                listSelected = cameraPanelList.GetRange(beginIndex, endIndex - beginIndex + 1);
+                            }
+                            foreach (var camera in chosenCameras)
+                            {
+                                camera.BackColor = Color.FromArgb(64, 64, 64);
+                            }
+                            chosenCameras.Clear();
+                            chosenCameras.AddRange(listSelected);
+                            foreach (var item in chosenCameras)
+                            {
+                                item.BackColor = Color.FromArgb(114, 82, 82);
+                            }
+                        }
+                    }
+                    else
+                    {
+                        foreach (var camera in chosenCameras)
+                        {
+                            camera.BackColor = Color.FromArgb(64, 64, 64);
+                        }
+                        chosenCameras.Clear();
+                        chosenCameras.Add(panel);
+                        panel.BackColor = Color.FromArgb(114, 82, 82);
+                    }
+
+                }
             }
         }
 
         private void cameraMouseLeave(object? sender, EventArgs e)
         {
             Panel panel = sender as Panel;
-            panel.BackColor = Color.FromArgb(64, 64, 64);
+            if (!chosenCameras.Contains(panel))
+            {
+                panel.BackColor = Color.FromArgb(64, 64, 64);
+            }
         }
 
         private void cameraMouseEnter(object? sender, EventArgs e)

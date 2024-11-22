@@ -386,7 +386,11 @@ namespace ViettelWallClientNet8.View
                 {
                     liveLeftCameraTabUserCtrl.isShiftKeyPress = isShiftKey;
                     liveLeftCameraTabUserCtrl.isCtrlKeyPress = isCtrlKey;
-                    break;
+                }
+
+                if (control is LiveLeftLayoutTabUserCtrl liveLeftLayoutTabUserCtrl) { 
+                    liveLeftLayoutTabUserCtrl.isShiftKeyPress = isShiftKey;
+                    liveLeftLayoutTabUserCtrl.isCtrlKeyPress = isCtrlKey;
                 }
 
                 if (control.HasChildren)
