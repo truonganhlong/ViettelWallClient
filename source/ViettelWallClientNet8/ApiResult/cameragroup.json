@@ -4,15 +4,15 @@
     "listCameras": [
       {
         "cameraName": "AI_CAMERA_HPG_01",
-        "cameraLink": "test1"
+        "cameraLink": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
       },
       {
         "cameraName": "AI_CAMERA_HPG_01",
-        "cameraLink": "test2"
+        "cameraLink": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
       },
       {
         "cameraName": "AI_CAMERA_HPG_01",
-        "cameraLink": "test3"
+        "cameraLink": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8"
       },
       {
         "cameraName": "AI_CAMERA_HPG_01",

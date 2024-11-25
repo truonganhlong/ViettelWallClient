@@ -32,6 +32,9 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private List<Panel> chosenCameras = new List<Panel>();
         private List<Panel> cameraPanelList = new List<Panel>();
+
+        // event
+        public event Action<string> sendLinkDoubleClick;
         public LiveLeftCameraTabUserCtrl()
         {
             _cameraService = new CameraService();
@@ -264,7 +267,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
 
         private void cameraDoubleClick(object? sender, MouseEventArgs e)
         {
-            throw new NotImplementedException();
+            Panel panel = sender as Panel;
+            sendLinkDoubleClick?.Invoke(panel.Tag.ToString());
         }
 
         private void cameraClick(object? sender, MouseEventArgs e)
@@ -347,6 +351,10 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             Panel panel = sender as Panel;
             if (e.Button == MouseButtons.Left)
             {
+                if(e.Clicks == 2)
+                {
+                    cameraDoubleClick(sender, e);
+                }
                 if (!chosenCameras.Contains(panel))
                 {
                     if (isCtrlKeyPress && !isShiftKeyPress)

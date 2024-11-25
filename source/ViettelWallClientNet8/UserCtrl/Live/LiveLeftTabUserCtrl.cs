@@ -22,6 +22,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         public event EventHandler? liveCameraLeftTabClickEvent;
         public event EventHandler? liveLayoutLeftTabClickEvent;
         public event EventHandler? liveTrackingLeftTabClickEvent;
+        public event Action<string> sendLinkDoubleClick;
         //interface
         private readonly ISettingLayoutService _settingLayoutService;
         public LiveLeftTabUserCtrl()
@@ -100,6 +101,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 LiveLeftCameraTabUserCtrl liveLeftCameraTabUserCtrl = new LiveLeftCameraTabUserCtrl();
                 liveLeftCameraTabUserCtrl.Dock = DockStyle.Fill;
                 liveLeftCameraTabUserCtrl.Padding = new Padding(1);
+                liveLeftCameraTabUserCtrl.sendLinkDoubleClick += passLinkDoubleClick;
                 left_tab_content.Controls.Add(liveLeftCameraTabUserCtrl);
             }
             
@@ -147,6 +149,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 LiveLeftLayoutTabUserCtrl liveLeftLayoutTabUserCtrl = new LiveLeftLayoutTabUserCtrl();
                 liveLeftLayoutTabUserCtrl.Dock = DockStyle.Fill;
                 liveLeftLayoutTabUserCtrl.Padding = new Padding(1);
+                liveLeftLayoutTabUserCtrl.sendLinkDoubleClick += passLinkDoubleClick;
                 left_tab_content.Controls.Add(liveLeftLayoutTabUserCtrl);
             }
         }
@@ -192,5 +195,11 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 left_tab_content.Controls.Clear();
             }
         }
+
+        private void passLinkDoubleClick(string link)
+        {
+            sendLinkDoubleClick?.Invoke(link);
+        }
+
     }
 }

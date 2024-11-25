@@ -10,7 +10,6 @@ namespace ViettelWallClientNet8.Model.Camera
     {
         public required string cameraName { get; set; }
         public required string cameraLink { get; set; }
-        public required int xIndex { get; set; }
-        public required int yIndex { get; set; }
+        public required int cameraIndex { get; set; }
     }
 }

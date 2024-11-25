@@ -1,17 +1,12 @@
 ﻿using LibVLCSharp.Shared;
 using LibVLCSharp.WinForms;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using ViettelWallClientNet8.Interface.Setting;
+using ViettelWallClientNet8.Model.Camera;
 using ViettelWallClientNet8.Model.Setting;
 using ViettelWallClientNet8.Service.Setting;
+using static System.Windows.Forms.LinkLabel;
 
 namespace ViettelWallClientNet8.UserCtrl.Live
 {
@@ -81,11 +76,13 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 dictVideoView[i].MediaPlayer = mediaPlayer;
                 _dictMediaPlayer.Add(i, mediaPlayer);
             }
+            settingPlayVideo();
         }
 
         private void leftTabButtonClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) {
+            if (e.Button == MouseButtons.Left)
+            {
                 if (left_tab_button.Text.Equals("<"))
                 {
                     left_tab_button.Text = ">";
@@ -173,8 +170,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                         textBox.Height = 20;
                         textBox.KeyDown += textBoxKeyDown;
                         textBox.AllowDrop = true;
-                        textBox.DragEnter += dragEnter;
-                        textBox.DragDrop += dragTextBoxDrop;
+                        //textBox.DragEnter += dragEnter;
+                        //textBox.DragDrop += dragTextBoxDrop;
                         VideoView videoView = new VideoView();
                         //main_table_layout_panel.Controls.Add(videoView, x, y);
                         videoView.BackColor = Color.FromArgb(170, 167, 167);
@@ -206,27 +203,86 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
-        private void dragDrop(object? sender, DragEventArgs e)
+        private void settingPlayVideo()
         {
-            throw new NotImplementedException();
+            SettingLayout? layout = _settingLayoutService.getLayoutSetting();
+            if (layout == null)
+            {
+                MessageBox.Show("Layout lỗi, xin vui lòng thử lại sau");
+            } 
+            else
+            {
+                List<CameraInLayout> listCamera = layout.listCameras;
+                if (listCamera != null || listCamera.Count > 0)
+                {
+                    foreach (CameraInLayout camera in listCamera)
+                    {
+                        dictTextBox[camera.cameraIndex].Text = camera.cameraLink;
+                        run(camera.cameraIndex);
+                        Thread.Sleep(100);
+                        //await Task.Run(() => run(camera.cameraIndex));
+                    }
+                }
+            }
         }
 
-        private void dragTextBoxDrop(object? sender, DragEventArgs e)
+        private void dragDrop(object? sender, DragEventArgs e)
         {
-            TextBox textBox = sender as TextBox;
+            VideoView videoView = sender as VideoView;
             List<string> data = (List<string>)e.Data.GetData(typeof(List<string>));
-            textBox.Text = string.Join(", ", data);
+            if (data != null && data.Count > 0)
+            {
+                string numberPart = new string(videoView.Name.Where(char.IsDigit).ToArray());
+                int index = int.Parse(numberPart);
+                if (data.Count == 1)
+                {
+                    dictTextBox[index].Text = data.First();
+                }
+                else
+                {
+                    int startIndex = dictVideoView.Select(kvp => kvp.Key).ToList().IndexOf(index);
+                    var result = dictVideoView.Skip(startIndex).Take(data.Count);
+                    int dataIndex = 0;
+                    foreach (var kvp in result)
+                    {
+                        dictTextBox[kvp.Key].Text = data[dataIndex];
+                        dataIndex++;
+                    }
+                }
+            }
+            else
+            {
+                throw new Exception("Không có camera nào được chọn");
+            }
         }
+
+        //private void dragTextBoxDrop(object? sender, DragEventArgs e)
+        //{
+        //    TextBox textBox = sender as TextBox;
+        //    List<string> data = (List<string>)e.Data.GetData(typeof(List<string>));
+        //    textBox.Text = string.Join(", ", data);
+        //}
 
         private void dragEnter(object? sender, DragEventArgs e)
         {
+            VideoView videoView = sender as VideoView;
             if (e.Data.GetDataPresent(typeof(List<string>)))
             {
-                e.Effect = DragDropEffects.Move;
+                e.Effect = DragDropEffects.Copy;
             }
             else
             {
                 e.Effect = DragDropEffects.None;
+            }
+            string numberPart = new string(videoView.Name.Where(char.IsDigit).ToArray());
+            int index = int.Parse(numberPart);
+            if (_dictMediaPlayer[index].IsPlaying)
+            {
+                e.Effect = DragDropEffects.None;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.Move;
             }
         }
 
@@ -235,7 +291,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             if (e.KeyCode == Keys.Enter)
             {
                 TextBox textBox = sender as TextBox;
-                if (textBox != null) {
+                if (textBox != null)
+                {
                     string numberPart = new string(textBox.Name.Where(char.IsDigit).ToArray());
                     int index = int.Parse(numberPart);
                     try
@@ -253,20 +310,52 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     {
                         MessageBox.Show(ex.Message);
                     }
-                    finally {
+                    finally
+                    {
                         textBox.Visible = false;
                         dictVideoView[index].Dock = DockStyle.Fill;
-                        dictVideoView.Remove(index);
                     }
                 }
                 e.SuppressKeyPress = true;
 
             }
         }
+        
+        private async void run(int index)
+        {
+            try
+            {
+                await Task.Run(() =>
+                {
+                    execute(index);
+                });
+                await Task.Run(() =>
+                {
+                    retry(index, 3);
+                });
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                dictTextBox[index].Visible = false;
+                dictVideoView[index].Dock = DockStyle.Fill;
+                //dictTextBox[index].Invoke(new Action(() => {
+                //    dictTextBox[index].Visible = false;
+                //}));
+                
+                //dictVideoView[index].Invoke(new Action(() => {
+                //    dictVideoView[index].Dock = DockStyle.Fill;
+                //}));
+            }
+        }
 
         private void rightTabButtonClick(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Left) {
+            if (e.Button == MouseButtons.Left)
+            {
                 if (right_tab_button.Text.Equals("<"))
                 {
                     right_tab_button.Text = ">";
@@ -304,16 +393,25 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 }
                 else
                 {
-                    if (!string.IsNullOrWhiteSpace(dictTextBox[index].Text))
-                    {
-                        var media = new Media(_libVlc, new Uri(dictTextBox[index].Text), mediaOptions);
-                        _dictMediaPlayer[index].Play(media);
-                        Thread.Sleep(100);
-                    }
+                    execute(index);
                 }
             }
-        } 
-        
+            if (_dictMediaPlayer[index].IsPlaying)
+            {
+                dictVideoView.Remove(index);
+            }
+        }
+
+        public void runVideoDoubleClick(string link)
+        {
+            if (!string.IsNullOrWhiteSpace(link))
+            {
+                int index = dictVideoView.First().Key;
+                dictTextBox[index].Text = link;
+                run(index);
+            }
+        }
+
         public void removeVideo()
         {
             for (int i = 1; i <= _dictMediaPlayer.Count; i++)

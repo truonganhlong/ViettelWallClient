@@ -8,21 +8,18 @@
     "listCameras": [
       {
         "cameraName": "Camera 1",
-        "cameraLink": null,
-        "xIndex": 0,
-        "yIndex": 0
+        "cameraLink": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+        "cameraIndex": 2
       },
       {
         "cameraName": "Camera 2",
-        "cameraLink": null,
-        "xIndex": 1,
-        "yIndex": 0
+        "cameraLink": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+        "cameraIndex": 3
       },
       {
         "cameraName": "Camera 3",
-        "cameraLink": null,
-        "xIndex": 2,
-        "yIndex": 0
+        "cameraLink": "https://bitdash-a.akamaihd.net/content/sintel/hls/playlist.m3u8",
+        "cameraIndex": 4
       }
     ]
   }
