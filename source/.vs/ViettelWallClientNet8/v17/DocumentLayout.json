@@ -3,32 +3,44 @@
   "WorkspaceRootPath": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\service\\setting\\settinglayoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\service\\setting\\settinglayoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\liveleftlayouttabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\liveleftlayouttabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\livelefttabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\livelefttabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\liveleftcameratabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\liveleftcameratabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\service\\camera\\cameraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\service\\camera\\cameraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\livemainuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\livemainuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\service\\setting\\settinglayoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\service\\setting\\settinglayoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\livelefttabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\livelefttabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\model\\camera\\camerainlayout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\model\\camera\\camerainlayout.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\liveheaderuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\liveheaderuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\main\\mainuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\main\\mainuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\asset\\json\\settinglayout.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\asset\\json\\settinglayout.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\liveleftcameratabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\liveleftcameratabuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\interface\\setting\\isettinglayoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\interface\\setting\\isettinglayoutservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\view\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -39,20 +51,8 @@
       "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\view\\home.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\service\\camera\\cameraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\service\\camera\\cameraservice.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\apiresult\\cameragroup.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
       "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\apiresult\\cameragroup.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\main\\mainuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\main\\mainuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\userctrl\\live\\liveheaderuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|solutionrelative:viettelwallclientnet8\\userctrl\\live\\liveheaderuserctrl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9ED782A2-F029-4831-9B9B-884694DF96AE}|ViettelWallClientNet8\\ViettelWallClientNet8.csproj|c:\\users\\long.truong\\desktop\\viettelwallclient\\source\\viettelwallclientnet8\\custom\\searchicontextbox.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -78,7 +78,7 @@
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 10,
               "Title": "Home.cs",
               "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\View\\Home.cs",
               "RelativeDocumentMoniker": "ViettelWallClientNet8\\View\\Home.cs",
@@ -91,66 +91,65 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "Home.cs [Design]",
               "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\View\\Home.cs",
               "RelativeDocumentMoniker": "ViettelWallClientNet8\\View\\Home.cs",
               "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\View\\Home.cs [Design]",
               "RelativeToolTip": "ViettelWallClientNet8\\View\\Home.cs [Design]",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T08:26:45.02Z",
-              "EditorCaption": " [Design]"
+              "WhenOpened": "2024-11-21T08:26:45.02Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "LiveLeftTabUserCtrl.cs",
               "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftTabUserCtrl.cs",
               "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftTabUserCtrl.cs",
               "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftTabUserCtrl.cs",
               "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftTabUserCtrl.cs",
-              "ViewState": "AgIAAEEAAAAAAAAAAAAIwJcAAAApAAAAAAAAAA==",
+              "ViewState": "AgIAAHUAAAAAAAAAAAAmwH8AAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-25T06:56:44.138Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 5,
               "Title": "LiveHeaderUserCtrl.cs",
               "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveHeaderUserCtrl.cs",
               "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveHeaderUserCtrl.cs",
               "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveHeaderUserCtrl.cs",
               "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveHeaderUserCtrl.cs",
-              "ViewState": "AgIAAHwAAAAAAAAAAAAcwAAAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAoBAAAAAAAAAAAswIgAAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T10:25:47.686Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "LiveLeftCameraTabUserCtrl.cs",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
-              "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
-              "ViewState": "AgIAAKQBAAAAAAAAAAAWwO8BAAAaAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T06:45:06Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 6,
               "Title": "MainUserCtrl.cs",
               "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Main\\MainUserCtrl.cs",
               "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Main\\MainUserCtrl.cs",
               "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Main\\MainUserCtrl.cs",
               "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Main\\MainUserCtrl.cs",
-              "ViewState": "AgIAAK0BAAAAAAAAAAAiwCgCAABEAAAAAAAAAA==",
+              "ViewState": "AgIAALEBAAAAAAAAAAAkwGcBAAAoAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T02:37:03.073Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "LiveLeftCameraTabUserCtrl.cs",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
+              "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftCameraTabUserCtrl.cs",
+              "ViewState": "AgIAAKABAAAAAAAAAAAqwIgBAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T06:45:06Z",
               "EditorCaption": ""
             },
             {
@@ -175,8 +174,7 @@
               "RelativeToolTip": "ViettelWallClientNet8\\View\\Home.Designer.cs",
               "ViewState": "AgIAADoBAAAAAAAAAAAEwFUBAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-21T08:30:30.923Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-21T08:30:30.923Z"
             },
             {
               "$type": "Document",
@@ -194,86 +192,8 @@
         },
         {
           "DockedWidth": 205,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CameraInLayout.cs",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Model\\Camera\\CameraInLayout.cs",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Model\\Camera\\CameraInLayout.cs",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Model\\Camera\\CameraInLayout.cs",
-              "RelativeToolTip": "ViettelWallClientNet8\\Model\\Camera\\CameraInLayout.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAA1AAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T08:53:55.329Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "SettingLayoutService.cs",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
-              "RelativeToolTip": "ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
-              "ViewState": "AgIAAFAAAAAAAAAAAAAIwCAAAAAcAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T08:13:40.564Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "CameraService.cs",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
-              "RelativeToolTip": "ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-25T08:13:30.786Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "settinglayout.json",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
-              "RelativeToolTip": "ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAYAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-25T08:11:28.202Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "cameragroup.json",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\ApiResult\\cameragroup.json",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\ApiResult\\cameragroup.json",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\ApiResult\\cameragroup.json",
-              "RelativeToolTip": "ViettelWallClientNet8\\ApiResult\\cameragroup.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAApAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2024-11-25T07:55:39.488Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "LiveLeftLayoutTabUserCtrl.cs",
-              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
-              "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
-              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
-              "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
-              "ViewState": "AgIAAAcCAAAAAAAAAAAcwCMCAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-22T10:24:18.182Z",
-              "EditorCaption": ""
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -282,10 +202,88 @@
               "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveMainUserCtrl.cs",
               "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveMainUserCtrl.cs",
               "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveMainUserCtrl.cs",
-              "ViewState": "AgIAAEAAAAAAAAAAAAAAAF0AAAA/AAAAAAAAAA==",
+              "ViewState": "AgIAAC8BAAAAAAAAAAAuwKQAAAA2AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-11-22T02:37:03.062Z",
+              "IsPinned": true,
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "SettingLayoutService.cs",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
+              "RelativeToolTip": "ViettelWallClientNet8\\Service\\Setting\\SettingLayoutService.cs",
+              "ViewState": "AgIAACcBAAAAAAAAAAAUwGIBAAARAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T08:13:40.564Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "LiveLeftLayoutTabUserCtrl.cs",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
+              "RelativeToolTip": "ViettelWallClientNet8\\UserCtrl\\Live\\LiveLeftLayoutTabUserCtrl.cs",
+              "ViewState": "AgIAAN8BAAAAAAAAAADwvycCAAAjAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-22T10:24:18.182Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "ISettingLayoutService.cs",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Interface\\Setting\\ISettingLayoutService.cs",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Interface\\Setting\\ISettingLayoutService.cs",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Interface\\Setting\\ISettingLayoutService.cs",
+              "RelativeToolTip": "ViettelWallClientNet8\\Interface\\Setting\\ISettingLayoutService.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-26T02:49:58.693Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "CameraService.cs",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
+              "RelativeToolTip": "ViettelWallClientNet8\\Service\\Camera\\CameraService.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAAABoAAAAQAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-25T08:13:30.786Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "settinglayout.json",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
+              "RelativeToolTip": "ViettelWallClientNet8\\Asset\\Json\\settinglayout.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T08:11:28.202Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "cameragroup.json",
+              "DocumentMoniker": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\ApiResult\\cameragroup.json",
+              "RelativeDocumentMoniker": "ViettelWallClientNet8\\ApiResult\\cameragroup.json",
+              "ToolTip": "C:\\Users\\long.truong\\Desktop\\ViettelWallClient\\source\\ViettelWallClientNet8\\ApiResult\\cameragroup.json",
+              "RelativeToolTip": "ViettelWallClientNet8\\ApiResult\\cameragroup.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAB0AAAApAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2024-11-25T07:55:39.488Z"
             }
           ]
         }

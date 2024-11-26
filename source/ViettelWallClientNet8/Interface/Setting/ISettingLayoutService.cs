@@ -20,5 +20,9 @@ namespace ViettelWallClientNet8.Interface.Setting
         void updateIsFullScreen();
         void updateLayoutSize(int width, int height);
         void addLayout(string name);
+        void addCamera(string name, string link, int index);
+        void removeCameras();
+
+        
     }
 }

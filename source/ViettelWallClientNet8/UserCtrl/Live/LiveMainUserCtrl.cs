@@ -213,7 +213,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             else
             {
                 List<CameraInLayout> listCamera = layout.listCameras;
-                if (listCamera != null || listCamera.Count > 0)
+                if (listCamera != null && listCamera.Count > 0)
                 {
                     foreach (CameraInLayout camera in listCamera)
                     {
@@ -420,6 +420,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 _dictMediaPlayer[i].Dispose();
             }
             _libVlc.Dispose();
+            _settingLayoutService.removeCameras();
         }
     }
 }

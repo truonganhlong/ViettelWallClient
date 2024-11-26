@@ -34,6 +34,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         //
         public event EventHandler? privateToggleClickEvent;
         public event Action<string> sendLinkDoubleClick;
+        public event Action<bool> sendToggleStatus;
         public LiveLeftLayoutTabUserCtrl()
         {
             _settingLayoutService = new SettingLayoutService();
@@ -277,13 +278,14 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void privateToggleChange(object? sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
-            if (checkBox.Checked)
-            {
+            //if (checkBox.Checked)
+            //{
+            //    sendToggleStatus?.Invoke(checkBox.Checked);
+            //} else
+            //{
 
-            } else
-            {
-
-            }
+            //}
+            sendToggleStatus?.Invoke(checkBox.Checked);
         }
 
         private void createLayoutClick(object? sender, MouseEventArgs e)

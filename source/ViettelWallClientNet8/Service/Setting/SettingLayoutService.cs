@@ -2,12 +2,15 @@
 using System.Collections.Generic;
 using System.DirectoryServices;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 using ViettelWallClientNet8.Interface.Setting;
 using ViettelWallClientNet8.Model.Camera;
 using ViettelWallClientNet8.Model.Setting;
+using static System.Windows.Forms.LinkLabel;
 
 namespace ViettelWallClientNet8.Service.Setting
 {
@@ -338,6 +341,51 @@ namespace ViettelWallClientNet8.Service.Setting
                     }
                 }
                 return result;
+            }
+        }
+
+        public void addCamera(string name, string link, int index)
+        {
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                if (data != null)
+                {
+                    data.FirstOrDefault(x => x.isNowUse).listCameras.Add(new CameraInLayout
+                    {
+                        cameraIndex = index,
+                        cameraLink = link,
+                        cameraName = name,
+                    });
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
+            }
+        }
+
+        public void removeCameras()
+        {
+            string jsonFilePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Asset", "Json", "settinglayout.json");
+            try
+            {
+                var jsonData = File.ReadAllText(jsonFilePath);
+                var data = JsonSerializer.Deserialize<List<SettingLayout>>(jsonData);
+                if (data != null)
+                {
+                    data.FirstOrDefault(x => x.isNowUse).listCameras.Clear();
+                    string updateJson = JsonSerializer.Serialize(data, new JsonSerializerOptions { WriteIndented = true });
+                    File.WriteAllText(jsonFilePath, updateJson);
+                }
+            }
+            catch (Exception e)
+            {
+                throw new Exception(e.Message);
             }
         }
     }
