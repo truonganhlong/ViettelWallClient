@@ -492,6 +492,8 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             liveLeftTabUserCtrl.liveLayoutLeftTabClickEvent += liveLayoutLeftTabClick;
             liveLeftTabUserCtrl.liveTrackingLeftTabClickEvent += liveTrackingLeftTabClick;
             liveLeftTabUserCtrl.sendLinkDoubleClick += passLinkDoubleClick;
+            liveLeftTabUserCtrl.sendToggleStatus += passToggleStatus;
+            liveLeftTabUserCtrl.sendLayoutDetailClick += passLayoutDetailClick;
             left_tab_panel.Controls.Add(liveLeftTabUserCtrl);
             _settingLayoutService.updateMainTabLocation("Live");
             this.Invalidate();
@@ -563,6 +565,11 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             liveMainUserCtrl.runVideoDoubleClick(link);
         }
 
+        private void passToggleStatus(bool status)
+        {
+            liveHeaderUserCtrl.visiblePrivateToggle(status);
+        }
+
         private void resize(object sender, EventArgs e)
         {
             if (isOpenLayoutSetting)
@@ -570,5 +577,68 @@ namespace ViettelWallClientNet8.UserCtrl.Main
                 openLayoutSetting(this, EventArgs.Empty);
             }
         }
+
+        private void passLayoutDetailClick(bool status)
+        {
+            //if (status)
+            //{
+            //    layout_detail_popup.Invalidate();
+            //    Point rightMostPoint = GetCellLocation(main_table_layout, 65, 2);
+            //    Point leftMostPoint = new Point((int)(liveHeaderUserCtrl.Location.X + liveHeaderUserCtrl.Width * 0.49), rightMostPoint.Y + 6);
+            //    int width = rightMostPoint.X - leftMostPoint.X - 15;
+            //    setting_layout_panel.Location = leftMostPoint;
+            //    setting_layout_panel.Size = new Size(width, (int)(width * 1.1));
+            //    setting_layout_panel.Visible = true;
+            //    setting_layout_panel.BringToFront();
+            //    isOpenLayoutSetting = true;
+            //    setting_layout_result_label.Size = new Size(setting_layout_panel.Width - 6, (setting_layout_panel.Width - 6) / 10);
+            //    setting_layout_result_label.Dock = DockStyle.Top;
+            //    setting_layout_result_label.BackColor = Color.FromArgb(100, 100, 100);
+            //    setting_layout_result_label.TextAlign = ContentAlignment.MiddleLeft;
+            //    setting_layout_result_label.ForeColor = Color.White;
+            //    setting_layout_result_label.Padding = new Padding(5, 0, 0, 0);
+            //    setting_layout_result_label.Text = "Chọn ô";
+            //    setting_layout_panel.Padding = new Padding(3);
+            //    setting_table_layout.BackColor = Color.FromArgb(232, 232, 232);
+            //    setting_table_layout.Width = setting_layout_panel.Width - 6;
+            //    setting_table_layout.Height = setting_layout_panel.Width - 6;
+            //    setting_table_layout.Dock = DockStyle.Top;
+            //    setting_table_layout.ColumnCount = 10;
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowCount = 10;
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.RowStyles.Add(new RowStyle(SizeType.Percent, 10F));
+            //    setting_table_layout.Paint += settingTableLayoutPaint;
+            //    setting_table_layout.MouseMove += settingTableLayoutMouseMove;
+            //    setting_table_layout.MouseLeave += settingTableLayoutMouseLeave;
+            //    setting_table_layout.MouseClick += settingTableLayoutClick;
+            //    setting_layout_panel.Controls.Add(setting_layout_result_label);
+            //    setting_layout_panel.Controls.Add(setting_table_layout);
+            //}
+            //else
+            //{
+            //    setting_layout_panel.Controls.Clear();
+            //    setting_layout_panel.Visible = false;
+            //    isOpenLayoutSetting = false;
+            //}
+        }
+
     }
 }

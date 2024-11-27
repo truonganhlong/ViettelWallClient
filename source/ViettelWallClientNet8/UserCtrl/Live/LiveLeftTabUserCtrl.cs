@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 using ViettelWallClientNet8.Interface.Setting;
 using ViettelWallClientNet8.Service.Setting;
 using ViettelWallClientNet8.Util.Const;
@@ -23,6 +24,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         public event EventHandler? liveLayoutLeftTabClickEvent;
         public event EventHandler? liveTrackingLeftTabClickEvent;
         public event Action<string> sendLinkDoubleClick;
+        public event Action<bool> sendToggleStatus;
+        public event Action<bool> sendLayoutDetailClick;
         //interface
         private readonly ISettingLayoutService _settingLayoutService;
         public LiveLeftTabUserCtrl()
@@ -150,6 +153,8 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 liveLeftLayoutTabUserCtrl.Dock = DockStyle.Fill;
                 liveLeftLayoutTabUserCtrl.Padding = new Padding(1);
                 liveLeftLayoutTabUserCtrl.sendLinkDoubleClick += passLinkDoubleClick;
+                liveLeftLayoutTabUserCtrl.sendToggleStatus += passToggleStatus;
+                liveLeftLayoutTabUserCtrl.sendLayoutDetailClick += passLayoutDetailClick;
                 left_tab_content.Controls.Add(liveLeftLayoutTabUserCtrl);
             }
         }
@@ -199,6 +204,16 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private void passLinkDoubleClick(string link)
         {
             sendLinkDoubleClick?.Invoke(link);
+        }
+
+        private void passToggleStatus(bool status)
+        {
+            sendToggleStatus?.Invoke(status);
+        }
+
+        private void passLayoutDetailClick(bool status)
+        {
+            sendLayoutDetailClick?.Invoke(status);
         }
 
     }

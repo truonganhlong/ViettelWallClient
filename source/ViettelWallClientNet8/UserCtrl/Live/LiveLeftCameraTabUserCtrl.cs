@@ -34,7 +34,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         private List<Panel> cameraPanelList = new List<Panel>();
 
         // event
-        public event Action<string> sendLinkDoubleClick;
+        public event Action<string> sendLinkDoubleClick;        
         public LiveLeftCameraTabUserCtrl()
         {
             _cameraService = new CameraService();

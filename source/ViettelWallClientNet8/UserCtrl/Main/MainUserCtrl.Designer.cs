@@ -33,6 +33,7 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             main_table_layout = new TableLayoutPanel();
             left_tab_panel = new Panel();
             setting_layout_panel = new RoundedPanel();
+            layout_detail_popup = new RoundedPanel();
             main_table_layout.SuspendLayout();
             SuspendLayout();
             // 
@@ -201,12 +202,22 @@ namespace ViettelWallClientNet8.UserCtrl.Main
             setting_layout_panel.TabIndex = 1;
             setting_layout_panel.Visible = false;
             // 
+            // setting_layout_panel
+            // 
+            layout_detail_popup.Location = new Point(0, 101);
+            layout_detail_popup.Margin = new Padding(0);
+            layout_detail_popup.Name = "layout_detail_popup";
+            layout_detail_popup.Size = new Size(200, 200);
+            layout_detail_popup.TabIndex = 2;
+            layout_detail_popup.Visible = false;
+            // 
             // MainUserCtrl
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(main_table_layout);
             Controls.Add(setting_layout_panel);
+            Controls.Add(layout_detail_popup);
             Margin = new Padding(0);
             Name = "MainUserCtrl";
             Size = new Size(1245, 735);
@@ -220,5 +231,6 @@ namespace ViettelWallClientNet8.UserCtrl.Main
         private TableLayoutPanel main_table_layout;
         private Panel left_tab_panel;
         public RoundedPanel setting_layout_panel;
+        public RoundedPanel layout_detail_popup;
     }
 }

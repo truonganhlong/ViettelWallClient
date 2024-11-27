@@ -324,6 +324,26 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
+        public void visiblePrivateToggle(bool status)
+        {
+            if (status) { 
+                panel_1x1.Visible = false;
+                panel_2x2.Visible = false;
+                panel_3x3.Visible = false;
+                panel_4x4.Visible = false;
+                panel_5x5.Visible = false;
+                panel_custom.Visible = false;
+            } else
+            {
+                panel_1x1.Visible = true;
+                panel_2x2.Visible = true;
+                panel_3x3.Visible = true;
+                panel_4x4.Visible = true;
+                panel_5x5.Visible = true;
+                panel_custom.Visible = true;
+            }
+        }
+
         //private void headerBorderPaint(object sender, PaintEventArgs e)
         //{
         //    //e.Graphics.Clear(header.BackColor);

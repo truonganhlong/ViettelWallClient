@@ -27,12 +27,14 @@ namespace ViettelWallClientNet8.UserCtrl.Live
         //list layout expand
         private List<bool> isExpandList = new List<bool>();
         private bool isCreateNewLayoutRecent = false;
+        private bool checkedPrivateToggle = false;
+        private bool isVisibleLayoutDetail = false;
         private SearchIconTextBox searchTextBox;
 
         private List<Panel> chosenCameras = new List<Panel>();
         private List<Panel> cameraPanelList = new List<Panel>();
         //
-        public event EventHandler? privateToggleClickEvent;
+        public event Action<bool> sendLayoutDetailClick;
         public event Action<string> sendLinkDoubleClick;
         public event Action<bool> sendToggleStatus;
         public LiveLeftLayoutTabUserCtrl()
@@ -125,7 +127,7 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                     titlePanel.Margin = new Padding(0, 3, 0, 0);
                     titlePanel.AutoSize = false;
                     titlePanel.Size = new Size(live_left_layout_flp.Width, (int)(30 * returnHeightSizeRatio()));
-                    //titlePanel.Dock = DockStyle.Top;
+                    titlePanel.MouseClick += layoutDetailClick;
 
                     PictureBox triangle_icon = new PictureBox();
                     triangle_icon.Size = new Size(16, 16);
@@ -275,17 +277,21 @@ namespace ViettelWallClientNet8.UserCtrl.Live
             }
         }
 
+        private void layoutDetailClick(object? sender, MouseEventArgs e)
+        {
+            Panel panel = sender as Panel;
+            if(e.Button == MouseButtons.Right)
+            {
+                isVisibleLayoutDetail = !isVisibleLayoutDetail;
+                sendLayoutDetailClick?.Invoke(isVisibleLayoutDetail);
+            }
+        }
+
         private void privateToggleChange(object? sender, EventArgs e)
         {
             CheckBox checkBox = sender as CheckBox;
-            //if (checkBox.Checked)
-            //{
-            //    sendToggleStatus?.Invoke(checkBox.Checked);
-            //} else
-            //{
-
-            //}
             sendToggleStatus?.Invoke(checkBox.Checked);
+            checkedPrivateToggle = checkBox.Checked;
         }
 
         private void createLayoutClick(object? sender, MouseEventArgs e)
@@ -389,9 +395,6 @@ namespace ViettelWallClientNet8.UserCtrl.Live
                 //    }
 
                 //}
-            } else if(e.Button == MouseButtons.Right)
-            {
-
             }
         }
 
